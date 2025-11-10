@@ -1,18 +1,30 @@
 package main.model.unit;
 
+import java.util.ArrayList;
+import java.util.List;
+import main.model.unit.character.skill.SkillInfo;
+
 public abstract class Unit {
 
-    protected String name;
-    protected int hp;
-    protected int maxHp;
-    protected int mp;
     protected int attackDamage;
-    protected int abilityPower;
     protected int defense;
-    protected int magicDefense;
 
-    public int takeDamage(int incomingDamage) {
-        int finalDamage = incomingDamage - this.defense;
+    private final List<SkillInfo> skills;
+    private final String name;
+    private int hp;
+    private int mp;
+    private int maxHp;
+
+    public Unit(String name, int hp, int mp, int maxHp) {
+        this.name = name;
+        this.hp = hp;
+        this.mp = mp;
+        this.maxHp = maxHp;
+        this.skills = new ArrayList<>();
+    }
+
+    public double takeDamage(double incomingDamage) {
+        double finalDamage = incomingDamage - this.defense;
         if (finalDamage < 0) {
             finalDamage = 0;
         }
@@ -21,9 +33,9 @@ public abstract class Unit {
     }
 
 
-    public int basicAttack(Unit target) {
+    public double basicAttack(Unit target) {
         int myAttack = this.attackDamage;
-        int actualDamage = target.takeDamage(myAttack);
+        double actualDamage = target.takeDamage(myAttack);
         return actualDamage;
     }
 
@@ -35,5 +47,25 @@ public abstract class Unit {
         return this.hp;
     }
 
+    public int getMaxHp() {
+        return this.maxHp;
+    }
+    public void addMaxHP(int add){
+        this.maxHp+=add;
+    }
+    public void addAttackDamage(int add){
+        this.attackDamage+=add;
+    }
 
+    public int getMp() {
+        return this.mp;
+    }
+
+    public int getAd() {
+        return this.attackDamage;
+    }
+
+    public void decreaseMp(int useMp){
+        this.mp-= useMp;
+    }
 }

@@ -1,13 +1,13 @@
-package main.model.unit.character.job.firstClass;
+package main.model.unit.character.job.thirdClass;
 
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.skill.SkillInfo;
 
-public class SwordMan implements CharacterJob {
+public class GreatswordMaster implements CharacterJob {
     @Override
     public String getJobName() {
-        return "전사";
+        return "대검사";
     }
 
     @Override
@@ -17,7 +17,7 @@ public class SwordMan implements CharacterJob {
 
     @Override
     public int getHpBonus() {
-        return 50;
+        return 100;
     }
 
     @Override

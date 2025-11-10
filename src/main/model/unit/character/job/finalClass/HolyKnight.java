@@ -1,13 +1,13 @@
-package main.model.unit.character.job.firstClass;
+package main.model.unit.character.job.finalClass;
 
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.skill.SkillInfo;
 
-public class SwordMan implements CharacterJob {
+public class HolyKnight implements CharacterJob {
     @Override
     public String getJobName() {
-        return "전사";
+        return "성검사";
     }
 
     @Override
@@ -17,11 +17,11 @@ public class SwordMan implements CharacterJob {
 
     @Override
     public int getHpBonus() {
-        return 50;
+        return 300;
     }
 
     @Override
     public int getAttackBonus() {
-        return 10;
+        return 15;
     }
 }
