@@ -1,5 +1,7 @@
 package main.model.unit;
 
+import java.util.ArrayList;
+import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.job.firstClass.SwordMan;
 import main.model.unit.character.skill.SkillInfo;
@@ -9,52 +11,44 @@ public class PlayerCharacter extends Unit {
     private int exp;
     private int gold;
     private int statPoints;
-
+    private CharacterJob currentJob;
     private int baseStr;
     private int baseInt;
-
-    private CharacterJob currentJob;
     private int baseVit;
+    private List<SkillInfo> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
-        super(name, 100, 50, 100);
+        super(name, 100, 50, 100, 10, 10, 0);
         this.level = 1;
         this.currentJob = new SwordMan();
-        updateStats();
+        updateStats(currentJob);
     }
 
     public void advanceJob(CharacterJob newJob) {
         this.currentJob = newJob;
-        System.out.println(newJob.getJobName() + "(으)로 전직했습니다!");
-        updateStats();
-    }
+        updateStats(newJob);
 
 
-    public void updateStats() {
-        int addAttackDamage = this.baseStr * 2 + this.currentJob.getAttackBonus();
-        int addHp = 100 + this.baseVit * 10 + this.currentJob.getHpBonus();
-
-        addAttackDamage(addAttackDamage);
-        addMaxHP(addHp);
-    }
-
-    public void displayStatusWindow() {
-        System.out.println("===============================");
-        System.out.println(" 이름: " );
-        System.out.println(" 레벨: " + this.level);
-
-
-        System.out.println(" 직업: " + this.currentJob.getJobName());
-
-        System.out.println(" HP: " + this.getHp() + " / " + this.getMaxHp());
-
-
-        System.out.println("[ 스킬 목록 ]");
-        int i = 1;
-        for (SkillInfo skill : this.currentJob.getSkillList()) {
-            System.out.println(i + ". " + skill.getName() + " (MP " + skill.getMpCost() + ")");
-            i++;
+        List<SkillInfo> skillsToLearn = newJob.getSkillList();
+        for(SkillInfo skills : skillsToLearn){
+            this.learnSkill(skills);
         }
-        System.out.println("===============================");
+    }
+
+    public void learnSkill(SkillInfo skillToAdd) {
+        this.skills.add(skillToAdd);
+    }
+
+    public void updateStats(CharacterJob newJob) {
+        if (newJob.getJobName().equals("기사") || newJob.getJobName().equals("대검사") || newJob.getJobName()
+                .equals("용기사")) {
+            int addAttackDamage = this.baseStr * 2 + this.currentJob.getAttackBonus();
+            addAttackDamage(addAttackDamage);
+        }
+
+        int addMagicForce = this.baseInt * 2 + this.currentJob.getAttackBonus();
+        int addHp = 100 + this.baseVit * 10 + this.currentJob.getHpBonus();
+        addMagicForce(addMagicForce);
+        addMaxHP(addHp);
     }
 }

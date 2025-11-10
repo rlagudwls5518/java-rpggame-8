@@ -6,21 +6,22 @@ import main.model.unit.character.skill.SkillInfo;
 
 public abstract class Unit {
 
-    protected int attackDamage;
-    protected int defense;
-
-    private final List<SkillInfo> skills;
-    private final String name;
+    private int attackDamage;
+    private int magicForce;
+    private int defense;
     private int hp;
     private int mp;
     private int maxHp;
+    private final String name;
 
-    public Unit(String name, int hp, int mp, int maxHp) {
+    public Unit(String name, int hp, int mp, int maxHp, int attackDamage, int magicForce, int defense) {
         this.name = name;
         this.hp = hp;
         this.mp = mp;
         this.maxHp = maxHp;
-        this.skills = new ArrayList<>();
+        this.attackDamage = attackDamage;
+        this.magicForce = magicForce;
+        this.defense = defense;
     }
 
     public double takeDamage(double incomingDamage) {
@@ -32,7 +33,6 @@ public abstract class Unit {
         return finalDamage;
     }
 
-
     public double basicAttack(Unit target) {
         int myAttack = this.attackDamage;
         double actualDamage = target.takeDamage(myAttack);
@@ -43,18 +43,24 @@ public abstract class Unit {
         return this.hp <= 0;
     }
 
+    public void addMaxHP(int add) {
+        this.maxHp += add;
+    }
+
+    public void addAttackDamage(int add) {
+        this.attackDamage += add;
+    }
+
+    public void addMagicForce(int add) {
+        this.magicForce += add;
+    }
+
     public int getHp() {
         return this.hp;
     }
 
     public int getMaxHp() {
         return this.maxHp;
-    }
-    public void addMaxHP(int add){
-        this.maxHp+=add;
-    }
-    public void addAttackDamage(int add){
-        this.attackDamage+=add;
     }
 
     public int getMp() {
@@ -65,7 +71,11 @@ public abstract class Unit {
         return this.attackDamage;
     }
 
-    public void decreaseMp(int useMp){
-        this.mp-= useMp;
+    public int getAp() {
+        return this.magicForce;
+    }
+
+    public void decreaseMp(int useMp) {
+        this.mp -= useMp;
     }
 }
