@@ -6,7 +6,7 @@ public interface SkillInfo {
 
     String getName();
 
-    String getExplanation();
+    String getDescription();
 
     int getMpCost();
 
