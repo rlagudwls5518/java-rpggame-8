@@ -13,16 +13,19 @@ public class PlayerCharacter extends Unit {
     private CharacterJob currentJob;
     private final int levelUpPlusStr;
     private final int levelUpPlusInt;
-    private final int levelUpPlusHP;
+    private final int levelUpPlusMaxHP;
+    private final int levelUpPlusDfs;
+
     private final List<SkillInfo> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
-        super(name, 100, 50, 100, 10, 10, 0);
+        super(name, 100, 50, 100, 10, 10, 0, 10);
+        this.levelUpPlusDfs = 10;
         this.level = 1;
         this.exp = 0;
         this.maxExp = 100;
         this.levelUpPlusInt = 10;
-        this.levelUpPlusHP = 10;
+        this.levelUpPlusMaxHP = 10;
         this.levelUpPlusStr = 5;
         this.currentJob = new SwordMan();
         updateStats(currentJob);
@@ -60,16 +63,17 @@ public class PlayerCharacter extends Unit {
         }
 
         int addMagicForce = this.currentJob.getAttackBonus();
-        int addHp = this.currentJob.getHpBonus();
+        int addMaxHp = this.currentJob.getHpBonus();
         addMagicForce(addMagicForce);
-        addHP(addHp);
+        addMaxHp(addMaxHp);
     }
 
     private void levelUp(){
         this.level++;
         this.exp = 0;
-        levelUpHp(levelUpPlusHP);
+        levelUpHp(levelUpPlusMaxHP);
         levelUpAttackDamage(levelUpPlusStr);
+        levelUpDefense(levelUpPlusDfs);
         if(this.currentJob.getJobName().equals("성기사") || this.currentJob.getJobName().equals("성검사")){
             levelUpMagicForce(levelUpPlusInt);
         }
