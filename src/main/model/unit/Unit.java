@@ -1,8 +1,5 @@
 package main.model.unit;
 
-import java.util.ArrayList;
-import java.util.List;
-import main.model.unit.character.skill.SkillInfo;
 
 public abstract class Unit {
 
@@ -11,14 +8,13 @@ public abstract class Unit {
     private int defense;
     private int hp;
     private int mp;
-    private int maxHp;
+
     private final String name;
 
     public Unit(String name, int hp, int mp, int maxHp, int attackDamage, int magicForce, int defense) {
         this.name = name;
         this.hp = hp;
         this.mp = mp;
-        this.maxHp = maxHp;
         this.attackDamage = attackDamage;
         this.magicForce = magicForce;
         this.defense = defense;
@@ -33,6 +29,14 @@ public abstract class Unit {
         return finalDamage;
     }
 
+    public double takeIgnoreDefenseDamage(double incomingDamage) {
+        if (incomingDamage < 0) {
+            incomingDamage = 0;
+        }
+        this.hp -= incomingDamage;
+        return incomingDamage;
+    }
+
     public double basicAttack(Unit target) {
         int myAttack = this.attackDamage;
         double actualDamage = target.takeDamage(myAttack);
@@ -43,8 +47,8 @@ public abstract class Unit {
         return this.hp <= 0;
     }
 
-    public void addMaxHP(int add) {
-        this.maxHp += add;
+    public void addHP(int add) {
+        this.hp += add;
     }
 
     public void addAttackDamage(int add) {
@@ -55,12 +59,24 @@ public abstract class Unit {
         this.magicForce += add;
     }
 
-    public int getHp() {
-        return this.hp;
+    public void levelUpHp(int add) {
+        this.hp += add;
     }
 
-    public int getMaxHp() {
-        return this.maxHp;
+    public void levelUpAttackDamage(int add) {
+        this.attackDamage += add;
+    }
+
+    public void levelUpMagicForce(int add) {
+        this.magicForce += add;
+    }
+
+    public void levelUpDefense(int add) {
+        this.defense += add;
+    }
+
+    public void plusDefense(int add) {
+        this.defense += add;
     }
 
     public int getMp() {
