@@ -1,4 +1,4 @@
-package main.model.unit.character.skill;
+package main.model.unit.character;
 
 import main.model.unit.Unit;
 

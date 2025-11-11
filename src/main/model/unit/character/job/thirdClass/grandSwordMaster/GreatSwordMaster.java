@@ -1,10 +1,10 @@
-package main.model.unit.character.job.thirdClass;
+package main.model.unit.character.job.thirdClass.grandSwordMaster;
 
 import java.util.List;
 import main.model.unit.character.CharacterJob;
-import main.model.unit.character.skill.SkillInfo;
+import main.model.unit.character.SkillInfo;
 
-public class GreatswordMaster implements CharacterJob {
+public class GreatSwordMaster implements CharacterJob {
     @Override
     public String getJobName() {
         return "대검사";

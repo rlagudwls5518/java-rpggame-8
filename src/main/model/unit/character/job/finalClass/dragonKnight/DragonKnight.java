@@ -1,8 +1,8 @@
-package main.model.unit.character.job.finalClass;
+package main.model.unit.character.job.finalClass.dragonKnight;
 
 import java.util.List;
 import main.model.unit.character.CharacterJob;
-import main.model.unit.character.skill.SkillInfo;
+import main.model.unit.character.SkillInfo;
 
 public class DragonKnight implements CharacterJob {
     @Override

@@ -1,8 +1,8 @@
-package main.model.unit.character.job.thirdClass;
+package main.model.unit.character.job.thirdClass.paladin;
 
 import java.util.List;
 import main.model.unit.character.CharacterJob;
-import main.model.unit.character.skill.SkillInfo;
+import main.model.unit.character.SkillInfo;
 
 public class Paladin implements CharacterJob {
     @Override

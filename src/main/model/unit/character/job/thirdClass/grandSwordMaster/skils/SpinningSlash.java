@@ -1,22 +1,22 @@
-package main.model.unit.character.skill.attackSkill;
+package main.model.unit.character.job.thirdClass.grandSwordMaster.skils;
 
 import main.model.unit.Unit;
-import main.model.unit.character.skill.SkillInfo;
+import main.model.unit.character.SkillInfo;
 
-public class PowerStrike implements SkillInfo {
+public class SpinningSlash implements SkillInfo {
     @Override
     public String getName() {
-        return "강타";
+        return "연속베기";
     }
 
     @Override
     public String getDescription() {
-        return "마나를 소모하여 적 하나에게 강력한 일격(공격력의 120%)을 날립니다.";
+        return "대검을 두번 휘둘러 적을 공격합니다.";
     }
 
     @Override
     public int getMpCost() {
-        return 10;
+        return 25;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class PowerStrike implements SkillInfo {
             System.out.println("마나가 부족합니다");
         }
         user.decreaseMp(getMpCost());
-        double damege = user.getAd() * 1.2;
+        double damege = user.getAd() * 1.8;
         target.takeDamage(damege);
     }
 }
