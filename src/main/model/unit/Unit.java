@@ -8,16 +8,28 @@ public abstract class Unit {
     private int defense;
     private int hp;
     private int mp;
+    private int maxHp;
+    private int maxMp;
+    private String name;
 
-    private final String name;
-
-    public Unit(String name, int hp, int mp, int maxHp, int attackDamage, int magicForce, int defense) {
+    public Unit(String name, int hp, int mp, int maxHp, int maxMp, int attackDamage, int magicForce, int defense) {
         this.name = name;
         this.hp = hp;
         this.mp = mp;
+        this.maxHp = maxHp;
+        this.maxMp = maxMp;
         this.attackDamage = attackDamage;
         this.magicForce = magicForce;
         this.defense = defense;
+    }
+
+    public Unit(Unit other) {//복사 생성자
+        this.name = other.name;
+        this.hp = this.maxHp;
+        this.mp = other.mp;
+        this.attackDamage = other.attackDamage;
+        this.magicForce = other.magicForce;
+        this.defense = other.defense;
     }
 
     public double takeDamage(double incomingDamage) {
@@ -47,8 +59,8 @@ public abstract class Unit {
         return this.hp <= 0;
     }
 
-    public void addHP(int add) {
-        this.hp += add;
+    public void addMaxHp(int add) {
+        this.maxHp += add;
     }
 
     public void addAttackDamage(int add) {
@@ -60,7 +72,7 @@ public abstract class Unit {
     }
 
     public void levelUpHp(int add) {
-        this.hp += add;
+        this.maxHp += add;
     }
 
     public void levelUpAttackDamage(int add) {
@@ -75,20 +87,12 @@ public abstract class Unit {
         this.defense += add;
     }
 
-    public void plusDefense(int add) {
-        this.defense += add;
-    }
-
     public int getMp() {
         return this.mp;
     }
 
     public int getAd() {
         return this.attackDamage;
-    }
-
-    public int getAp() {
-        return this.magicForce;
     }
 
     public void decreaseMp(int useMp) {
