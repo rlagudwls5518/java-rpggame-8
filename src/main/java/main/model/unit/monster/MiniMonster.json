@@ -1,0 +1,751 @@
+[
+  {
+    "comment": "--- WORLD 1: 썩은나무 숲 (1~8) ---"
+  },
+  {
+    "name": "썩은나무 고블린",
+    "hp": 50,
+    "mp": 10,
+    "attackDamage": 5,
+    "magicForce": 0,
+    "defense": 0,
+    "gold": 10,
+    "description": "낡은 단검을 든 고블린이 뛰쳐나왔다!",
+    "artLines": [
+      "   / \\",
+      "  (o o)",
+      "   \\_/ ",
+      " ( | )",
+      "  /   \\"
+    ]
+  },
+  {
+    "name": "거대 독버섯",
+    "hp": 60,
+    "mp": 20,
+    "attackDamage": 3,
+    "magicForce": 5,
+    "defense": 5,
+    "gold": 12,
+    "description": "기분 나쁜 보라색 포자가 피어오른다.",
+    "artLines": [
+      "     .--.    ",
+      "   .'    '.  ",
+      "  /  ()  ()\\ ",
+      " |   ()    | ",
+      "  \\  '--'  / ",
+      "   '.____.'  ",
+      "     |  |     "
+    ]
+  },
+  {
+    "name": "진흙 슬라임",
+    "hp": 70,
+    "mp": 10,
+    "attackDamage": 4,
+    "magicForce": 0,
+    "defense": 3,
+    "gold": 10,
+    "description": "질척거리는 슬라임이 바닥을 기어온다.",
+    "artLines": [
+      "    _____   ",
+      "   /     \\  ",
+      "  |  o o  | ",
+      "  \\   -   / ",
+      "   `'~~~'`   ",
+      "   . . .     "
+    ]
+  },
+  {
+    "name": "길 잃은 새끼 늑대",
+    "hp": 45,
+    "mp": 10,
+    "attackDamage": 7,
+    "magicForce": 0,
+    "defense": 2,
+    "gold": 15,
+    "description": "어미를 잃은 듯한 늑대가 으르렁거린다.",
+    "artLines": [
+      "     /\\_/\\ ",
+      "    ( o.o )",
+      "     > , < ",
+      "     Awooo? "
+    ]
+  },
+  {
+    "name": "부패한 들쥐",
+    "hp": 30,
+    "mp": 10,
+    "attackDamage": 8,
+    "magicForce": 0,
+    "defense": 1,
+    "gold": 8,
+    "description": "붉은 눈의 거대한 쥐가 날카로운 소리를 냈다!",
+    "artLines": [
+      "      _   ",
+      "     (.)\\_)",
+      "     /    )",
+      "    /   / ",
+      "   (____)__",
+      " ~~~~~~~~"
+    ]
+  },
+  {
+    "name": "숲 거미",
+    "hp": 55,
+    "mp": 30,
+    "attackDamage": 6,
+    "magicForce": 3,
+    "defense": 3,
+    "gold": 14,
+    "description": "나무 위에서 거대한 거미가 뛰어내렸다!",
+    "artLines": [
+      "   //\\\\",
+      "  / oo \\",
+      " ( (..) )",
+      "  \\ vv /",
+      "   \\\\//",
+      "  //  \\\\"
+    ]
+  },
+  {
+    "name": "나무 정령 파수꾼",
+    "hp": 80,
+    "mp": 50,
+    "attackDamage": 5,
+    "magicForce": 8,
+    "defense": 5,
+    "gold": 18,
+    "description": "고대의 나무 정령이 앞을 가로막는다.",
+    "artLines": [
+      "    _-_     ",
+      "   /(_)\\    ",
+      "   \\_-_/    ",
+      "   (O O)    ",
+      "   |   |    ",
+      "  /|   |\\  ",
+      "  / \\ / \\ "
+    ]
+  },
+  {
+    "name": "숲 도적",
+    "hp": 65,
+    "mp": 20,
+    "attackDamage": 8,
+    "magicForce": 0,
+    "defense": 2,
+    "gold": 20,
+    "description": "지나가는 여행자를 노리는 도적이 칼을 겨눈다.",
+    "artLines": [
+      "    .-.    ",
+      "   / ? \\   ",
+      "   \\_-_/   ",
+      "   (> <)   ",
+      "  ,' | ',  ",
+      " /   |   \\ ",
+      "    / \\    "
+    ]
+  },
+  {
+    "comment": "--- WORLD 2: 울부짖는 협곡 (9~16) ---"
+  },
+  {
+    "name": "협곡 박쥐",
+    "hp": 70,
+    "mp": 20,
+    "attackDamage": 10,
+    "magicForce": 0,
+    "defense": 3,
+    "gold": 25,
+    "description": "초음파를 내뿜는 박쥐 떼가 날아든다!",
+    "artLines": [
+      "  \\       /",
+      "   \\_   _/",
+      "    (o_o) ",
+      "   /  v  \\",
+      "  /       \\"
+    ]
+  },
+  {
+    "name": "돌가죽 멧돼지",
+    "hp": 100,
+    "mp": 10,
+    "attackDamage": 12,
+    "magicForce": 0,
+    "defense": 8,
+    "gold": 30,
+    "description": "피부가 바위처럼 단단한 멧돼지가 돌진한다.",
+    "artLines": [
+      "   (\\____/)",
+      "   ( o o  )",
+      "    \\ == / ",
+      "   /____\\",
+      "  ^^    ^^"
+    ]
+  },
+  {
+    "name": "하피",
+    "hp": 80,
+    "mp": 50,
+    "attackDamage": 10,
+    "magicForce": 5,
+    "defense": 4,
+    "gold": 35,
+    "description": "날카로운 비명과 함께 하피가 급강하한다.",
+    "artLines": [
+      "  <--<<<  ",
+      "   (O.O)  ",
+      "  /  V  \\ ",
+      " (   |   )",
+      "  \\  |  / ",
+      "   v | v  "
+    ]
+  },
+  {
+    "name": "코볼트 광부",
+    "hp": 90,
+    "mp": 20,
+    "attackDamage": 11,
+    "magicForce": 0,
+    "defense": 5,
+    "gold": 28,
+    "description": "곡괭이를 든 코볼트가 욕설을 내뱉는다.",
+    "artLines": [
+      "   )T ",
+      "  / \\",
+      " (o.o)",
+      "  \\_/",
+      " ( | )",
+      "  v v"
+    ]
+  },
+  {
+    "name": "바람 정령",
+    "hp": 75,
+    "mp": 80,
+    "attackDamage": 8,
+    "magicForce": 12,
+    "defense": 3,
+    "gold": 40,
+    "description": "보이지 않는 바람이 회오리치며 형상을 갖춘다.",
+    "artLines": [
+      "    .   ",
+      "   (   ",
+      "  ( o ) ",
+      "   ) (  ",
+      "  (   ) ",
+      "   `.'  ",
+      "    '   "
+    ]
+  },
+  {
+    "name": "낙석 골렘",
+    "hp": 120,
+    "mp": 10,
+    "attackDamage": 10,
+    "magicForce": 0,
+    "defense": 12,
+    "gold": 45,
+    "description": "바위 더미가 무너지더니, 거대한 골렘이 일어선다.",
+    "artLines": [
+      "    [ ] ",
+      "   (O O)",
+      "   |   |",
+      "  /|   |\\",
+      " / |   | \\",
+      "   |   |",
+      "  / \\ / \\"
+    ]
+  },
+  {
+    "name": "절벽 도마뱀",
+    "hp": 85,
+    "mp": 20,
+    "attackDamage": 13,
+    "magicForce": 0,
+    "defense": 5,
+    "gold": 32,
+    "description": "재빠른 도마뱀이 바위 틈에서 기어나왔다.",
+    "artLines": [
+      "       __",
+      "      {o_}",
+      "     / \\ ",
+      "    /   \\/\\_",
+      "   |     \\_|",
+      "   |_____|  "
+    ]
+  },
+  {
+    "name": "협곡 독수리",
+    "hp": 90,
+    "mp": 30,
+    "attackDamage": 15,
+    "magicForce": 0,
+    "defense": 4,
+    "gold": 38,
+    "description": "거대한 독수리가 날카로운 발톱을 세우고 돌진한다.",
+    "artLines": [
+      "   \\  V  /",
+      "    (o.o)",
+      "   / \\_/ \\",
+      "  (   |   )",
+      "   \\  |  / ",
+      "    v | v  "
+    ]
+  },
+  {
+    "comment": "--- WORLD 3: 불타는 사막 (17~24) ---"
+  },
+  {
+    "name": "사막 전갈",
+    "hp": 110,
+    "mp": 30,
+    "attackDamage": 18,
+    "magicForce": 5,
+    "defense": 10,
+    "gold": 50,
+    "description": "거대한 꼬리 바늘을 가진 전갈이 모래 속에서 나타났다!",
+    "artLines": [
+      "    _    ",
+      "   ( )   ",
+      " \\/ oo \\/",
+      "  ( (  ) )",
+      "  /\\ -- /\\",
+      "    |  |   ",
+      "    '  '   "
+    ]
+  },
+  {
+    "name": "미라 병사",
+    "hp": 150,
+    "mp": 20,
+    "attackDamage": 15,
+    "magicForce": 0,
+    "defense": 8,
+    "gold": 55,
+    "description": "붕대를 감은 고대 병사가 삐걱거리며 움직인다.",
+    "artLines": [
+      "   _____ ",
+      "  | o o |",
+      "  | --- |",
+      "  |o o o|",
+      "  | --- |",
+      "  |     |",
+      "  | | | |"
+    ]
+  },
+  {
+    "name": "불개미",
+    "hp": 100,
+    "mp": 10,
+    "attackDamage": 20,
+    "magicForce": 0,
+    "defense": 6,
+    "gold": 48,
+    "description": "작지만 사나운 불개미 떼가 몰려온다.",
+    "artLines": [
+      "    / \\",
+      "  --O-O--",
+      "    \\ /",
+      "   (o o) ",
+      "    ` '",
+      "   / | \\"
+    ]
+  },
+  {
+    "name": "모래 유령",
+    "hp": 120,
+    "mp": 100,
+    "attackDamage": 12,
+    "magicForce": 18,
+    "defense": 5,
+    "gold": 65,
+    "description": "모래 바람이 뭉쳐 원혼의 형상을 이룬다.",
+    "artLines": [
+      "     .--.  ",
+      "    / /..\\ ",
+      "   | |..| |",
+      "   | |' | |",
+      "   | |  | |",
+      "   | '. | |",
+      "   '...' ' "
+    ]
+  },
+  {
+    "name": "타오르는 도마뱀",
+    "hp": 130,
+    "mp": 50,
+    "attackDamage": 17,
+    "magicForce": 10,
+    "defense": 8,
+    "gold": 60,
+    "description": "등이 불타오르는 도마뱀이 뜨거운 숨을 내뿜는다.",
+    "artLines": [
+      "       __",
+      "      {o_} ^",
+      "     / \\ ^",
+      "    /   \\/\\_^",
+      "   |     \\_|",
+      "   |_____|  "
+    ]
+  },
+  {
+    "name": "선인장 괴물",
+    "hp": 160,
+    "mp": 30,
+    "attackDamage": 15,
+    "magicForce": 0,
+    "defense": 15,
+    "gold": 58,
+    "description": "가시투성이 선인장이 살아 움직이기 시작했다!",
+    "artLines": [
+      "    + | +",
+      "   + \\|/ +",
+      "  +--(o.O)--+",
+      "   +  |    +",
+      "    + | +  ",
+      "    + | +  "
+    ]
+  },
+  {
+    "name": "황무지 하이에나",
+    "hp": 115,
+    "mp": 20,
+    "attackDamage": 22,
+    "magicForce": 0,
+    "defense": 7,
+    "gold": 52,
+    "description": "굶주림에 지친 하이에나가 기분 나쁜 웃음소리를 낸다.",
+    "artLines": [
+      "    /\\",
+      "   /  \\",
+      "  (o T )__",
+      " (      / )",
+      "  |    |  /",
+      "  |    | /",
+      "   \\__/ \\/"
+    ]
+  },
+  {
+    "name": "모래폭풍 정령",
+    "hp": 140,
+    "mp": 120,
+    "attackDamage": 12,
+    "magicForce": 20,
+    "defense": 8,
+    "gold": 70,
+    "description": "거대한 모래폭풍이 응축되어 정령이 되었다.",
+    "artLines": [
+      "    --- ",
+      "   / . \\",
+      "  ( O O )",
+      "   \\ . /",
+      "    --- ",
+      "   / . \\",
+      "  /  .  \\"
+    ]
+  },
+  {
+    "comment": "--- WORLD 4: 얼어붙은 산맥 (25~32) ---"
+  },
+  {
+    "name": "설원 늑대",
+    "hp": 180,
+    "mp": 30,
+    "attackDamage": 28,
+    "magicForce": 5,
+    "defense": 12,
+    "gold": 80,
+    "description": "하얀 털의 거대한 늑대가 무리를 이끌고 나타났다.",
+    "artLines": [
+      "      /\\ /\\",
+      "     / ' ' \\",
+      "    (  O.O  )",
+      "     \\  ^  / ",
+      "     |     | ",
+      "     |     | ",
+      "      V   V  "
+    ]
+  },
+  {
+    "name": "아이스 트롤",
+    "hp": 250,
+    "mp": 20,
+    "attackDamage": 30,
+    "magicForce": 0,
+    "defense": 15,
+    "gold": 100,
+    "description": "푸른 피부의 트롤이 얼음 몽둥이를 휘두른다.",
+    "artLines": [
+      "     )    ",
+      "    (_)   ",
+      "   /   \\  ",
+      "  ( O O ) ",
+      "   \\_-_/  ",
+      "   |   |  ",
+      "  /|   |\\ ",
+      " / |   | \\"
+    ]
+  },
+  {
+    "name": "서리 거미",
+    "hp": 170,
+    "mp": 60,
+    "attackDamage": 25,
+    "magicForce": 15,
+    "defense": 10,
+    "gold": 90,
+    "description": "차가운 기운을 뿜어내는 거미가 얼음 덫을 놓는다.",
+    "artLines": [
+      "   *//\\\\*",
+      "  */ oo \\*",
+      " *( (..) )*",
+      "  *\\ vv /*",
+      "   *\\\\//*"
+    ]
+  },
+  {
+    "name": "얼음 정령",
+    "hp": 160,
+    "mp": 150,
+    "attackDamage": 15,
+    "magicForce": 30,
+    "defense": 10,
+    "gold": 110,
+    "description": "날카로운 얼음 조각들이 모여 정령의 형상을 띈다.",
+    "artLines": [
+      "      *",
+      "     / \\",
+      "    * O *",
+      "   / \\ / \\",
+      "  * V   *",
+      "     / \\",
+      "      *"
+    ]
+  },
+  {
+    "name": "혹한의 망령",
+    "hp": 150,
+    "mp": 180,
+    "attackDamage": 15,
+    "magicForce": 35,
+    "defense": 8,
+    "gold": 120,
+    "description": "눈보라 속에서 얼어붙은 영혼이 비명을 지른다.",
+    "artLines": [
+      "    .-.    ",
+      "   (O O)   ",
+      "   |   |   ",
+      "   |   |   ",
+      "  /     \\  ",
+      " (       ) ",
+      "  `-----'  "
+    ]
+  },
+  {
+    "name": "동상 걸린 고블린",
+    "hp": 140,
+    "mp": 30,
+    "attackDamage": 32,
+    "magicForce": 0,
+    "defense": 10,
+    "gold": 85,
+    "description": "추위에 미쳐버린 고블린이 얼어붙은 흉기를 들고 있다.",
+    "artLines": [
+      "   / \\",
+      "  (x x)",
+      "   \\_/",
+      "  ( | )",
+      "   / \\"
+    ]
+  },
+  {
+    "name": "설인",
+    "hp": 300,
+    "mp": 10,
+    "attackDamage": 35,
+    "magicForce": 0,
+    "defense": 18,
+    "gold": 130,
+    "description": "산맥의 지배자, 거대한 설인이 포효했다!",
+    "artLines": [
+      "   (     )",
+      "  ( O   O )",
+      " (   ^   )",
+      " ( \\_-_/ )",
+      "  \\  |  / ",
+      "   | | | ",
+      "   V V V "
+    ]
+  },
+  {
+    "name": "겨울 멧돼지",
+    "hp": 220,
+    "mp": 10,
+    "attackDamage": 32,
+    "magicForce": 0,
+    "defense": 16,
+    "gold": 95,
+    "description": "얼음 송곳니를 가진 멧돼지가 맹렬하게 돌진한다.",
+    "artLines": [
+      "   (\\____/)",
+      "   ( O O  )",
+      "    \\ == / ",
+      "   /____\\",
+      "  WW    WW"
+    ]
+  },
+  {
+    "comment": "--- WORLD 5: 침몰한 도시 (33~40) ---"
+  },
+  {
+    "name": "심해어인",
+    "hp": 250,
+    "mp": 80,
+    "attackDamage": 40,
+    "magicForce": 10,
+    "defense": 20,
+    "gold": 150,
+    "description": "불쾌한 아가미를 가진 심해어인이 창을 겨눈다.",
+    "artLines": [
+      "   <)--<",
+      "    (O)",
+      "   (o o)",
+      "   | V |",
+      "  /| | |\\",
+      "   | | |",
+      "    V V"
+    ]
+  },
+  {
+    "name": "부패한 해초",
+    "hp": 300,
+    "mp": 100,
+    "attackDamage": 30,
+    "magicForce": 20,
+    "defense": 25,
+    "gold": 160,
+    "description": "도시를 감싸고 있던 해초가 여행자를 휘감는다.",
+    "artLines": [
+      "   ) ( ) ",
+      "  ( (o) )",
+      " ) ) ( ( ",
+      "( ( ( ) )",
+      " ) ) ( ( ",
+      "  ( ) (  "
+    ]
+  },
+  {
+    "name": "전기 뱀장어",
+    "hp": 220,
+    "mp": 120,
+    "attackDamage": 35,
+    "magicForce": 40,
+    "defense": 15,
+    "gold": 180,
+    "description": "물 속에서 푸른 스파크가 튀더니, 거대 뱀장어가 나타났다!",
+    "artLines": [
+      "   ~",
+      "  ~",
+      " ~   /\\",
+      " ~  (o_)",
+      " ~  /",
+      "   ~",
+      "  ~"
+    ]
+  },
+  {
+    "name": "물에 젖은 구울",
+    "hp": 350,
+    "mp": 50,
+    "attackDamage": 45,
+    "magicForce": 0,
+    "defense": 18,
+    "gold": 170,
+    "description": "물에 불어터진 시체가 굶주린 듯 기어온다.",
+    "artLines": [
+      "    ... ",
+      "   (x x)",
+      "   |   |",
+      "  /|   |\\",
+      " / |   | \\",
+      "   | . |",
+      "  . / \\ . "
+    ]
+  },
+  {
+    "name": "고대 유적 수호자",
+    "hp": 400,
+    "mp": 150,
+    "attackDamage": 50,
+    "magicForce": 30,
+    "defense": 30,
+    "gold": 220,
+    "description": "오래된 석상이 빛을 내며 침입자를 막아선다.",
+    "artLines": [
+      "   /-----\\",
+      "  | (O) (O) |",
+      "  |    ^    |",
+      "  |   ---   |",
+      "  \\  | |  /",
+      "   | | | |",
+      "   |_|_|_|"
+    ]
+  },
+  {
+    "name": "유령 해적",
+    "hp": 280,
+    "mp": 100,
+    "attackDamage": 45,
+    "magicForce": 15,
+    "defense": 20,
+    "gold": 200,
+    "description": "보물에 대한 집착으로 되살아난 해적이 컷틀라스를 휘두른다.",
+    "artLines": [
+      "     ___",
+      "    /   \\",
+      "   |x .o|",
+      "    \\_-_/",
+      "    ( | )",
+      "   /| | |\\",
+      "     J L"
+    ]
+  },
+  {
+    "name": "거대 집게",
+    "hp": 380,
+    "mp": 20,
+    "attackDamage": 55,
+    "magicForce": 0,
+    "defense": 35,
+    "gold": 210,
+    "description": "바위인 줄 알았던 것이 거대한 집게발을 드러냈다!",
+    "artLines": [
+      "   \\/    \\/",
+      "   (o)(o)",
+      "  (      )",
+      " (        )",
+      " /        \\",
+      "/ | |  | | \\"
+    ]
+  },
+  {
+    "name": "심해의 군주",
+    "hp": 350,
+    "mp": 200,
+    "attackDamage": 35,
+    "magicForce": 50,
+    "defense": 25,
+    "gold": 250,
+    "description": "도시의 중심부에서 거대한 물의 정령이 솟아오른다.",
+    "artLines": [
+      "   (~~~~)",
+      "   ( O O)",
+      "  (  \\_/  )",
+      " (         )",
+      "(           )",
+      " (         )",
+      "  `-------' "
+    ]
+  }
+]
