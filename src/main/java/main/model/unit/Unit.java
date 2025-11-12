@@ -27,6 +27,8 @@ public abstract class Unit {
         this.name = other.name;
         this.hp = this.maxHp;
         this.mp = other.mp;
+        this.maxHp = other.maxHp;
+        this.maxMp = other.maxMp;
         this.attackDamage = other.attackDamage;
         this.magicForce = other.magicForce;
         this.defense = other.defense;
@@ -57,6 +59,9 @@ public abstract class Unit {
 
     public boolean isDead() {
         return this.hp <= 0;
+    }
+    public boolean isAlive() {
+        return this.hp > 0;
     }
 
     public void addMaxHp(int add) {

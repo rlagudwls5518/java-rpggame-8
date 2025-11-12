@@ -1,8 +1,12 @@
 package main;
 
+import java.io.Console;
+import main.util.Clear;
+import main.view.StartOutputView;
+
 public class Application {
     public static void main(String[] args) throws InterruptedException {
-
+        Console console;
         String name = "김전사";
         String job = "전사";
         int level = 1;
@@ -12,9 +16,14 @@ public class Application {
         String weapon = "낡은 목도";
         String shield = "나무 방패(2)";
 
+        StartOutputView.showSplashScreen();
+        Clear.clearScreen();
+        StartOutputView.showPrologue();
+        Clear.clearScreen();
+        StartOutputView.showStartView();
 
         for (int i = 0; i < 10; i++) {
-            clearScreen();
+            Clear.clearScreen();
             printStatus(name, job, level, exp, hp, gold, weapon, shield);
             Thread.sleep(1000);
 
@@ -22,26 +31,10 @@ public class Application {
             exp += 10;
 
             if (hp <= 0) {
-                clearScreen();
+                Clear.clearScreen();
                 System.out.println("-----------GAME OVER-----------");
                 break;
             }
-        }
-    }
-
-    public static void clearScreen() {
-        try {
-            String os = System.getProperty("os.name").toLowerCase();
-
-            ProcessBuilder processBuilder;
-            if (os.contains("win")) {
-                processBuilder = new ProcessBuilder("cmd", "/c", "cls");
-            } else {
-                processBuilder = new ProcessBuilder("clear");
-            }
-            processBuilder.inheritIO().start().waitFor();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

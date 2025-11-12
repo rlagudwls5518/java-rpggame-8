@@ -15,7 +15,6 @@ public class PlayerCharacter extends Unit {
     private final int levelUpPlusInt;
     private final int levelUpPlusMaxHP;
     private final int levelUpPlusDfs;
-
     private final List<SkillInfo> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
@@ -50,6 +49,17 @@ public class PlayerCharacter extends Unit {
             this.exp += addExp;
         }
     }
+    public void attack(Unit target) {
+        int damage = this.getAd();
+        target.takeDamage(damage);
+    }
+
+    public void useSkill(PlayerCharacter character, Unit target, int skilNumber) {
+        for(SkillInfo skill : skills){
+            skill.use(character, target);
+        }
+    }
+
 
     public void learnSkill(SkillInfo skillToAdd) {
         this.skills.add(skillToAdd);

@@ -1,6 +1,5 @@
 package main.model.unit.character.job.finalClass.dragonKnight.skils;
 
-import java.io.Serializable;
 import main.model.unit.Unit;
 import main.model.unit.character.SkillInfo;
 
