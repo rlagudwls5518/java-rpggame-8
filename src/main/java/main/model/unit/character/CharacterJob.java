@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CharacterJob {
     String getJobName();
-    List<SkillInfo> getSkillList();
+    List<Skill> getSkillList();
     int getHpBonus();
     int getAttackBonus();
 

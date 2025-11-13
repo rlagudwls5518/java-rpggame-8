@@ -15,7 +15,7 @@ public class PlayerCharacter extends Unit {
     private final int levelUpPlusInt;
     private final int levelUpPlusMaxHP;
     private final int levelUpPlusDfs;
-    private final List<SkillInfo> skills = new ArrayList<>();
+    private final List<Skill> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
         super(name, 100, 50, 100, 10, 10, 0, 10);
@@ -33,35 +33,44 @@ public class PlayerCharacter extends Unit {
     public void advanceJob(CharacterJob newJob) {
         this.currentJob = newJob;
         updateStats(newJob);
-        List<SkillInfo> skillsToLearn = newJob.getSkillList();
-        for(SkillInfo skills : skillsToLearn){
+        List<Skill> skillsToLearn = newJob.getSkillList();
+        for (Skill skills : skillsToLearn) {
             this.learnSkill(skills);
         }
     }
 
-    public void storeExp(int addExp){
-        if((this.exp + addExp) >= this.maxExp){
+    public void storeExp(int addExp) {
+        if ((this.exp + addExp) >= this.maxExp) {
             int dummyExp = (this.exp + addExp) - maxExp;
             levelUp();
             this.exp += dummyExp;
-        }
-        else{
+        } else {
             this.exp += addExp;
         }
     }
-    public void attack(Unit target) {
-        int damage = this.getAd();
-        target.takeDamage(damage);
-    }
+    public void showSkillList(){
+        List<Skill> skills = currentJob.getSkillList();
 
-    public void useSkill(PlayerCharacter character, Unit target, int skilNumber) {
-        for(SkillInfo skill : skills){
-            skill.use(character, target);
+        for(int i=0; i<skills.size(); i++){
+            Skill skill = skills.get(i);
+            System.out.println((i + 1) + ". " + skill.getName() +
+                    " (MP 소모: " + skill.getMpCost() + ")");
         }
     }
 
+    public void useSkill(Unit target, int skilNumber) {
+        List<Skill> skills = currentJob.getSkillList();
 
-    public void learnSkill(SkillInfo skillToAdd) {
+        Skill selectedSkill = skills.get(skilNumber);
+        if (this.getMp() < selectedSkill.getMpCost()) {
+            System.out.println("MP가 부족하여 '" + selectedSkill.getName() + "'을(를) 사용할 수 없습니다!");
+            return;
+        }
+        this.decreaseMp(selectedSkill.getMpCost());
+        selectedSkill.use(this,target);
+    }
+
+    public void learnSkill(Skill skillToAdd) {
         this.skills.add(skillToAdd);
     }
 
@@ -78,13 +87,13 @@ public class PlayerCharacter extends Unit {
         addMaxHp(addMaxHp);
     }
 
-    private void levelUp(){
+    private void levelUp() {
         this.level++;
         this.exp = 0;
         levelUpHp(levelUpPlusMaxHP);
         levelUpAttackDamage(levelUpPlusStr);
         levelUpDefense(levelUpPlusDfs);
-        if(this.currentJob.getJobName().equals("성기사") || this.currentJob.getJobName().equals("성검사")){
+        if (this.currentJob.getJobName().equals("성기사") || this.currentJob.getJobName().equals("성검사")) {
             levelUpMagicForce(levelUpPlusInt);
         }
     }
