@@ -22,7 +22,7 @@ public class Battle {
                 processPlayerTurn(player, monster,input);
             }
         }
-
+        EndBattle.endBattleReword(player, monster);
     }
 
     public void processMonsterTurn(Monster monster, PlayerCharacter player) {
