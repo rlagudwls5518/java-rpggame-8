@@ -10,7 +10,7 @@ public abstract class Unit {
     private int mp;
     private int maxHp;
     private int maxMp;
-    private String name;
+    public String name;
 
     public Unit(String name, int hp, int mp, int maxHp, int maxMp, int attackDamage, int magicForce, int defense) {
         this.name = name;
@@ -51,6 +51,11 @@ public abstract class Unit {
         return incomingDamage;
     }
 
+    public void attack(Unit target) {
+        int damage = this.getAd();
+        target.takeDamage(damage);
+    }
+
     public double basicAttack(Unit target) {
         int myAttack = this.attackDamage;
         double actualDamage = target.takeDamage(myAttack);
@@ -60,6 +65,7 @@ public abstract class Unit {
     public boolean isDead() {
         return this.hp <= 0;
     }
+
     public boolean isAlive() {
         return this.hp > 0;
     }
