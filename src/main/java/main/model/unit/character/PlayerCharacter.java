@@ -19,38 +19,37 @@ public class PlayerCharacter extends Unit {
 
     public PlayerCharacter(String name) {
         super(name, 100, 50, 100, 10, 10, 0, 10);
-        this.levelUpPlusDfs = 10;
-        this.level = 1;
-        this.exp = 0;
-        this.maxExp = 100;
-        this.levelUpPlusInt = 10;
-        this.levelUpPlusMaxHP = 10;
-        this.levelUpPlusStr = 5;
-        this.currentJob = new SwordMan();
+        levelUpPlusDfs = 10;
+        level = 1;
+        exp = 0;
+        maxExp = 100;
+        levelUpPlusInt = 10;
+        levelUpPlusMaxHP = 10;
+        levelUpPlusStr = 5;
+        currentJob = new SwordMan();
         updateStats(currentJob);
     }
 
     public void advanceJob(CharacterJob newJob) {
-        this.currentJob = newJob;
+        currentJob = newJob;
         updateStats(newJob);
+        skills.clear();
         List<Skill> skillsToLearn = newJob.getSkillList();
         for (Skill skills : skillsToLearn) {
-            this.learnSkill(skills);
+            learnSkill(skills);
         }
     }
 
     public void storeExp(int addExp) {
-        if ((this.exp + addExp) >= this.maxExp) {
-            int dummyExp = (this.exp + addExp) - maxExp;
+        if ((exp + addExp) >= maxExp) {
+            int dummyExp = (exp + addExp) - maxExp;
             levelUp();
-            this.exp += dummyExp;
+            exp += dummyExp;
         } else {
-            this.exp += addExp;
+            exp += addExp;
         }
     }
     public void showSkillList(){
-        List<Skill> skills = currentJob.getSkillList();
-
         for(int i=0; i<skills.size(); i++){
             Skill skill = skills.get(i);
             System.out.println((i + 1) + ". " + skill.getName() +
@@ -59,8 +58,6 @@ public class PlayerCharacter extends Unit {
     }
 
     public void useSkill(Unit target, int skilNumber) {
-        List<Skill> skills = currentJob.getSkillList();
-
         Skill selectedSkill = skills.get(skilNumber);
         if (this.getMp() < selectedSkill.getMpCost()) {
             System.out.println("MP가 부족하여 '" + selectedSkill.getName() + "'을(를) 사용할 수 없습니다!");
@@ -71,29 +68,29 @@ public class PlayerCharacter extends Unit {
     }
 
     public void learnSkill(Skill skillToAdd) {
-        this.skills.add(skillToAdd);
+        skills.add(skillToAdd);
     }
 
     private void updateStats(CharacterJob newJob) {
         if (newJob.getJobName().equals("기사") || newJob.getJobName().equals("대검사") || newJob.getJobName()
                 .equals("용기사")) {
-            int addAttackDamage = this.currentJob.getAttackBonus();
+            int addAttackDamage = currentJob.getAttackBonus();
             addAttackDamage(addAttackDamage);
         }
 
-        int addMagicForce = this.currentJob.getAttackBonus();
-        int addMaxHp = this.currentJob.getHpBonus();
+        int addMagicForce = currentJob.getAttackBonus();
+        int addMaxHp = currentJob.getHpBonus();
         addMagicForce(addMagicForce);
         addMaxHp(addMaxHp);
     }
 
     private void levelUp() {
-        this.level++;
-        this.exp = 0;
+        level++;
+        exp = 0;
         levelUpHp(levelUpPlusMaxHP);
         levelUpAttackDamage(levelUpPlusStr);
         levelUpDefense(levelUpPlusDfs);
-        if (this.currentJob.getJobName().equals("성기사") || this.currentJob.getJobName().equals("성검사")) {
+        if (currentJob.getJobName().equals("성기사") || currentJob.getJobName().equals("성검사")) {
             levelUpMagicForce(levelUpPlusInt);
         }
     }
