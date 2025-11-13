@@ -101,6 +101,22 @@ public abstract class Unit {
         return this.attackDamage;
     }
 
+    public int getMaxHp() {
+        return this.maxHp;
+    }
+
+    public int getHp() {
+        return this.hp;
+    }
+
+    public int getMaxMp() {
+        return this.maxMp;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void decreaseMp(int useMp) {
         this.mp -= useMp;
     }

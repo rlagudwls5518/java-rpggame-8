@@ -26,6 +26,7 @@ public class PlayerCharacter extends Unit {
         levelUpPlusInt = 10;
         levelUpPlusMaxHP = 10;
         levelUpPlusStr = 5;
+        gold = 0;
         currentJob = new SwordMan();
         updateStats(currentJob);
     }
@@ -38,6 +39,10 @@ public class PlayerCharacter extends Unit {
         for (Skill skills : skillsToLearn) {
             learnSkill(skills);
         }
+    }
+
+    public void storeGold(int addGold) {
+        gold += addGold;
     }
 
     public void storeExp(int addExp) {
@@ -94,5 +99,13 @@ public class PlayerCharacter extends Unit {
         if (currentJob.getJobName().equals("성기사") || currentJob.getJobName().equals("성검사")) {
             levelUpMagicForce(levelUpPlusInt);
         }
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public int getLevel() {
+        return level;
     }
 }
