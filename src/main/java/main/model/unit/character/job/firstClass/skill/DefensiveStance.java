@@ -1,9 +1,9 @@
 package main.model.unit.character.job.firstClass.skill;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class DefensiveStance implements SkillInfo {
+public class DefensiveStance implements Skill {
     @Override
     public String getName() {
         return "방어 태세";

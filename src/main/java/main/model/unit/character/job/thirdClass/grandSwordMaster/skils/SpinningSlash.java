@@ -1,9 +1,9 @@
 package main.model.unit.character.job.thirdClass.grandSwordMaster.skils;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class SpinningSlash implements SkillInfo {
+public class SpinningSlash implements Skill {
     @Override
     public String getName() {
         return "연속베기";

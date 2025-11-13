@@ -1,9 +1,9 @@
 package main.model.unit.character.job.finalClass.dragonKnight.skils;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class DragonHeart implements SkillInfo {
+public class DragonHeart implements Skill {
     @Override
     public String getName() {
         return "패시브 - 용의 심장";

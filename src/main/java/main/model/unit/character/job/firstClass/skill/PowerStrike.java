@@ -1,9 +1,9 @@
 package main.model.unit.character.job.firstClass.skill;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class PowerStrike implements SkillInfo {
+public class PowerStrike implements Skill {
     @Override
     public String getName() {
         return "강타";

@@ -2,7 +2,7 @@ package main.model.unit.character.job.thirdClass.grandSwordMaster;
 
 import java.util.List;
 import main.model.unit.character.CharacterJob;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
 public class GreatSwordMaster implements CharacterJob {
     @Override
@@ -11,7 +11,7 @@ public class GreatSwordMaster implements CharacterJob {
     }
 
     @Override
-    public List<SkillInfo> getSkillList() {
+    public List<Skill> getSkillList() {
         return List.of();
     }
 

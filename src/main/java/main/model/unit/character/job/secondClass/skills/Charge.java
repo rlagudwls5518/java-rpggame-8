@@ -1,9 +1,9 @@
 package main.model.unit.character.job.secondClass.skills;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class Charge implements SkillInfo {
+public class Charge implements Skill {
     @Override
     public String getName() {
         return "돌진";

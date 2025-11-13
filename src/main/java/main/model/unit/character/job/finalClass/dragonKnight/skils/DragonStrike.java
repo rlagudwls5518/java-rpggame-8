@@ -1,9 +1,9 @@
 package main.model.unit.character.job.finalClass.dragonKnight.skils;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class DragonStrike implements SkillInfo {
+public class DragonStrike implements Skill {
     @Override
     public String getName() {
         return "용의 일격";

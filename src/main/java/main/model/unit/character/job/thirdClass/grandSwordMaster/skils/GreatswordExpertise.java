@@ -1,9 +1,9 @@
 package main.model.unit.character.job.thirdClass.grandSwordMaster.skils;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class GreatswordExpertise implements SkillInfo {
+public class GreatswordExpertise implements Skill {
     @Override
     public String getName() {
         return "패시브 - 양손검 숙련";

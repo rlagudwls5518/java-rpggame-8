@@ -1,9 +1,9 @@
 package main.model.unit.character.job.finalClass.dragonKnight.skils;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class BahamutDescent implements SkillInfo {
+public class BahamutDescent implements Skill {
     @Override
     public String getName() {
         return "궁극기 - 종말의 강림";

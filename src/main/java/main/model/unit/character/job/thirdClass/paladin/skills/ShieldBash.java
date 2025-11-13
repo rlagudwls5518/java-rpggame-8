@@ -1,9 +1,9 @@
 package main.model.unit.character.job.thirdClass.paladin.skills;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class ShieldBash implements SkillInfo {
+public class ShieldBash implements Skill {
     @Override
     public String getName() {
         return "방패 강타";

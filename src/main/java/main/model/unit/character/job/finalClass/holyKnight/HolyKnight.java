@@ -2,7 +2,7 @@ package main.model.unit.character.job.finalClass.holyKnight;
 
 import java.util.List;
 import main.model.unit.character.CharacterJob;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
 public class HolyKnight implements CharacterJob {
     @Override
@@ -11,7 +11,7 @@ public class HolyKnight implements CharacterJob {
     }
 
     @Override
-    public List<SkillInfo> getSkillList() {
+    public List<Skill> getSkillList() {
         return List.of();
     }
 

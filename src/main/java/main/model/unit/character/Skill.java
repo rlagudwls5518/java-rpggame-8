@@ -2,7 +2,7 @@ package main.model.unit.character;
 
 import main.model.unit.Unit;
 
-public interface SkillInfo {
+public interface Skill {
 
     String getName();
 

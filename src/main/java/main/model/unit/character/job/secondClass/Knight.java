@@ -3,7 +3,7 @@ package main.model.unit.character.job.secondClass;
 import java.util.ArrayList;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 import main.model.unit.character.job.firstClass.skill.PowerStrike;
 
 public class Knight implements CharacterJob {
@@ -13,8 +13,8 @@ public class Knight implements CharacterJob {
     }
 
     @Override
-    public List<SkillInfo> getSkillList() {
-        List<SkillInfo> skills = new ArrayList<>();
+    public List<Skill> getSkillList() {
+        List<Skill> skills = new ArrayList<>();
         skills.add(new PowerStrike());
         return skills;
     }
