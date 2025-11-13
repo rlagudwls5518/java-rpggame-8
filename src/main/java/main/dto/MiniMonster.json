@@ -10,6 +10,7 @@
     "magicForce": 0,
     "defense": 0,
     "gold": 10,
+    "exp": 40,
     "description": "낡은 단검을 든 고블린이 뛰쳐나왔다!",
     "artLines": [
       "   / \\",
@@ -27,6 +28,7 @@
     "magicForce": 5,
     "defense": 5,
     "gold": 12,
+    "exp": 60,
     "description": "기분 나쁜 보라색 포자가 피어오른다.",
     "artLines": [
       "     .--.    ",
@@ -46,6 +48,7 @@
     "magicForce": 0,
     "defense": 3,
     "gold": 10,
+    "exp": 75,
     "description": "질척거리는 슬라임이 바닥을 기어온다.",
     "artLines": [
       "    _____   ",
@@ -64,6 +67,7 @@
     "magicForce": 0,
     "defense": 2,
     "gold": 15,
+    "exp": 35,
     "description": "어미를 잃은 듯한 늑대가 으르렁거린다.",
     "artLines": [
       "     /\\_/\\ ",
@@ -80,6 +84,7 @@
     "magicForce": 0,
     "defense": 1,
     "gold": 8,
+    "exp": 30,
     "description": "붉은 눈의 거대한 쥐가 날카로운 소리를 냈다!",
     "artLines": [
       "      _   ",
@@ -98,6 +103,7 @@
     "magicForce": 3,
     "defense": 3,
     "gold": 14,
+    "exp": 50,
     "description": "나무 위에서 거대한 거미가 뛰어내렸다!",
     "artLines": [
       "   //\\\\",
@@ -116,6 +122,7 @@
     "magicForce": 8,
     "defense": 5,
     "gold": 18,
+    "exp": 85,
     "description": "고대의 나무 정령이 앞을 가로막는다.",
     "artLines": [
       "    _-_     ",
@@ -135,6 +142,7 @@
     "magicForce": 0,
     "defense": 2,
     "gold": 20,
+    "exp": 70,
     "description": "지나가는 여행자를 노리는 도적이 칼을 겨눈다.",
     "artLines": [
       "    .-.    ",
@@ -157,6 +165,7 @@
     "magicForce": 0,
     "defense": 3,
     "gold": 25,
+    "exp": 100,
     "description": "초음파를 내뿜는 박쥐 떼가 날아든다!",
     "artLines": [
       "  \\       /",
@@ -174,6 +183,7 @@
     "magicForce": 0,
     "defense": 8,
     "gold": 30,
+    "exp": 150,
     "description": "피부가 바위처럼 단단한 멧돼지가 돌진한다.",
     "artLines": [
       "   (\\____/)",
@@ -191,6 +201,7 @@
     "magicForce": 5,
     "defense": 4,
     "gold": 35,
+    "exp": 120,
     "description": "날카로운 비명과 함께 하피가 급강하한다.",
     "artLines": [
       "  <--<<<  ",
@@ -209,6 +220,7 @@
     "magicForce": 0,
     "defense": 5,
     "gold": 28,
+    "exp": 140,
     "description": "곡괭이를 든 코볼트가 욕설을 내뱉는다.",
     "artLines": [
       "   )T ",
@@ -227,6 +239,7 @@
     "magicForce": 12,
     "defense": 3,
     "gold": 40,
+    "exp": 110,
     "description": "보이지 않는 바람이 회오리치며 형상을 갖춘다.",
     "artLines": [
       "    .   ",
@@ -246,6 +259,7 @@
     "magicForce": 0,
     "defense": 12,
     "gold": 45,
+    "exp": 170,
     "description": "바위 더미가 무너지더니, 거대한 골렘이 일어선다.",
     "artLines": [
       "    [ ] ",
@@ -265,6 +279,7 @@
     "magicForce": 0,
     "defense": 5,
     "gold": 32,
+    "exp": 130,
     "description": "재빠른 도마뱀이 바위 틈에서 기어나왔다.",
     "artLines": [
       "       __",
@@ -283,6 +298,7 @@
     "magicForce": 0,
     "defense": 4,
     "gold": 38,
+    "exp": 145,
     "description": "거대한 독수리가 날카로운 발톱을 세우고 돌진한다.",
     "artLines": [
       "   \\  V  /",
@@ -304,6 +320,7 @@
     "magicForce": 5,
     "defense": 10,
     "gold": 50,
+    "exp": 220,
     "description": "거대한 꼬리 바늘을 가진 전갈이 모래 속에서 나타났다!",
     "artLines": [
       "    _    ",
@@ -323,6 +340,7 @@
     "magicForce": 0,
     "defense": 8,
     "gold": 55,
+    "exp": 300,
     "description": "붕대를 감은 고대 병사가 삐걱거리며 움직인다.",
     "artLines": [
       "   _____ ",
@@ -342,6 +360,7 @@
     "magicForce": 0,
     "defense": 6,
     "gold": 48,
+    "exp": 200,
     "description": "작지만 사나운 불개미 떼가 몰려온다.",
     "artLines": [
       "    / \\",
@@ -360,6 +379,7 @@
     "magicForce": 18,
     "defense": 5,
     "gold": 65,
+    "exp": 250,
     "description": "모래 바람이 뭉쳐 원혼의 형상을 이룬다.",
     "artLines": [
       "     .--.  ",
@@ -379,6 +399,7 @@
     "magicForce": 10,
     "defense": 8,
     "gold": 60,
+    "exp": 270,
     "description": "등이 불타오르는 도마뱀이 뜨거운 숨을 내뿜는다.",
     "artLines": [
       "       __",
@@ -397,6 +418,7 @@
     "magicForce": 0,
     "defense": 15,
     "gold": 58,
+    "exp": 320,
     "description": "가시투성이 선인장이 살아 움직이기 시작했다!",
     "artLines": [
       "    + | +",
@@ -415,6 +437,7 @@
     "magicForce": 0,
     "defense": 7,
     "gold": 52,
+    "exp": 230,
     "description": "굶주림에 지친 하이에나가 기분 나쁜 웃음소리를 낸다.",
     "artLines": [
       "    /\\",
@@ -434,6 +457,7 @@
     "magicForce": 20,
     "defense": 8,
     "gold": 70,
+    "exp": 290,
     "description": "거대한 모래폭풍이 응축되어 정령이 되었다.",
     "artLines": [
       "    --- ",
@@ -456,6 +480,7 @@
     "magicForce": 5,
     "defense": 12,
     "gold": 80,
+    "exp": 500,
     "description": "하얀 털의 거대한 늑대가 무리를 이끌고 나타났다.",
     "artLines": [
       "      /\\ /\\",
@@ -475,6 +500,7 @@
     "magicForce": 0,
     "defense": 15,
     "gold": 100,
+    "exp": 600,
     "description": "푸른 피부의 트롤이 얼음 몽둥이를 휘두른다.",
     "artLines": [
       "     )    ",
@@ -495,6 +521,7 @@
     "magicForce": 15,
     "defense": 10,
     "gold": 90,
+    "exp": 470,
     "description": "차가운 기운을 뿜어내는 거미가 얼음 덫을 놓는다.",
     "artLines": [
       "   *//\\\\*",
@@ -512,6 +539,7 @@
     "magicForce": 30,
     "defense": 10,
     "gold": 110,
+    "exp": 450,
     "description": "날카로운 얼음 조각들이 모여 정령의 형상을 띈다.",
     "artLines": [
       "      *",
@@ -531,6 +559,7 @@
     "magicForce": 35,
     "defense": 8,
     "gold": 120,
+    "exp": 430,
     "description": "눈보라 속에서 얼어붙은 영혼이 비명을 지른다.",
     "artLines": [
       "    .-.    ",
@@ -550,6 +579,7 @@
     "magicForce": 0,
     "defense": 10,
     "gold": 85,
+    "exp": 400,
     "description": "추위에 미쳐버린 고블린이 얼어붙은 흉기를 들고 있다.",
     "artLines": [
       "   / \\",
@@ -567,6 +597,7 @@
     "magicForce": 0,
     "defense": 18,
     "gold": 130,
+    "exp": 650,
     "description": "산맥의 지배자, 거대한 설인이 포효했다!",
     "artLines": [
       "   (     )",
@@ -586,6 +617,7 @@
     "magicForce": 0,
     "defense": 16,
     "gold": 95,
+    "exp": 550,
     "description": "얼음 송곳니를 가진 멧돼지가 맹렬하게 돌진한다.",
     "artLines": [
       "   (\\____/)",
@@ -606,6 +638,7 @@
     "magicForce": 10,
     "defense": 20,
     "gold": 150,
+    "exp": 750,
     "description": "불쾌한 아가미를 가진 심해어인이 창을 겨눈다.",
     "artLines": [
       "   <)--<",
@@ -625,6 +658,7 @@
     "magicForce": 20,
     "defense": 25,
     "gold": 160,
+    "exp": 830,
     "description": "도시를 감싸고 있던 해초가 여행자를 휘감는다.",
     "artLines": [
       "   ) ( ) ",
@@ -643,6 +677,7 @@
     "magicForce": 40,
     "defense": 15,
     "gold": 180,
+    "exp": 700,
     "description": "물 속에서 푸른 스파크가 튀더니, 거대 뱀장어가 나타났다!",
     "artLines": [
       "   ~",
@@ -662,6 +697,7 @@
     "magicForce": 0,
     "defense": 18,
     "gold": 170,
+    "exp": 880,
     "description": "물에 불어터진 시체가 굶주린 듯 기어온다.",
     "artLines": [
       "    ... ",
@@ -681,6 +717,7 @@
     "magicForce": 30,
     "defense": 30,
     "gold": 220,
+    "exp": 1000,
     "description": "오래된 석상이 빛을 내며 침입자를 막아선다.",
     "artLines": [
       "   /-----\\",
@@ -700,6 +737,7 @@
     "magicForce": 15,
     "defense": 20,
     "gold": 200,
+    "exp": 800,
     "description": "보물에 대한 집착으로 되살아난 해적이 컷틀라스를 휘두른다.",
     "artLines": [
       "     ___",
@@ -719,6 +757,7 @@
     "magicForce": 0,
     "defense": 35,
     "gold": 210,
+    "exp": 950,
     "description": "바위인 줄 알았던 것이 거대한 집게발을 드러냈다!",
     "artLines": [
       "   \\/    \\/",
@@ -737,6 +776,7 @@
     "magicForce": 50,
     "defense": 25,
     "gold": 250,
+    "exp": 900,
     "description": "도시의 중심부에서 거대한 물의 정령이 솟아오른다.",
     "artLines": [
       "   (~~~~)",

@@ -9,6 +9,7 @@ public class JsonToBoss {
     public int magicForce;
     public  int defense;
     public int gold;
+    public int exp;
     public String description;
     public String[] artLines;
 

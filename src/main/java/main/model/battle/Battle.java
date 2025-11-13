@@ -22,6 +22,7 @@ public class Battle {
                 processPlayerTurn(player, monster,input);
             }
         }
+
     }
 
     public void processMonsterTurn(Monster monster, PlayerCharacter player) {

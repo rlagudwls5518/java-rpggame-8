@@ -8,6 +8,7 @@ public class JsonToMonster {
     public int magicForce;
     public int defense;
     public int gold;
+    public int exp;
     public String description;
     public String[] artLines;
 

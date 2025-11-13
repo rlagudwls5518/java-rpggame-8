@@ -1,258 +1,262 @@
 [
   {
-    "comment": "MID_BOSSS (중간보스 5종)"
+    "comment": "--- WORLD 1 Mid-Boss ---"
   },
   {
-    "comment": "--- WORLD 1 MID-BOSS ---"
+    "name": "[숲의 악동] 고블린 족장 '스크래그'",
+    "hp": 200,
+    "mp": 50,
+    "attackDamage": 10,
+    "magicForce": 5,
+    "defense": 5,
+    "gold": 50,
+    "exp": 150,
+    "description": "썩은나무 숲의 고블린들을 이끄는 교활한 족장입니다!",
+    "artLines": [
+      "   /\\_ /\\",
+      "  ( o.x )",
+      "   > - < ",
+      "  ( | | )",
+      "   /   \\",
+      "  (_____)"
+    ]
   },
   {
-    "name": "우두머리 고블린 주술사",
-    "type": "MID_BOSS",
-    "hp": 250,
+    "comment": "--- WORLD 2 Mid-Boss ---"
+  },
+  {
+    "name": "[협곡의 돌주먹] 바위 트롤 '그렁'",
+    "hp": 500,
+    "mp": 30,
+    "attackDamage": 20,
+    "magicForce": 0,
+    "defense": 15,
+    "gold": 150,
+    "exp": 800,
+    "description": "협곡의 동굴에 사는 거대한 트롤입니다. 바위처럼 단단합니다!",
+    "artLines": [
+      "     / \\",
+      "    | o o |",
+      "    |  >  |",
+      "   / \\---/ \\",
+      "  |  |   |  |",
+      "  |  |   |  |",
+      "    / \\ / \\"
+    ]
+  },
+  {
+    "comment": "--- WORLD 3 Mid-Boss ---"
+  },
+  {
+    "name": "[모래의 암살자] 거대 전갈 '아크라브'",
+    "hp": 900,
+    "mp": 100,
+    "attackDamage": 30,
+    "magicForce": 15,
+    "defense": 18,
+    "gold": 400,
+    "exp": 2500,
+    "description": "모래 속을 파고들며 먹잇감을 노리는 거대한 맹독 전갈입니다.",
+    "artLines": [
+      "    \\/   \\/",
+      "    (o) (o)",
+      "   (   V   )",
+      "  / \\     / \\",
+      " / / \\   / \\ \\",
+      "   | |   | |",
+      "    \\ \\ / /",
+      "     `-' '"
+    ]
+  },
+  {
+    "comment": "--- WORLD 4 Mid-Boss ---"
+  },
+  {
+    "name": "[눈보라의 주인] '웬디고'",
+    "hp": 2000,
+    "mp": 300,
+    "attackDamage": 40,
+    "magicForce": 40,
+    "defense": 25,
+    "gold": 1000,
+    "exp": 6000,
+    "description": "산맥을 떠도는 굶주린 영혼의 집합체. 보는 것만으로도 얼어붙습니다!",
+    "artLines": [
+      "     (V V)",
+      "     (O O)",
+      "     ( > )",
+      "   / \\   / \\",
+      "  (   \\ /   )",
+      "   \\   |   /",
+      "    `--'--`"
+    ]
+  },
+  {
+    "comment": "--- WORLD 5 Mid-Boss ---"
+  },
+  {
+    "name": "[심해의 문지기] '나가 여왕'",
+    "hp": 5000,
+    "mp": 1000,
+    "attackDamage": 60,
+    "magicForce": 70,
+    "defense": 40,
+    "gold": 4000,
+    "exp": 25000,
+    "description": "침몰한 도시의 입구를 지키는 뱀의 형상을 한 여왕입니다.",
+    "artLines": [
+      "    S S S",
+      "   / (o.o) \\",
+      "   |  \\_/  |",
+      "  /|       |\\",
+      " / |       | \\",
+      "   (       )",
+      "    `-----`"
+    ]
+  },
+  {
+    "comment": "--- WORLD 1 World-Boss ---"
+  },
+  {
+    "name": "[월드 보스] 부패의 군주 '그룰'",
+    "hp": 400,
     "mp": 100,
     "attackDamage": 15,
-    "magicForce": 25,
+    "magicForce": 10,
     "defense": 10,
     "gold": 100,
-    "description": "썩은나무 숲의 고블린들을 이끄는 주술사입니다. 불길한 주술을 외웁니다!",
+    "exp": 500,
+    "description": "썩은나무 숲의 모든 것을 집어삼킨 거대한 괴물이 모습을 드러냈다!",
     "artLines": [
-      "    / \\",
-      "   (o_o)",
-      "   \\_O_/",
-      "  /( | )\\",
-      "   /   \\",
-      "  /     \\"
+      "   ( ( ( ( ) ) ) )",
+      "   ( ( \\     / ) )",
+      "   ( (  (o o)  ) )",
+      "   ( (   \\-/   ) )",
+      "    ( \\_     _/ )",
+      "     \\/  | |  \\/",
+      "      `--' '--`"
     ]
   },
   {
-    "comment": "--- WORLD 2 MID-BOSS ---"
+    "comment": "--- WORLD 2 World-Boss ---"
   },
   {
-    "name": "하피 여왕 '바람절단자'",
-    "type": "MID_BOSS",
-    "hp": 350,
-    "mp": 150,
-    "attackDamage": 20,
-    "magicForce": 35,
-    "defense": 15,
-    "gold": 250,
-    "description": "협곡의 상공을 지배하는 여왕입니다. 날카로운 비명소리가 귓전을 찢습니다!",
-    "artLines": [
-      "    , ,",
-      "   (O.O)",
-      "  ( ( ) )",
-      " (   .   )",
-      "(    `    )",
-      " (   .   )",
-      "   v   v"
-    ]
-  },
-  {
-    "comment": "--- WORLD 3 MID-BOSS ---"
-  },
-  {
-    "name": "모래무덤의 파라오",
-    "type": "MID_BOSS",
-    "hp": 500,
-    "mp": 200,
-    "attackDamage": 30,
-    "magicForce": 40,
-    "defense": 30,
-    "gold": 500,
-    "description": "모래폭풍 속에서 고대의 파라오가 깨어났습니다. 사막의 저주를 퍼붓습니다!",
-    "artLines": [
-      "     _______",
-      "    /       \\",
-      "   | (o) (o) |",
-      "   |   ._.   |",
-      "   \\  \\_/  /",
-      "    `.   .'",
-      "      `-'"
-    ]
-  },
-  {
-    "comment": "--- WORLD 4 MID-BOSS ---"
-  },
-  {
-    "name": "서리거인 '냉기심장'",
-    "type": "MID_BOSS",
+    "name": "[월드 보스] 거대 골렘 '기간테스'",
     "hp": 800,
-    "mp": 80,
-    "attackDamage": 50,
-    "magicForce": 20,
-    "defense": 45,
-    "gold": 800,
-    "description": "얼어붙은 산맥의 주인, 서리거인이 거대한 얼음 철퇴를 휘두릅니다!",
-    "artLines": [
-      "    .-'-. ",
-      "   ( O O )",
-      "   | \\_/ |",
-      "  /|     |\\",
-      " / |     | \\",
-      "   |     |",
-      "  / \\   / \\"
-    ]
-  },
-  {
-    "comment": "--- WORLD 5 MID-BOSS ---"
-  },
-  {
-    "name": "심해의 고대병기",
-    "type": "MID_BOSS",
-    "hp": 1200,
-    "mp": 300,
-    "attackDamage": 70,
-    "magicForce": 70,
-    "defense": 60,
-    "gold": 1500,
-    "description": "침몰한 도시를 지키는 고대의 자동병기입니다. 모든 침입자를 파괴합니다!",
-    "artLines": [
-      "     _______",
-      "    |       |",
-      "   [| (O) (O) |]",
-      "    |   '   |",
-      "   /|       |\\",
-      "  | |       | |",
-      "  |_|       |_|"
-    ]
-  },
-  {
-    "comment": "FINAL BOSSES (최종보스 5종)"
-  },
-  {
-    "comment": "--- WORLD 1 FINAL BOSS ---"
-  },
-  {
-    "name": "부패의 심장 '글루트'",
-    "type": "FINAL_BOSS",
-    "hp": 700,
-    "mp": 200,
-    "attackDamage": 30,
-    "magicForce": 50,
+    "mp": 50,
+    "attackDamage": 25,
+    "magicForce": 0,
     "defense": 20,
-    "gold": 500,
-    "description": "썩은나무 숲의 모든 부패를 관장하는 거대한 괴물입니다. 숲 전체가 그것의 일부입니다!",
+    "gold": 300,
+    "exp": 1500,
+    "description": "울부짖는 협곡 자체가 살아 움직이기 시작한다. 거대한 바위 주먹이 당신을 향한다!",
     "artLines": [
-      "    ( ( ) )",
-      "   ( o o o )",
-      "  (  O   O  )",
-      " (   ' '   )",
-      "  ( ( ) )",
-      "   . . . "
+      "      _______",
+      "     /       \\",
+      "    |  (O) (O)  |",
+      "    |    v    |",
+      "    |   ---   |",
+      "   /|         |\\",
+      "  / |         | \\",
+      "    |    |    |",
+      "   / \\   / \\   / \\"
     ]
   },
   {
-    "comment": "--- WORLD 2 FINAL BOSS ---"
+    "comment": "--- WORLD 3 World-Boss ---"
   },
   {
-    "name": "태풍의 눈 '가루다'",
-    "type": "FINAL_BOSS",
-    "hp": 1000,
-    "mp": 400,
-    "attackDamage": 50,
-    "magicForce": 80,
-    "defense": 35,
-    "gold": 1200,
-    "description": "울부짖는 협곡의 폭풍을 일으키는 고대의 신수입니다. 하늘이 분노합니다!",
-    "artLines": [
-      "    \\\\  //",
-      "     (O\\/O)",
-      "     ( ( ) )",
-      "    / / \\ \\",
-      "   / /   \\ \\",
-      "  / /     \\ \\"
-    ]
-  },
-  {
-    "comment": "--- WORLD 3 FINAL BOSS ---"
-  },
-  {
-    "name": "고대 사막의 리치 '네프렌-카'",
-    "type": "FINAL_BOSS",
+    "name": "[월드 보스] 고대 파라오 '아크나톤'",
     "hp": 1500,
-    "mp": 800,
-    "attackDamage": 60,
-    "magicForce": 120,
-    "defense": 50,
-    "gold": 3000,
-    "description": "죽음을 거부한 고대의 리치입니다. 사막의 모래알 하나하나가 그의 눈과 귀입니다!",
+    "mp": 300,
+    "attackDamage": 30,
+    "magicForce": 30,
+    "defense": 25,
+    "gold": 800,
+    "exp": 4000,
+    "description": "모래 깊은 곳의 석관이 열리며, 고대의 저주가 황금빛 눈을 뜬다.",
     "artLines": [
-      "     .-'-.  ",
-      "    / _ _ \\ ",
-      "   | (o_o) |",
-      "   |  \\_/  |",
-      "   \\  ' '  /",
-      "    `-----' "
+      "      _______",
+      "     / ===== \\",
+      "    / _______ \\",
+      "   | | (O) (O) | |",
+      "   | |    ^    | |",
+      "   | |   \\_/   | |",
+      "   \\ \\_______/ /",
+      "    \\_________/ "
     ]
   },
   {
-    "comment": "--- WORLD 4 FINAL BOSS ---"
+    "comment": "--- WORLD 4 World-Boss ---"
   },
   {
-    "name": "서리용 '스카디'",
-    "type": "FINAL_BOSS",
-    "hp": 2500,
-    "mp": 600,
-    "attackDamage": 100,
-    "magicForce": 100,
-    "defense": 80,
-    "gold": 7000,
-    "description": "얼어붙은 산맥의 정상에 군림하는 고룡입니다. 그 숨결이 모든 것을 얼립니다!",
+    "name": "[월드 보스] 서리 용 '니드호그'",
+    "hp": 3000,
+    "mp": 500,
+    "attackDamage": 50,
+    "magicForce": 50,
+    "defense": 35,
+    "gold": 2000,
+    "exp": 10000,
+    "description": "얼어붙은 산맥의 정상에서, 전설 속의 서리 용이 거대한 얼음 날개를 펼쳤다!",
     "artLines": [
-      "      /\\    /\\",
-      "     | \\\\../ //|",
-      "     |  O  O  |",
-      "    (   ._.   )",
-      "     \\ `---` /",
-      "      `-----' "
+      "   \\            /",
+      "    \\          / ",
+      "    ( \\ (oo) / )",
+      "     \\ \\ \\/ / /",
+      "      \\ \\  / /",
+      "       \\ VV /",
+      "        \\  /",
+      "         \\/"
     ]
   },
   {
-    "comment": "--- WORLD 5 FINAL BOSS ---"
+    "comment": "--- WORLD 5 World-Boss ---"
   },
   {
-    "name": "심연의 크라켄 '아비스'",
-    "type": "FINAL_BOSS",
-    "hp": 4000,
+    "name": "[월드 보스] 태고의 존재 '크라켄'",
+    "hp": 8000,
     "mp": 1000,
-    "attackDamage": 150,
-    "magicForce": 150,
-    "defense": 100,
-    "gold": 15000,
-    "description": "침몰한 도시 가장 깊은 곳, 태고의 어둠이 눈을 떴습니다. 심연이 당신을 집어삼킵니다!",
+    "attackDamage": 80,
+    "magicForce": 80,
+    "defense": 50,
+    "gold": 10000,
+    "exp": 50000,
+    "description": "침몰한 도시의 심연에서, 세상을 파멸시킬 태고의 존재가 거대한 눈을 뜬다.",
     "artLines": [
-      "    \\ \\ / /",
-      "     /\\(O O)/\\",
-      "    / / | | \\ \\",
-      "   | |  | |  | |",
-      "  ( (   | |   ) )",
-      "   (    | |    )",
-      "    (   |   )  "
+      "       /\\    /\\",
+      "      /  \\  /  \\",
+      "     |    \\/    |",
+      "     |  (O)  (O)  |",
+      "     \\    \\/    /",
+      "      \\________/",
+      "  __/   /    \\   \\__",
+      " / /   /      \\   \\ \\",
+      "/ /   /        \\   \\ \\"
     ]
   },
   {
-    "comment": "--- THE TRUE FINAL BOSS (HIDDEN) ---"
+    "comment": "--- FINAL BOSS ---"
   },
   {
-    "name": "태초의 공허 '엔트로피'",
-    "type": "TRUE_FINAL_BOSS",
-    "hp": 25000,
-    "mp": 5000,
-    "attackDamage": 700,
-    "magicForce": 999,
-    "defense": 500,
-    "gold": 1,
-    "description": "모든 것이 시작된 곳, 모든 것이 돌아갈 무(無)의 공간입니다. 세계의 창조자가 남긴 '오류'가 당신을 심판합니다.",
+    "name": "[최종 보스] 차원의 파괴자 '엔트로피'",
+    "hp": 99999,
+    "mp": 9999,
+    "attackDamage": 500,
+    "magicForce": 500,
+    "defense": 200,
+    "gold": 99999,
+    "exp": 200000,
+    "description": "모든 세계의 끝, 시간과 공간이 무너진 곳에서 마침내 그가 모습을 드러냅니다.",
     "artLines": [
-      "        .         .",
-      "     .     .     .",
-      "   .   . .   .   .",
-      "     . . . . .",
-      "     . . . . .",
-      "     . . . . .",
-      "   .   . .   .   .",
-      "     .     .     .",
-      "        .         ."
+      "    /\\/\\/\\/\\/\\",
+      "   |   (##)   |",
+      "   | (O)  (O) |",
+      "   |   (..)   |",
+      "   \\    \\/    /",
+      "    \\        /",
+      "     \\      /",
+      "      `----`"
     ]
   }
 ]

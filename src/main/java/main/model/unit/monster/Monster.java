@@ -20,11 +20,12 @@ public class Monster extends Unit {
     }
 
     public Monster(MonsterType type, String name, int hp, int mp, int maxHp, int maxMp, int attackDamage, int magicForce, int defense,
-                   int gold, String description, String asciiArt) {
+                   int gold, int exp, String description, String asciiArt) {
         super(name, hp, mp, maxHp, maxMp, attackDamage, magicForce, defense);
         this.gold = gold;
         this.description = description;
         this.asciiArt = asciiArt;
+        this.exp = exp;
         this.type = type;
     }
 

@@ -36,7 +36,7 @@ public class MonsterDatabase {
                         MonsterType.MINI,
                         data.name, data.hp, data.mp, data.hp, data.mp,
                         data.attackDamage, data.magicForce, data.defense, data.gold,
-                        data.description, art
+                        data.exp, data.description, art
                 );
 
                 this.monsterPrototypes.put(prototype.name, prototype);
@@ -65,7 +65,7 @@ public class MonsterDatabase {
                         type,
                         data.name, data.hp, data.mp, data.hp, data.mp,
                         data.attackDamage, data.magicForce, data.defense, data.gold,
-                        data.description, art
+                        data.exp, data.description, art
                 );
 
                 this.monsterPrototypes.put(prototype.name, prototype);
