@@ -57,8 +57,9 @@ public class PlayerCharacter extends Unit {
         }
     }
 
-    public void useSkill(Unit target, int skilNumber) {
-        Skill selectedSkill = skills.get(skilNumber);
+    public void useSkill(Unit target, int skillNumber) {
+        int indexNumber = skillNumber-1;
+        Skill selectedSkill = skills.get(indexNumber);
         if (this.getMp() < selectedSkill.getMpCost()) {
             System.out.println("MP가 부족하여 '" + selectedSkill.getName() + "'을(를) 사용할 수 없습니다!");
             return;
