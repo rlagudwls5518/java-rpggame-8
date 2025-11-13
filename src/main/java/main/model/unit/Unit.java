@@ -25,10 +25,11 @@ public abstract class Unit {
 
     public Unit(Unit other) {//복사 생성자
         this.name = other.name;
-        this.hp = this.maxHp;
-        this.mp = other.mp;
         this.maxHp = other.maxHp;
         this.maxMp = other.maxMp;
+
+        this.hp = this.maxHp;
+        this.mp = this.maxMp;
         this.attackDamage = other.attackDamage;
         this.magicForce = other.magicForce;
         this.defense = other.defense;
@@ -52,14 +53,8 @@ public abstract class Unit {
     }
 
     public void attack(Unit target) {
-        int damage = this.getAd();
+        int damage = this.attackDamage;
         target.takeDamage(damage);
-    }
-
-    public double basicAttack(Unit target) {
-        int myAttack = this.attackDamage;
-        double actualDamage = target.takeDamage(myAttack);
-        return actualDamage;
     }
 
     public boolean isDead() {
