@@ -11,7 +11,7 @@ public class Charge implements Skill {
 
     @Override
     public String getDescription() {
-        return "적에게 빠르게 돌진하여 데미지를주고, 1턴간 기절시킵니다.";
+        return "적에게 빠르게 돌진하여 공격력의 120% 데미지를 주고, 1턴간 기절시킵니다.";
     }
 
     @Override
@@ -21,10 +21,6 @@ public class Charge implements Skill {
 
     @Override
     public void use(Unit user, Unit target) {
-        if(user.getMp() <= getMpCost()){ // 일단 공통 로직 나중에 수정
-            System.out.println("마나가 부족합니다");
-        }
-        user.decreaseMp(getMpCost());
         double damege = user.getAd() * 1.2;
         target.takeDamage(damege);
     }

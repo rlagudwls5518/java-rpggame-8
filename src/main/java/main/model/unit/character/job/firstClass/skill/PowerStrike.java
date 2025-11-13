@@ -21,10 +21,6 @@ public class PowerStrike implements Skill {
 
     @Override
     public void use(Unit user, Unit target) {
-        if(user.getMp() <= getMpCost()){ // 일단 공통 로직 나중에 수정
-            System.out.println("마나가 부족합니다");
-        }
-        user.decreaseMp(getMpCost());
         double damege = user.getAd() * 1.2;
         target.takeDamage(damege);
     }

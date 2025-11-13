@@ -11,7 +11,7 @@ public class ShieldBash implements Skill {
 
     @Override
     public String getDescription() {
-        return "방패로 적을 가격하여 높은 어그로(적개심)를 획득하고 1턴간 기절시킵니다";
+        return "방패로 적을 공격력의 100% 데미지로 가격하여 높은 어그로를 획득하고 1턴간 기절시킵니다";
     }
 
     @Override
@@ -21,10 +21,6 @@ public class ShieldBash implements Skill {
 
     @Override
     public void use(Unit user, Unit target) {
-        if(user.getMp() <= getMpCost()){ // 일단 공통 로직 나중에 수정
-            System.out.println("마나가 부족합니다");
-        }
-        user.decreaseMp(getMpCost());
         double damege = user.getAd();
         target.takeDamage(damege);
     }

@@ -1,9 +1,9 @@
 package main.model.unit.character.job.finalClass.holyKnight.skils;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class DivineExcalibur implements SkillInfo{
+public class DivineExcalibur implements Skill{
     @Override
     public String getName() {
         return "궁극기 - 신성 엑스칼리버";
@@ -11,7 +11,7 @@ public class DivineExcalibur implements SkillInfo{
 
     @Override
     public String getDescription() {
-        return "엑스칼리버를 소환해 현재 방어력의 200% 데미지의 방어무시 피해를 준다 ";
+        return "엑스칼리버를 소환해 현재 방어력의 300% 데미지의 방어무시 피해를 준다 ";
     }
 
     @Override
@@ -21,11 +21,7 @@ public class DivineExcalibur implements SkillInfo{
 
     @Override
     public void use(Unit user, Unit target) {
-        if(user.getMp() <= getMpCost()){ // 일단 공통 로직 나중에 수정
-            System.out.println("마나가 부족합니다");
-        }
-        user.decreaseMp(getMpCost());
-        double damege = user.getAd() * 2;
+        double damege = user.getAd() * 3;
         target.takeIgnoreDefenseDamage(damege);
     }
 }

@@ -3,6 +3,11 @@ package main.model.unit.character.job.finalClass.dragonKnight;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
+import main.model.unit.character.job.finalClass.dragonKnight.skils.BahamutDescent;
+import main.model.unit.character.job.finalClass.dragonKnight.skils.DragonDive;
+import main.model.unit.character.job.finalClass.dragonKnight.skils.DragonScale;
+import main.model.unit.character.job.finalClass.dragonKnight.skils.DragonStrike;
+
 
 public class DragonKnight implements CharacterJob {
     @Override
@@ -12,7 +17,12 @@ public class DragonKnight implements CharacterJob {
 
     @Override
     public List<Skill> getSkillList() {
-        return List.of();
+        return List.of(
+                new BahamutDescent(),
+                new DragonDive(),
+                new DragonScale(),
+                new DragonStrike()
+        );
     }
 
     @Override

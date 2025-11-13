@@ -1,9 +1,9 @@
 package main.model.unit.character.job.finalClass.holyKnight.skils;
 
 import main.model.unit.Unit;
-import main.model.unit.character.SkillInfo;
+import main.model.unit.character.Skill;
 
-public class DivineProtection implements SkillInfo {
+public class DivineProtection implements Skill {
     @Override
     public String getName() {
         return "신의 가호";

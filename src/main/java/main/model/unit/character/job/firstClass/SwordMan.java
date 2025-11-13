@@ -1,9 +1,9 @@
 package main.model.unit.character.job.firstClass;
 
-import java.util.ArrayList;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
+import main.model.unit.character.job.firstClass.skill.DefensiveStance;
 import main.model.unit.character.job.firstClass.skill.PowerStrike;
 
 public class SwordMan implements CharacterJob {
@@ -14,9 +14,10 @@ public class SwordMan implements CharacterJob {
 
     @Override
     public List<Skill> getSkillList() {
-        List<Skill> skills = new ArrayList<>();
-        skills.add(new PowerStrike());
-        return skills;
+        return List.of(
+                new PowerStrike(),
+                new DefensiveStance()
+        );
     }
 
     @Override

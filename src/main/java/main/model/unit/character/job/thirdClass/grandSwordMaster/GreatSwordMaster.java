@@ -3,6 +3,9 @@ package main.model.unit.character.job.thirdClass.grandSwordMaster;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
+import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.BattleStance;
+import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.SpinningSlash;
+import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.SunderingStrike;
 
 public class GreatSwordMaster implements CharacterJob {
     @Override
@@ -12,7 +15,11 @@ public class GreatSwordMaster implements CharacterJob {
 
     @Override
     public List<Skill> getSkillList() {
-        return List.of();
+        return List.of(
+                new BattleStance(),
+                new SpinningSlash(),
+                new SunderingStrike()
+        );
     }
 
     @Override

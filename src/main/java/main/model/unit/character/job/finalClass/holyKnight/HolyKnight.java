@@ -3,6 +3,10 @@ package main.model.unit.character.job.finalClass.holyKnight;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
+import main.model.unit.character.job.finalClass.holyKnight.skils.DivineExcalibur;
+import main.model.unit.character.job.finalClass.holyKnight.skils.DivineProtection;
+import main.model.unit.character.job.finalClass.holyKnight.skils.LightOfJudgment;
+import main.model.unit.character.job.finalClass.holyKnight.skils.WaveOfLight;
 
 public class HolyKnight implements CharacterJob {
     @Override
@@ -12,7 +16,12 @@ public class HolyKnight implements CharacterJob {
 
     @Override
     public List<Skill> getSkillList() {
-        return List.of();
+        return List.of(
+                new DivineExcalibur(),
+                new DivineProtection(),
+                new LightOfJudgment(),
+                new WaveOfLight()
+        );
     }
 
     @Override

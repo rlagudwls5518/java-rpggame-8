@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
-import main.model.unit.character.job.firstClass.skill.PowerStrike;
+import main.model.unit.character.job.secondClass.skills.Charge;
+import main.model.unit.character.job.secondClass.skills.Endure;
+import main.model.unit.character.job.secondClass.skills.WeaponMastery;
 
 public class Knight implements CharacterJob {
     @Override
@@ -14,9 +16,11 @@ public class Knight implements CharacterJob {
 
     @Override
     public List<Skill> getSkillList() {
-        List<Skill> skills = new ArrayList<>();
-        skills.add(new PowerStrike());
-        return skills;
+        return List.of(
+                new Charge(),
+                new Endure(),
+                new WeaponMastery()
+        );
     }
 
     @Override
