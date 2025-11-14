@@ -19,7 +19,7 @@ public class PlayerCharacter extends Unit {
     private List<Skill> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
-        super(name, 100, 50, 100, 50, 10, 0, 10);
+        super(name, 100, 50, 10, 0, 10);
         levelUpPlusDfs = 10;
         level = 1;
         exp = 0;

@@ -12,10 +12,10 @@ public abstract class Unit {
     private int maxMp;
     public String name;
 
-    public Unit(String name, int hp, int mp, int maxHp, int maxMp, int attackDamage, int magicForce, int defense) {
+    public Unit(String name, int maxHp, int maxMp, int attackDamage, int magicForce, int defense) {
         this.name = name;
-        this.hp = hp;
-        this.mp = mp;
+        this.hp = maxHp;
+        this.mp = maxMp;
         this.maxHp = maxHp;
         this.maxMp = maxMp;
         this.attackDamage = attackDamage;
