@@ -57,7 +57,6 @@ public class BattleController {
             BattleOutView.showCombatUI(player, monster);
 
             System.out.println("... (Enter를 눌러 다음 턴 진행)");
-            // scanner.nextLine(); // nextInt() 다음에 nextLine()을 한 번만 써서 버퍼를 비우는 게 일반적입니다.
             scanner.nextLine();
         }
 
@@ -69,13 +68,14 @@ public class BattleController {
     }
 
     public void processMonsterTurn() {
-        monster.attack(player); // 'this.monster', 'this.player' 사용
+        monster.attack(player);
         String monsterLog = BattleLog.getMonsterLog(player, monster);
         BattleLog.addLog(monsterLog);
     }
 
     public void processPlayerTurn() {
         int num = scanner.nextInt();
+        scanner.nextLine();
         if (num == 1) { // 스킬 사용
             processPlayerSkill();
         } else { // 기본공격사용
@@ -94,6 +94,7 @@ public class BattleController {
         System.out.print("사용할 스킬 번호를 입력하세요: ");
 
         int skillNum = scanner.nextInt();
+        scanner.nextLine();
         if (skillNum == 6) {
             System.out.println("스킬 사용을 취소합니다.");
             return;
