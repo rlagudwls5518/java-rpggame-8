@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
-import main.dto.JsonToBoss;
-import main.dto.JsonToMonster;
+import main.dto.MonsterData;
+import java.nio.charset.StandardCharsets;
 
 public class MonsterDatabase {
 
@@ -15,50 +15,31 @@ public class MonsterDatabase {
 
 
     public MonsterDatabase() {
-        loadMonsters("MiniMonster.json");
-        loadBosses("BossMonster.json");
+        loadMonsterData("MiniMonster.json");
+        loadMonsterData("BossMonster.json");
     }
 
-    private void loadMonsters(String fileName) {
+    private void loadMonsterData(String fileName) {
         Gson gson = new Gson();
+        MonsterType type;
+        Class<MonsterData[]> dataType = MonsterData[].class;
+
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-             Reader reader = new InputStreamReader(inputStream)) {
+             Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
 
-            JsonToMonster[] monsterDataArray = gson.fromJson(reader, JsonToMonster[].class);
+            MonsterData[] monsterDataArray = gson.fromJson(reader, dataType);
 
-            for (JsonToMonster data : monsterDataArray) {
-                if (data.name == null) {
-                    continue;
-                }
-                String art = String.join("\n", data.artLines);
-
-                Monster prototype = new Monster(
-                        MonsterType.MINI,
-                        data.name, data.hp, data.mp, data.hp, data.mp,
-                        data.attackDamage, data.magicForce, data.defense, data.gold,
-                        data.exp, data.description, art
-                );
-
-                this.monsterPrototypes.put(prototype.name, prototype);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadBosses(String fileName) {
-        Gson gson = new Gson();
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-             Reader reader = new InputStreamReader(inputStream)) {
-
-            JsonToBoss[] bossDataArray = gson.fromJson(reader, JsonToBoss[].class);
-
-            for (JsonToBoss data : bossDataArray) {
+            for (MonsterData data : monsterDataArray) {
                 if (data.name == null) {
                     continue;
                 }
 
-                MonsterType type = MonsterType.valueOf(data.type);
+                if (data.type == null) {
+                    type = MonsterType.MINI;
+                }else{
+                    type = MonsterType.valueOf(data.type);
+                }
+
                 String art = String.join("\n", data.artLines);
 
                 Monster prototype = new Monster(
@@ -74,7 +55,6 @@ public class MonsterDatabase {
             e.printStackTrace();
         }
     }
-
 
     public Monster createMonster(String name) {
         Monster prototype = monsterPrototypes.get(name);
