@@ -1,8 +1,10 @@
 package main.controller;
 
 import main.model.unit.character.PlayerCharacter;
+import main.model.unit.monster.Monster;
 import main.model.unit.monster.MonsterDatabase;
 import main.util.Clear; // Clear 유틸리티
+import main.view.BattleResultOutView;
 import main.view.StartOutputView; // 프롤로그 뷰
 
 import java.util.HashMap;
@@ -99,78 +101,26 @@ public class GameController {
 
     public void run() {
         prollog();
-        PlayerCharacter playerCharacter = new PlayerCharacter("형진");
+        PlayerCharacter player = new PlayerCharacter("형진");
 
         int stageCounter = 1;
 
-        // 5. 월드 1부터 5까지 순서대로 진행
         for (int world = 1; world <= 5; world++) {
             System.out.println("\n\n=============== [ WORLD " + world + " 진입 ] ===============");
             pressEnterToContinue();
-
-            // 6. 월드별 일반 스테이지 진행 (월드당 8개)
-            for (int i = 0; i < 8; i++) {
-                String monsterName = regularStageMap.get(stageCounter);
-
-                System.out.println("\n--- [ Stage " + stageCounter + " ] ---");
-
-                // 7. 전투 시작 (공통 로직 분리)
-                startBattle(playerCharacter, monsterName);
-
-                if (!playerCharacter.isAlive()) {
-                    System.out.println("게임 오버...");
-                    return;
-                }
-                System.out.println("스테이지 " + stageCounter + " 클리어!");
-                stageCounter++;
-                pressEnterToContinue();
-            }
-
-            // 8. 중간 보스 전투
-            System.out.println("\n--- [ 중간 보스 출현! ] ---");
-            String midBossName = midBossMap.get(world);
-            startBattle(playerCharacter, midBossName);
-
-            if (!playerCharacter.isAlive()) {
-                System.out.println("게임 오버...");
-                return;
-            }
-            System.out.println("중간 보스 격파!");
-            pressEnterToContinue();
-
-            // 9. 월드 보스 전투
-            System.out.println("\n--- [ 월드 보스 출현! ] ---");
-            String worldBossName = worldBossMap.get(world);
-            startBattle(playerCharacter, worldBossName);
-
-            if (!playerCharacter.isAlive()) {
-                System.out.println("게임 오버...");
-                return;
-            }
-            System.out.println("월드 " + world + " 클리어!");
-            // (월드 클리어 보상 등)
+            nomalStage(player, stageCounter, 0, 4);
+            midStage(player, world);
+            nomalStage(player, stageCounter, 5, 9);
+            worldStage(player, world);
         }
-
-        // 10. 최종 보스 전투
-        System.out.println("\n\n=============== [ 최종 결전 ] ===============");
-        startBattle(playerCharacter, finalBossName);
-
-        if (playerCharacter.isAlive()) {
-            System.out.println("\n\n축하합니다! 모든 세계를 구원했습니다! (엔딩)");
-        } else {
-            System.out.println("최후의 전투에서 패배했습니다...");
-        }
+        finalStage(player);
     }
 
-    /**
-     * 11. 전투 시작 공통 로직 (헬퍼 메소드)
-     */
     private void startBattle(PlayerCharacter player, String monsterName) {
         if (monsterName == null) {
             System.err.println("오류: " + monsterName + " 몬스터를 찾을 수 없습니다. (데이터 확인 필요)");
             return;
         }
-
         System.out.println(monsterName + "이(가) 나타났다!");
 
         BattleController battleController = new BattleController(
@@ -179,23 +129,118 @@ public class GameController {
                 monsterDatabase,
                 scanner
         );
-
         battleController.battleStart();
     }
 
+    private void nomalStage(PlayerCharacter player, int stageCounter, int start, int end) {
+        for (int i = start; i < end; i++) {
+            String monsterName = regularStageMap.get(stageCounter);
+            Monster monsterData = monsterDatabase.createMonster(monsterName);
+            int expGained = monsterData.giveExp();
+            int goldGained = monsterData.giveGold();
+
+            System.out.println("\n--- [ Stage " + stageCounter + " ] ---");
+
+            startBattle(player, monsterName);
+
+            if (!player.isAlive()) {
+                System.out.println("게임 오버...");
+                return;
+            }
+            BattleResultOutView.showVictoryScreen(
+                    monsterName,
+                    expGained,
+                    goldGained,
+                    player.getCurrentExp(),
+                    player.getMaxExp()
+            );
+            System.out.println("스테이지 " + stageCounter + " 클리어!");
+            stageCounter++;
+            pressEnterToContinue();
+        }
+    }
+
+    private void midStage(PlayerCharacter player, int world) {
+
+        System.out.println("\n--- [ 중간 보스 출현! ] ---");
+        String midBossName = midBossMap.get(world);
+        Monster monsterData = monsterDatabase.createMonster(midBossName);
+        int expGained = monsterData.giveExp();
+        int goldGained = monsterData.giveGold();
+        startBattle(player, midBossName);
+
+        if (!player.isAlive()) {
+            System.out.println("게임 오버...");
+            return;
+        }
+        BattleResultOutView.showVictoryScreen(
+                midBossName,
+                expGained,
+                goldGained,
+                player.getCurrentExp(),
+                player.getMaxExp()
+        );
+        System.out.println("중간 보스 격파!");
+        pressEnterToContinue();
+    }
+
+    private void worldStage(PlayerCharacter player, int world) {
+        System.out.println("\n--- [ 월드 보스 출현! ] ---");
+        String worldBossName = worldBossMap.get(world);
+        Monster monsterData = monsterDatabase.createMonster(worldBossName);
+        int expGained = monsterData.giveExp();
+        int goldGained = monsterData.giveGold();
+        startBattle(player, worldBossName);
+
+        if (!player.isAlive()) {
+            System.out.println("게임 오버...");
+            return;
+        }
+        BattleResultOutView.showVictoryScreen(
+                worldBossName,
+                expGained,
+                goldGained,
+                player.getCurrentExp(),
+                player.getMaxExp()
+        );
+        System.out.println("월드 " + world + " 클리어!");
+    }
+
+    private void finalStage(PlayerCharacter player) {
+        System.out.println("\n\n=============== [ 최종 결전 ] ===============");
+        Monster monsterData = monsterDatabase.createMonster(finalBossName);
+        int expGained = monsterData.giveExp();
+        int goldGained = monsterData.giveGold();
+        startBattle(player, finalBossName);
+
+        if (player.isAlive()) {
+            System.out.println("\n\n축하합니다! 모든 세계를 구원했습니다! (엔딩)");
+            BattleResultOutView.showVictoryScreen(
+                    finalBossName,
+                    expGained,
+                    goldGained,
+                    player.getCurrentExp(),
+                    player.getMaxExp()
+            );
+        } else {
+            System.out.println("최후의 전투에서 패배했습니다...");
+        }
+    }
+
     private void prollog() {
-         StartOutputView.showSplashScreen();
-         Clear.clearScreen();
-         StartOutputView.showPrologue();
-         Clear.clearScreen();
-         StartOutputView.showStartView();
-         Clear.clearScreen();
+        StartOutputView.showSplashScreen();
+        Clear.clearScreen();
+        StartOutputView.showPrologue();
+        Clear.clearScreen();
+        StartOutputView.showStartView();
+        Clear.clearScreen();
     }
 
     private void pressEnterToContinue() {
         System.out.println("\n(계속하려면 Enter를 누르세요...)");
         try {
             scanner.nextLine();
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
     }
 }
