@@ -57,10 +57,6 @@ public abstract class Unit {
         target.takeDamage(damage);
     }
 
-    public boolean isDead() {
-        return this.hp <= 0;
-    }
-
     public boolean isAlive() {
         return this.hp > 0;
     }

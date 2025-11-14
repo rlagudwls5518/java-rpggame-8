@@ -1,9 +1,6 @@
 package main.view;
 
-import java.io.Console;
-
 public class StartOutputView {
-    static Console console = System.console();
 
     public static void showSplashScreen() {
         System.out.println("========================================");
@@ -27,13 +24,9 @@ public class StartOutputView {
         System.out.println("[ 잠시 후 게임이 시작됩니다... ]");
         System.out.println();
 
-        // 3초간 프로그램을 잠시 멈춥니다.
         try {
-            // 3000 밀리초 = 3초
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
-            // sleep 도중 방해(interrupt)를 받으면 예외가 발생할 수 있으므로
-            // 'try-catch' 문으로 반드시 감싸주어야 합니다.
             e.printStackTrace();
         }
     }
@@ -61,8 +54,6 @@ public class StartOutputView {
         System.out.println("========================================");
         System.out.print("\n[ Enter 키를 눌러 계속하기... ]");
 
-        // 사용자가 Enter 키를 누를 때까지 기다립니다.
-        console.readLine();
     }
 
     public static void showStartView(){

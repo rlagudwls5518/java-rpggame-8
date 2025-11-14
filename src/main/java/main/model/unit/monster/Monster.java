@@ -33,10 +33,6 @@ public class Monster extends Unit {
         return this.exp;
     }
 
-    public MonsterType getType() {
-        return this.type;
-    }
-
     public String getAsciiArt() {
         return this.asciiArt;
     }
