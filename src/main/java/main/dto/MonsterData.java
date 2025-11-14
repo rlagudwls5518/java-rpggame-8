@@ -1,6 +1,6 @@
 package main.dto;
 
-public class JsonToBoss {
+public class MonsterData {
     public String name;
     public String type;
     public int hp;
@@ -13,5 +13,5 @@ public class JsonToBoss {
     public String description;
     public String[] artLines;
 
-    public JsonToBoss() { }
+    public MonsterData() { }
 }
