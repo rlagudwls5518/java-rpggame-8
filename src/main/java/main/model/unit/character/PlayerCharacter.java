@@ -2,6 +2,7 @@ package main.model.unit.character;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import main.model.unit.Unit;
 import main.model.unit.character.job.firstClass.SwordMan;
 
@@ -15,7 +16,7 @@ public class PlayerCharacter extends Unit {
     private final int levelUpPlusInt;
     private final int levelUpPlusMaxHP;
     private final int levelUpPlusDfs;
-    private final List<Skill> skills = new ArrayList<>();
+    private List<Skill> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
         super(name, 100, 50, 100, 10, 10, 0, 10);
@@ -29,6 +30,7 @@ public class PlayerCharacter extends Unit {
         gold = 0;
         currentJob = new SwordMan();
         updateStats(currentJob);
+        skills = currentJob.getSkillList();
     }
 
     public void advanceJob(CharacterJob newJob) {
@@ -54,23 +56,29 @@ public class PlayerCharacter extends Unit {
             exp += addExp;
         }
     }
-    public void showSkillList(){
-        for(int i=0; i<skills.size(); i++){
-            Skill skill = skills.get(i);
-            System.out.println((i + 1) + ". " + skill.getName() +
-                    " (MP 소모: " + skill.getMpCost() + ")");
-        }
+
+    public void showSkillList() {
+        IntStream.range(0, skills.size())
+                .forEach(i -> {
+                    Skill skill = skills.get(i);
+                    System.out.println((i + 1) + ". " + skill.getName() +
+                            " (MP : " + skill.getMpCost() + ")");
+                });
+    }
+
+    public String showSkillName(int skillNum) {
+        return skills.get(skillNum).getName();
     }
 
     public void useSkill(Unit target, int skillNumber) {
-        int indexNumber = skillNumber-1;
+        int indexNumber = skillNumber - 1;
         Skill selectedSkill = skills.get(indexNumber);
         if (this.getMp() < selectedSkill.getMpCost()) {
             System.out.println("MP가 부족하여 '" + selectedSkill.getName() + "'을(를) 사용할 수 없습니다!");
             return;
         }
         this.decreaseMp(selectedSkill.getMpCost());
-        selectedSkill.use(this,target);
+        selectedSkill.use(this, target);
     }
 
     public void learnSkill(Skill skillToAdd) {
@@ -99,6 +107,10 @@ public class PlayerCharacter extends Unit {
         if (currentJob.getJobName().equals("성기사") || currentJob.getJobName().equals("성검사")) {
             levelUpMagicForce(levelUpPlusInt);
         }
+    }
+
+    public String getJobName() {
+        return currentJob.getJobName();
     }
 
     public int getGold() {
