@@ -12,7 +12,6 @@ import main.view.BattleResultOutView;
 import main.view.StartOutputView;
 import java.util.List;
 import java.util.Scanner;
-import main.view.TownOutputView;
 
 public class GameController {
 
@@ -74,13 +73,13 @@ public class GameController {
             int expGained = monsterData.giveExp();
             int goldGained = monsterData.giveGold();
 
-            startBattle(player, monsterName);
+            startBattle(player, monsterName, stage);
             player.refillHpMp();
 
             if (!player.isAlive()) {
                 Clear.clearScreen();
-                System.out.println("게임 오버...");
-                return;
+                BattleResultOutView.showGameOverScreen(monsterName);
+                pressEnterToContinue();
             }
 
             Clear.clearScreen();
@@ -96,7 +95,7 @@ public class GameController {
     }
 
 
-    private void startBattle(PlayerCharacter player, String monsterName) {
+    private void startBattle(PlayerCharacter player, String monsterName, StageData stage) {
         if (monsterName == null) {
             System.err.println("오류: 몬스터 이름이 null입니다. ");
             return;
@@ -107,7 +106,8 @@ public class GameController {
                 player,
                 monsterName,
                 monsterDatabase,
-                scanner
+                scanner,
+                stage
         );
         battleController.battleStart();
     }

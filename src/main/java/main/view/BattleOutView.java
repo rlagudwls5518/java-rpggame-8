@@ -7,8 +7,8 @@ import main.model.unit.monster.Monster;
 
 public class BattleOutView {
 
-    public static void showCombatUI(PlayerCharacter player, Monster monster) {
-        monsterHealthBar(monster);
+    public static void showCombatUI(PlayerCharacter player, Monster monster, String stageName, int stageNumber) {
+        monsterHealthBar(monster, stageName, stageNumber);
         System.out.println();
         monsterAsciArt(monster);
         System.out.println();
@@ -34,9 +34,9 @@ public class BattleOutView {
                         player.getMp(), player.getMaxMp(), 10));
     }
 
-    private static void monsterHealthBar(Monster currentMonster) {
+    private static void monsterHealthBar(Monster currentMonster, String stageName, int stageNumber) {
         System.out.println("=======================================================================");
-        System.out.println("                 [ " + currentMonster.getName() + " ]");
+        System.out.println("                 [ "+ stageNumber +" "+ stageName +" "+ currentMonster.getName() + " ]");
         System.out.println("          HP: " + drawHealthBar(currentMonster.getHp(), currentMonster.getMaxHp(), 20));
         System.out.println("=======================================================================");
     }
