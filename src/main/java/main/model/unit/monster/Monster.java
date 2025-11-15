@@ -19,9 +19,9 @@ public class Monster extends Unit {
         this.description = original.description;
     }
 
-    public Monster(MonsterType type, String name, int hp, int mp, int maxHp, int maxMp, int attackDamage, int magicForce, int defense,
+    public Monster(MonsterType type, String name, int maxHp, int maxMp, int attackDamage, int magicForce, int defense,
                    int gold, int exp, String description, String asciiArt) {
-        super(name, hp, mp, maxHp, maxMp, attackDamage, magicForce, defense);
+        super(name, maxHp, maxMp, attackDamage, magicForce, defense);
         this.gold = gold;
         this.description = description;
         this.asciiArt = asciiArt;

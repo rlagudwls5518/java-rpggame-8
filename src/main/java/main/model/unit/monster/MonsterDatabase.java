@@ -44,7 +44,7 @@ public class MonsterDatabase {
 
                 Monster prototype = new Monster(
                         type,
-                        data.name, data.hp, data.mp, data.hp, data.mp,
+                        data.name, data.hp, data.mp,
                         data.attackDamage, data.magicForce, data.defense, data.gold,
                         data.exp, data.description, art
                 );
