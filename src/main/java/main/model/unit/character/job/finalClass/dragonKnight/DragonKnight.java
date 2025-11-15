@@ -10,6 +10,9 @@ import main.model.unit.character.job.finalClass.dragonKnight.skils.DragonStrike;
 
 
 public class DragonKnight implements CharacterJob {
+
+    private static final int ADVANCE_LEVEL = 40;
+
     @Override
     public String getJobName() {
         return "용기사";
@@ -33,5 +36,10 @@ public class DragonKnight implements CharacterJob {
     @Override
     public int getAttackBonus() {
         return 30;
+    }
+
+    @Override
+    public boolean canAdvance(int currentLevel) {
+        return currentLevel >= ADVANCE_LEVEL;
     }
 }

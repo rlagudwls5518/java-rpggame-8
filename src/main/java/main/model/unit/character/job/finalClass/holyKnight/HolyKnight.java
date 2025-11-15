@@ -9,6 +9,9 @@ import main.model.unit.character.job.finalClass.holyKnight.skils.LightOfJudgment
 import main.model.unit.character.job.finalClass.holyKnight.skils.WaveOfLight;
 
 public class HolyKnight implements CharacterJob {
+
+    private static final int ADVANCE_LEVEL = 40;
+
     @Override
     public String getJobName() {
         return "성검사";
@@ -32,5 +35,10 @@ public class HolyKnight implements CharacterJob {
     @Override
     public int getAttackBonus() {
         return 15;
+    }
+
+    @Override
+    public boolean canAdvance(int currentLevel) {
+        return currentLevel >= ADVANCE_LEVEL;
     }
 }

@@ -7,5 +7,6 @@ public interface CharacterJob {
     List<Skill> getSkillList();
     int getHpBonus();
     int getAttackBonus();
+    boolean canAdvance(int currentLevel);
 
 }

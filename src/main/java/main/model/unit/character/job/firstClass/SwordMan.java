@@ -29,4 +29,9 @@ public class SwordMan implements CharacterJob {
     public int getAttackBonus() {
         return 10;
     }
+
+    @Override
+    public boolean canAdvance(int currentLevel) {
+        return false;
+    }
 }

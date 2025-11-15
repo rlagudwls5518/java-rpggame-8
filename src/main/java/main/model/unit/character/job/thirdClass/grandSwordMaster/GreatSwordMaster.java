@@ -8,6 +8,9 @@ import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.SpinningS
 import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.SunderingStrike;
 
 public class GreatSwordMaster implements CharacterJob {
+
+    private static final int ADVANCE_LEVEL = 30;
+
     @Override
     public String getJobName() {
         return "대검사";
@@ -30,5 +33,10 @@ public class GreatSwordMaster implements CharacterJob {
     @Override
     public int getAttackBonus() {
         return 10;
+    }
+
+    @Override
+    public boolean canAdvance(int currentLevel) {
+        return currentLevel >= ADVANCE_LEVEL;
     }
 }

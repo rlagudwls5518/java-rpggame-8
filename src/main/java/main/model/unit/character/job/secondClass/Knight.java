@@ -1,6 +1,5 @@
 package main.model.unit.character.job.secondClass;
 
-import java.util.ArrayList;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
@@ -9,6 +8,8 @@ import main.model.unit.character.job.secondClass.skills.Endure;
 import main.model.unit.character.job.secondClass.skills.WeaponMastery;
 
 public class Knight implements CharacterJob {
+    private static final int ADVANCE_LEVEL = 20;
+
     @Override
     public String getJobName() {
         return "기사";
@@ -31,5 +32,10 @@ public class Knight implements CharacterJob {
     @Override
     public int getAttackBonus() {
         return 5;
+    }
+
+    @Override
+    public boolean canAdvance(int currentLevel) {
+        return currentLevel >= ADVANCE_LEVEL;
     }
 }

@@ -7,6 +7,9 @@ import main.model.unit.character.job.thirdClass.paladin.skills.HolySword;
 import main.model.unit.character.job.thirdClass.paladin.skills.ShieldBash;
 
 public class Paladin implements CharacterJob {
+
+    private static final int ADVANCE_LEVEL = 30;
+
     @Override
     public String getJobName() {
         return "성기사";
@@ -28,5 +31,10 @@ public class Paladin implements CharacterJob {
     @Override
     public int getAttackBonus() {
         return 5;
+    }
+
+    @Override
+    public boolean canAdvance(int currentLevel) {
+        return currentLevel >= ADVANCE_LEVEL;
     }
 }
