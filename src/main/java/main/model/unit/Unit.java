@@ -108,6 +108,10 @@ public abstract class Unit {
     public int getMaxMp() {
         return this.maxMp;
     }
+    public void refillHpMp(){
+        this.hp = this.maxHp;
+        this.mp = this.maxMp;
+    }
 
     public String getName() {
         return name;
