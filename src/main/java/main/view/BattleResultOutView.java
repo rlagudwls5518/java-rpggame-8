@@ -15,7 +15,7 @@ public class BattleResultOutView {
         System.out.println();
 
 
-        System.out.printf("   '%s'를 성공적으로 설득(처치)했습니다!\n", monsterName);
+        System.out.printf("   '%s'를 성공적으로 처치했습니다!\n", monsterName);
         System.out.println();
         System.out.println("--------------------------------------------------");
         System.out.println("                [ 획득 보상 ]");
@@ -29,6 +29,5 @@ public class BattleResultOutView {
         System.out.printf("   현재 경험치: %d / %d (다음 레벨까지 %d)\n", currentExp, maxExp, expToNextLevel);
         System.out.println();
         System.out.println();
-        System.out.println("[ Enter 키를 눌러 스테이지로 돌아가기... ]");
     }
 }

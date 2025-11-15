@@ -18,7 +18,9 @@ public class BattleOutView {
         System.out.println();
         showPlayerHealthBar(player);
         System.out.println("[ 행동 선택 ]");
+        System.out.println();
         System.out.println("1. 스킬사용  2. 기본 공격");
+        System.out.println();
         System.out.println("=======================================================================");
         System.out.print("  명령을 입력하세요: ");
     }
@@ -64,7 +66,7 @@ public class BattleOutView {
         int emptyBars = totalLength - filledBars;
 
         String filledPart = "■".repeat(filledBars);
-        String emptyPart = "[]".repeat(emptyBars);
+        String emptyPart = " ".repeat(emptyBars);
         return "[" + filledPart + emptyPart + "]";
     }
 }
