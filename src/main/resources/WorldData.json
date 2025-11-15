@@ -4,16 +4,66 @@
     "worldName": "썩은나무 숲",
     "requiredLevel": 1,
     "stages": [
-      { "stageNumber": 1, "stageName": "오래된 초소", "stageType": "MINI" },
-      { "stageNumber": 2, "stageName": "슬라임 서식지", "stageType": "MINI" },
-      { "stageNumber": 3, "stageName": "고블린 야영지", "stageType": "MINI" },
-      { "stageNumber": 4, "stageName": "숲 거미줄", "stageType": "MINI" },
-      { "stageNumber": 5, "stageName": "[숲의 악동] 고블린 족장 '스크래그'", "stageType": "MID_BOSS" },
-      { "stageNumber": 6, "stageName": "들쥐 굴", "stageType": "MINI" },
-      { "stageNumber": 7, "stageName": "도적의 아지트 입구", "stageType": "MINI" },
-      { "stageNumber": 8, "stageName": "새끼 늑대 서식지", "stageType": "MINI" },
-      { "stageNumber": 9, "stageName": "부패한 땅", "stageType": "MINI" },
-      { "stageNumber": 10, "stageName": "[월드 보스] 부패의 군주 '그룰'", "stageType": "FINAL_BOSS" }
+      {
+        "stageNumber": 1,
+        "stageName": "고블린 야영지",
+        "stageType": "MINI",
+        "monsterName": "썩은나무 고블린"
+      },
+      {
+        "stageNumber": 2,
+        "stageName": "슬라임 서식지",
+        "stageType": "MINI",
+        "monsterName": "거대 독버섯"
+      },
+      {
+        "stageNumber": 3,
+        "stageName": "오래된 초소",
+        "stageType": "MINI",
+        "monsterName": "진흙 슬라임"
+      },
+      {
+        "stageNumber": 4,
+        "stageName": "숲 거미줄",
+        "stageType": "MINI",
+        "monsterName": "길 잃은 새끼 늑대"
+      },
+      {
+        "stageNumber": 5,
+        "stageName": "어둠의 숲 초 입구",
+        "stageType": "MID_BOSS",
+        "monsterName": "[숲의 악동] 고블린 족장 '스크래그'"
+      },
+      {
+        "stageNumber": 6,
+        "stageName": "들쥐 굴",
+        "stageType": "MINI",
+        "monsterName": "부패한 들쥐"
+      },
+      {
+        "stageNumber": 7,
+        "stageName": "도적의 아지트 입구",
+        "stageType": "MINI",
+        "monsterName": "숲 거미"
+      },
+      {
+        "stageNumber": 8,
+        "stageName": "새끼 늑대 서식지",
+        "stageType": "MINI",
+        "monsterName": "나무 정령 파수꾼"
+      },
+      {
+        "stageNumber": 9,
+        "stageName": "부패한 땅",
+        "stageType": "MINI",
+        "monsterName": "숲 도적"
+      },
+      {
+        "stageNumber": 10,
+        "stageName": "어둠의 숲 깊은곳 ",
+        "stageType": "FINAL_BOSS",
+        "monsterName": "[월드 보스] 부패의 군주 '그룰'"
+      }
     ]
   },
   {
@@ -21,16 +71,66 @@
     "worldName": "울부짖는 협곡",
     "requiredLevel": 10,
     "stages": [
-      { "stageNumber": 1, "stageName": "협곡 입구", "stageType": "MINI" },
-      { "stageNumber": 2, "stageName": "박쥐 동굴", "stageType": "MINI" },
-      { "stageNumber": 3, "stageName": "코볼트 광산", "stageType": "MINI" },
-      { "stageNumber": 4, "stageName": "바람 정령 고원", "stageType": "MINI" },
-      { "stageNumber": 5, "stageName": "[협곡의 돌주먹] 바위 트롤 '그렁'", "stageType": "MID_BOSS" },
-      { "stageNumber": 6, "stageName": "돌가죽 멧돼지 영역", "stageType": "MINI" },
-      { "stageNumber": 7, "stageName": "절벽 도마뱀 서식지", "stageType": "MINI" },
-      { "stageNumber": 8, "stageName": "독수리 둥지", "stageType": "MINI" },
-      { "stageNumber": 9, "stageName": "무너진 바위 지대", "stageType": "MINI" },
-      { "stageNumber": 10, "stageName": "[월드 보스] 거대 골렘 '기간테스'", "stageType": "FINAL_BOSS" }
+      {
+        "stageNumber": 1,
+        "stageName": "협곡 입구",
+        "stageType": "MINI",
+        "monsterName": "협곡 박쥐"
+      },
+      {
+        "stageNumber": 2,
+        "stageName": "박쥐 동굴",
+        "stageType": "MINI",
+        "monsterName": "돌가죽 멧돼지"
+      },
+      {
+        "stageNumber": 3,
+        "stageName": "코볼트 광산",
+        "stageType": "MINI",
+        "monsterName": "하피"
+      },
+      {
+        "stageNumber": 4,
+        "stageName": "바람 정령 고원",
+        "stageType": "MINI",
+        "monsterName": "코볼트 광부"
+      },
+      {
+        "stageNumber": 5,
+        "stageName": "잊혀진 협곡",
+        "stageType": "MID_BOSS",
+        "monsterName": "[협곡의 돌주먹] 바위 트롤 '그렁'"
+      },
+      {
+        "stageNumber": 6,
+        "stageName": "돌가죽 멧돼지 영역",
+        "stageType": "MINI",
+        "monsterName": "바람 정령"
+      },
+      {
+        "stageNumber": 7,
+        "stageName": "절벽 도마뱀 서식지",
+        "stageType": "MINI",
+        "monsterName": "낙석 골렘"
+      },
+      {
+        "stageNumber": 8,
+        "stageName": "독수리 둥지",
+        "stageType": "MINI",
+        "monsterName": "절벽 도마뱀"
+      },
+      {
+        "stageNumber": 9,
+        "stageName": "무너진 바위 지대",
+        "stageType": "MINI",
+        "monsterName": "협곡 독수리"
+      },
+      {
+        "stageNumber": 10,
+        "stageName": "무너진 도시",
+        "stageType": "FINAL_BOSS",
+        "monsterName": "[월드 보스] 거대 골렘 '기간테스'"
+      }
     ]
   },
   {
@@ -38,16 +138,66 @@
     "worldName": "불타는 사막",
     "requiredLevel": 20,
     "stages": [
-      { "stageNumber": 1, "stageName": "사막 입구", "stageType": "MINI" },
-      { "stageNumber": 2, "stageName": "불개미 굴", "stageType": "MINI" },
-      { "stageNumber": 3, "stageName": "황무지 하이에나 소굴", "stageType": "MINI" },
-      { "stageNumber": 4, "stageName": "선인장 군락", "stageType": "MINI" },
-      { "stageNumber": 5, "stageName": "[모래의 암살자] 거대 전갈 '아크라브'", "stageType": "MID_BOSS" },
-      { "stageNumber": 6, "stageName": "타오르는 도마뱀 둥지", "stageType": "MINI" },
-      { "stageNumber": 7, "stageName": "모래 유령 출몰지", "stageType": "MINI" },
-      { "stageNumber": 8, "stageName": "고대 미라 무덤", "stageType": "MINI" },
-      { "stageNumber": 9, "stageName": "모래폭풍 지대", "stageType": "MINI" },
-      { "stageNumber": 10, "stageName": "[월드 보스] 고대 파라오 '아크나톤'", "stageType": "FINAL_BOSS" }
+      {
+        "stageNumber": 1,
+        "stageName": "사막 입구",
+        "stageType": "MINI",
+        "monsterName": "사막 전갈"
+      },
+      {
+        "stageNumber": 2,
+        "stageName": "불개미 굴",
+        "stageType": "MINI",
+        "monsterName": "미라 병사"
+      },
+      {
+        "stageNumber": 3,
+        "stageName": "황무지 하이에나 소굴",
+        "stageType": "MINI",
+        "monsterName": "불개미"
+      },
+      {
+        "stageNumber": 4,
+        "stageName": "선인장 군락",
+        "stageType": "MINI",
+        "monsterName": "모래 유령"
+      },
+      {
+        "stageNumber": 5,
+        "stageName": "모래 지옥 지대",
+        "stageType": "MID_BOSS",
+        "monsterName": "[모래의 암살자] 거대 전갈 '아크라브'"
+      },
+      {
+        "stageNumber": 6,
+        "stageName": "타오르는 도마뱀 둥지",
+        "stageType": "MINI",
+        "monsterName": "타오르는 도마뱀"
+      },
+      {
+        "stageNumber": 7,
+        "stageName": "모래 유령 출몰지",
+        "stageType": "MINI",
+        "monsterName": "선인장 괴물"
+      },
+      {
+        "stageNumber": 8,
+        "stageName": "고대 미라 무덤",
+        "stageType": "MINI",
+        "monsterName": "황무지 하이에나"
+      },
+      {
+        "stageNumber": 9,
+        "stageName": "모래폭풍 지대",
+        "stageType": "MINI",
+        "monsterName": "모래폭풍 정령"
+      },
+      {
+        "stageNumber": 10,
+        "stageName": "피라미드 내부 성전",
+        "stageType": "FINAL_BOSS",
+        "monsterName": "[월드 보스] 고대 파라오 '아크나톤'"
+      }
     ]
   },
   {
@@ -55,16 +205,66 @@
     "worldName": "얼어붙은 산맥",
     "requiredLevel": 30,
     "stages": [
-      { "stageNumber": 1, "stageName": "산맥 입구", "stageType": "MINI" },
-      { "stageNumber": 2, "stageName": "동상 걸린 고블린 주둔지", "stageType": "MINI" },
-      { "stageNumber": 3, "stageName": "서리 거미 동굴", "stageType": "MINI" },
-      { "stageNumber": 4, "stageName": "설원 늑대 무리", "stageType": "MINI" },
-      { "stageNumber": 5, "stageName": "[눈보라의 주인] '웬디고'", "stageType": "MID_BOSS" },
-      { "stageNumber": 6, "stageName": "혹한의 망령 출몰지", "stageType": "MINI" },
-      { "stageNumber": 7, "stageName": "겨울 멧돼지 영역", "stageType": "MINI" },
-      { "stageNumber": 8, "stageName": "얼음 정령 서식지", "stageType": "MINI" },
-      { "stageNumber": 9, "stageName": "설인 발자국", "stageType": "MINI" },
-      { "stageNumber": 10, "stageName": "[월드 보스] 서리 용 '니드호그'", "stageType": "FINAL_BOSS" }
+      {
+        "stageNumber": 1,
+        "stageName": "산맥 입구",
+        "stageType": "MINI",
+        "monsterName": "설원 늑대"
+      },
+      {
+        "stageNumber": 2,
+        "stageName": "동상 걸린 고블린 주둔지",
+        "stageType": "MINI",
+        "monsterName": "아이스 트롤"
+      },
+      {
+        "stageNumber": 3,
+        "stageName": "서리 거미 동굴",
+        "stageType": "MINI",
+        "monsterName": "서리 거미"
+      },
+      {
+        "stageNumber": 4,
+        "stageName": "설원 늑대 무리",
+        "stageType": "MINI",
+        "monsterName": "얼음 정령"
+      },
+      {
+        "stageNumber": 5,
+        "stageName": "설산의 숲속 ",
+        "stageType": "MID_BOSS",
+        "monsterName": "[눈보라의 주인] '웬디고'"
+      },
+      {
+        "stageNumber": 6,
+        "stageName": "혹한의 망령 출몰지",
+        "stageType": "MINI",
+        "monsterName": "혹한의 망령"
+      },
+      {
+        "stageNumber": 7,
+        "stageName": "겨울 멧돼지 영역",
+        "stageType": "MINI",
+        "monsterName": "동상 걸린 고블린"
+      },
+      {
+        "stageNumber": 8,
+        "stageName": "얼음 정령 서식지",
+        "stageType": "MINI",
+        "monsterName": "설인"
+      },
+      {
+        "stageNumber": 9,
+        "stageName": "설인 발자국",
+        "stageType": "MINI",
+        "monsterName": "겨울 멧돼지"
+      },
+      {
+        "stageNumber": 10,
+        "stageName": "설산의 꼭대기",
+        "stageType": "FINAL_BOSS",
+        "monsterName": "[월드 보스] 서리 용 '니드호그'"
+      }
     ]
   },
   {
@@ -72,17 +272,72 @@
     "worldName": "침몰한 도시",
     "requiredLevel": 40,
     "stages": [
-      { "stageNumber": 1, "stageName": "도시 외곽", "stageType": "MINI" },
-      { "stageNumber": 2, "stageName": "심해어인 마을", "stageType": "MINI" },
-      { "stageNumber": 3, "stageName": "전기 뱀장어 동굴", "stageType": "MINI" },
-      { "stageNumber": 4, "stageName": "유령 해적선", "stageType": "MINI" },
-      { "stageNumber": 5, "stageName": "[심해의 문지기] '나가 여왕'", "stageType": "MID_BOSS" },
-      { "stageNumber": 6, "stageName": "부패한 해초 숲", "stageType": "MINI" },
-      { "stageNumber": 7, "stageName": "물에 젖은 구울 서식지", "stageType": "MINI" },
-      { "stageNumber": 8, "stageName": "심해의 군주 제단", "stageType": "MINI" },
-      { "stageNumber": 9, "stageName": "고대 유적 입구", "stageType": "MINI" },
-      { "stageNumber": 10, "stageName": "[월드 보스] 태고의 존재 '크라켄'", "stageType": "FINAL_BOSS" },
-      { "stageNumber": 11, "stageName": "[최종 보스] 차원의 파괴자 '엔트로피'", "stageType": "TRUE_FINAL_BOSS" }
+      {
+        "stageNumber": 1,
+        "stageName": "도시 외곽",
+        "stageType": "MINI",
+        "monsterName": "심해어인"
+      },
+      {
+        "stageNumber": 2,
+        "stageName": "심해어인 마을",
+        "stageType": "MINI",
+        "monsterName": "부패한 해초"
+      },
+      {
+        "stageNumber": 3,
+        "stageName": "전기 뱀장어 동굴",
+        "stageType": "MINI",
+        "monsterName": "전기 뱀장어"
+      },
+      {
+        "stageNumber": 4,
+        "stageName": "유령 해적선",
+        "stageType": "MINI",
+        "monsterName": "물에 젖은 구울"
+      },
+      {
+        "stageNumber": 5,
+        "stageName": "심해의 골짜기",
+        "stageType": "MID_BOSS",
+        "monsterName": "[심해의 문지기] '나가 여왕'"
+      },
+      {
+        "stageNumber": 6,
+        "stageName": "부패한 해초 숲",
+        "stageType": "MINI",
+        "monsterName": "고대 유적 수호자"
+      },
+      {
+        "stageNumber": 7,
+        "stageName": "물에 젖은 구울 서식지",
+        "stageType": "MINI",
+        "monsterName": "유령 해적"
+      },
+      {
+        "stageNumber": 8,
+        "stageName": "심해의 군주 제단",
+        "stageType": "MINI",
+        "monsterName": "거대 집게"
+      },
+      {
+        "stageNumber": 9,
+        "stageName": "고대 유적 입구",
+        "stageType": "MINI",
+        "monsterName": "심해의 군주"
+      },
+      {
+        "stageNumber": 10,
+        "stageName": "고대유적 알현실",
+        "stageType": "FINAL_BOSS",
+        "monsterName": "[월드 보스] 태고의 존재 '크라켄'"
+      },
+      {
+        "stageNumber": 11,
+        "stageName": "차원의 틈",
+        "stageType": "TRUE_FINAL_BOSS",
+        "monsterName": "[최종 보스] 차원의 파괴자 '엔트로피'"
+      }
     ]
   }
 ]
