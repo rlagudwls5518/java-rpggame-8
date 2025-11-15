@@ -5,15 +5,16 @@ public class StartOutputView {
     public static void showSplashScreen() {
         System.out.println("========================================");
         System.out.println();
-        System.out.println("             A GAME BY");
+        System.out.println("              A GAME BY");
         System.out.println();
-        System.out.println("             [ 김형진 ]");
+        System.out.println("              [ 김형진 ]");
         System.out.println("              (개굴개굴)");
         System.out.println();
         System.out.println();
-        System.out.println("     DEVELOPMENT PERIOD");
+        System.out.println("             DEVELOPMENT");
+        System.out.println("               PERIOD");
         System.out.println();
-        System.out.println("   [ 2025. 10. 04 ~ 2025. 11. 18 ]");
+        System.out.println("   [ 2025. 11. 04 ~ 2025. 11. 25 ]");
         System.out.println();
         System.out.println("========================================");
         System.out.println();
@@ -34,35 +35,32 @@ public class StartOutputView {
     public static void showPrologue() {
         System.out.println("========================================");
         System.out.println();
-        System.out.println("    오래전, '에루나' 대륙은");
-        System.out.println("    고대 드래곤들의 가호 아래");
-        System.out.println("    조화와 번영을 누리고 있었다.");
+        System.out.println("    세계의 '틈'이 벌어지고 있습니다.");
+        System.out.println("    오래된 봉인이 약해지며,");
+        System.out.println("    다섯 개의 세계가 ");
+        System.out.println("    어둠에 잠식당하고 있습니다.");
         System.out.println();
-        System.out.println("    그러나, 심연의 군주 '자르곤'이 깨어나");
-        System.out.println("    대륙을 끝없는 어둠 속에 가두었다.");
+        System.out.println("    '썩은나무 숲'은 독기로 물들고,");
+        System.out.println("    '울부짖는 협곡'은 비명을 삼키며,");
+        System.out.println("    '불타는 사막'은 재가 되어갑니다.");
         System.out.println();
-        System.out.println("    찬란했던 왕국들은 무너졌고,");
-        System.out.println("    희망의 불씨는 꺼져가는 듯했다.");
+        System.out.println("    당신은 이 균열을 막을 유일한 희망,");
+        System.out.println("    '차원 방랑자'입니다.");
         System.out.println();
-        System.out.println("    이제, 고대의 예언에 따라");
-        System.out.println("    '빛의 조각'을 모을 유일한 용사,");
-        System.out.println("    바로 당신이 나설 차례다.");
-        System.out.println();
-        System.out.println("    이 험난한 여정을 받아들이고,");
-        System.out.println("    '자르곤'을 물리쳐 대륙에 빛을 되찾아라.");
+        System.out.println("    다섯 세계의 '중심'을 되찾고,");
+        System.out.println("    무너지는 대륙을 구원하십시오.");
         System.out.println();
         System.out.println("========================================");
-        System.out.print("\n[ Enter 키를 눌러 계속하기... ]");
-
     }
 
     public static void showStartView(){
         System.out.println("========================================");
-        System.out.println("           PROJECT: DRAGON KNIGHT");
+        System.out.println("         PROJECT: DAWNBREAKER");
+        System.out.println("      (프로젝트: 여명을 부수는 자)");
         System.out.println("========================================");
         System.out.println();
-        System.out.println("      1. 여정을 떠난다");
-        System.out.println("      2. 게임을 종료한다");
+        System.out.println("           1. 여정을 떠난다");
+        System.out.println("           2. 게임을 종료한다");
         System.out.println();
         System.out.println("========================================");
         System.out.println("   숫자를 입력하고 Enter를 누르세요... ");
