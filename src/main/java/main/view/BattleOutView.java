@@ -17,6 +17,7 @@ public class BattleOutView {
         System.out.println("-----------------------------------------------------------------------");
         System.out.println();
         showPlayerHealthBar(player);
+        System.out.println();
         System.out.println("[ 행동 선택 ]");
         System.out.println();
         System.out.println("1. 스킬사용  2. 기본 공격");
@@ -26,7 +27,8 @@ public class BattleOutView {
     }
 
     private static void showPlayerHealthBar(PlayerCharacter player) {
-        System.out.println("[" + player.getName() + ": [Lv. " + player.getLevel() + "]" + player.getJobName() + "]");
+        System.out.println("[" + player.getName() + ": [Lv. " + player.getLevel() + "]  " + player.getJobName() + "]");
+        System.out.println();
         System.out.println(
                 " 체력(HP): " + drawHealthBar(player.getHp(), player.getMaxHp(), 10) + " 마력(MP): " + drawHealthBar(
                         player.getMp(), player.getMaxMp(), 10));
