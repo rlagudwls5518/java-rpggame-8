@@ -2,13 +2,14 @@ package main.view;
 
 import static main.model.battle.BattleLog.showCombatLogUI;
 
+import main.dto.WorldData;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 
 public class BattleOutView {
 
-    public static void showCombatUI(PlayerCharacter player, Monster monster, String stageName, int stageNumber) {
-        monsterHealthBar(monster, stageName, stageNumber);
+    public static void showCombatUI(PlayerCharacter player, Monster monster, String stageName, int stageNumber, WorldData worldData) {
+        monsterHealthBar(monster, stageName, stageNumber, worldData);
         System.out.println();
         monsterAsciArt(monster);
         System.out.println();
@@ -34,9 +35,10 @@ public class BattleOutView {
                         player.getMp(), player.getMaxMp(), 10));
     }
 
-    private static void monsterHealthBar(Monster currentMonster, String stageName, int stageNumber) {
+    private static void monsterHealthBar(Monster currentMonster, String stageName, int stageNumber,  WorldData worldData) {
         System.out.println("=======================================================================");
-        System.out.println("                 [ "+ stageNumber +" "+ stageName +" "+ currentMonster.getName() + " ]");
+        System.out.println("["+ worldData.worldId + "-" + stageNumber +" "+ stageName+"]");
+        System.out.println("     ["+currentMonster.getName()+"]");
         System.out.println("          HP: " + drawHealthBar(currentMonster.getHp(), currentMonster.getMaxHp(), 20));
         System.out.println("=======================================================================");
     }
