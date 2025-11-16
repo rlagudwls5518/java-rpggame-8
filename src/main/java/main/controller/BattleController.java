@@ -1,5 +1,7 @@
 package main.controller;
 
+import static main.util.EnterExplantion.pressEnterNextTurn;
+
 import java.util.Scanner;
 import main.dto.StageData;
 import main.dto.WorldData;
@@ -61,8 +63,7 @@ public class BattleController {
             Clear.clearScreen();
             BattleOutView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
 
-            System.out.println("... (Enter를 눌러 다음 턴 진행)");
-            scanner.nextLine();
+            pressEnterNextTurn();
         }
 
         if (player.isAlive()) {

@@ -1,7 +1,11 @@
 package main.controller;
 
+import static main.util.EnterExplantion.pressEnterToContinue;
+import static main.util.EnterExplantion.pressEnterTown;
+
 import main.dto.StageData;
 import main.dto.WorldData;
+import main.view.TownOutputView;
 import main.world.StageDatabase;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
@@ -17,6 +21,7 @@ public class GameController {
     private final MonsterDatabase monsterDatabase;
     private final Scanner scanner;
     private final StageDatabase stageDatabase;
+
 
     public GameController() {
         this.monsterDatabase = new MonsterDatabase();
@@ -35,31 +40,18 @@ public class GameController {
             pressEnterToContinue();
             runWorld(player, world);
             if (!player.isAlive()) {
-
                 return;
             }
         }
     }
 
-    //            if (player.getLevel() < world.requiredLevel) {
-    //                System.out.println("\n" + world.worldName + "에 진입하려면 Lv." + world.requiredLevel + " 이상이 필요합니다.");
-    //                System.out.println("... 모험이 부족한 것 같습니다 ...");
-    //                break;
-    //            }
-    //        if (player.isAlive()) {
-    //            System.out.println("\n\n축하합니다! 모든 세계를 구원했습니다! (엔딩)");
-    //        } else {
-    //            System.out.println("최후의 전투에서 패배했습니다...");
-    //        }
-
-
     private void runWorld(PlayerCharacter player, WorldData world) {
 
         for (StageData stage : world.stages) {
-//            String stageType = stage.stageType;
-//            if ("MID_BOSS".equals(stageType) || "FINAL_BOSS".equals(stageType) || "TRUE_FINAL_BOSS".equals(stageType)) {
-//                TownOutputView.showTownMenu(player);
-//            }
+            String stageType = stage.stageType;
+            if ("MID_BOSS".equals(stageType) || "FINAL_BOSS".equals(stageType) || "TRUE_FINAL_BOSS".equals(stageType)) {
+                TownOutputView.showTownMenu(player, world, stage);
+            }
 
             System.out.println("\n--- [ " + stage.stageName + " ] ---");
             String monsterName = stage.monsterName;
@@ -78,7 +70,7 @@ public class GameController {
             if (!player.isAlive()) {
                 Clear.clearScreen();
                 BattleResultOutView.showGameOverScreen(monsterName);
-                pressEnterToContinue();
+                pressEnterTown();
             }
 
             Clear.clearScreen();
@@ -122,13 +114,5 @@ public class GameController {
         StartOutputView.showStartView();
         pressEnterToContinue();
         Clear.clearScreen();
-    }
-
-    private void pressEnterToContinue() {
-        System.out.println("\n(계속하려면 Enter를 누르세요...)");
-        try {
-            scanner.nextLine();
-        } catch (Exception e) {
-        }
     }
 }

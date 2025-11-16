@@ -59,12 +59,5 @@ public class BattleResultOutView {
         System.out.println("   \"\"포기하지 마세요. 마을에서 재정비 후 다시 도전합시다.\"\"");
         System.out.println();
         System.out.println();
-
-        // 마지막 줄은 print()를 사용해 커서가 같은 줄에 머물도록 함
-        System.out.print("[ Enter 키를 누르면 '마을'로 돌아갑니다... ]");
-
-        // 마을로 돌아가는 로직을 시뮬레이션
-        System.out.println(); // 줄바꿈
-        System.out.println("\n휴게실(마을)로 돌아갑니다...");
     }
 }
