@@ -3,6 +3,7 @@ package main.model.unit.character.job.thirdClass.paladin;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
+import main.model.unit.character.job.finalClass.holyKnight.HolyKnight;
 import main.model.unit.character.job.thirdClass.paladin.skills.HolySword;
 import main.model.unit.character.job.thirdClass.paladin.skills.ShieldBash;
 
@@ -36,5 +37,20 @@ public class Paladin implements CharacterJob {
     @Override
     public boolean canAdvance(int currentLevel) {
         return currentLevel >= ADVANCE_LEVEL;
+    }
+
+    @Override
+    public CharacterJob advance(int choice) {
+        return new HolyKnight();
+    }
+
+    @Override
+    public List<CharacterJob> getAdvancementOptions() {
+        return List.of(new HolyKnight());
+    }
+
+    @Override
+    public int getJobAdvancementTier() {
+        return 2;
     }
 }

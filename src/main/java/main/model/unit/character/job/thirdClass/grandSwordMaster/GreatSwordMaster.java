@@ -3,6 +3,7 @@ package main.model.unit.character.job.thirdClass.grandSwordMaster;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
+import main.model.unit.character.job.finalClass.dragonKnight.DragonKnight;
 import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.BattleStance;
 import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.SpinningSlash;
 import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.SunderingStrike;
@@ -38,5 +39,20 @@ public class GreatSwordMaster implements CharacterJob {
     @Override
     public boolean canAdvance(int currentLevel) {
         return currentLevel >= ADVANCE_LEVEL;
+    }
+
+    @Override
+    public CharacterJob advance(int choice) {
+        return new DragonKnight();
+    }
+
+    @Override
+    public List<CharacterJob> getAdvancementOptions() {
+        return List.of(new DragonKnight());
+    }
+
+    @Override
+    public int getJobAdvancementTier() {
+        return 2;
     }
 }

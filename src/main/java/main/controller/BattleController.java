@@ -2,6 +2,7 @@ package main.controller;
 
 import java.util.Scanner;
 import main.dto.StageData;
+import main.dto.WorldData;
 import main.model.battle.BattleLog;
 import main.model.battle.EndBattle;
 import main.model.unit.character.PlayerCharacter;
@@ -15,15 +16,17 @@ public class BattleController {
     private final Monster monster;
     private final Scanner scanner;
     private final MonsterDatabase monsterDatabase;
+    private final WorldData worldData;
     private final StageData stage;
 
 
     public BattleController(PlayerCharacter player, String monsterName,
-                            MonsterDatabase monsterDatabase, Scanner scanner, StageData stage) {
+                            MonsterDatabase monsterDatabase, Scanner scanner, StageData stage, WorldData worldData) {
         this.player = player;
         this.scanner = scanner;
         this.monsterDatabase = monsterDatabase;
         this.monster = this.monsterDatabase.createMonster(monsterName);
+        this.worldData = worldData;
         this.stage = stage;
     }
 
@@ -39,7 +42,7 @@ public class BattleController {
             Clear.clearScreen();
             BattleLog.clearLog();
 
-            BattleOutView.showCombatUI(player, monster, stage.stageName, stage.stageNumber);
+            BattleOutView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
 
             if (player.getAd() > monster.getAd()) {
                 processPlayerTurn();
@@ -56,7 +59,7 @@ public class BattleController {
             }
 
             Clear.clearScreen();
-            BattleOutView.showCombatUI(player, monster, stage.stageName, stage.stageNumber);
+            BattleOutView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
 
             System.out.println("... (Enter를 눌러 다음 턴 진행)");
             scanner.nextLine();

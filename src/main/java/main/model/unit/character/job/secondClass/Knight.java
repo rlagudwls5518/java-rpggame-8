@@ -6,6 +6,8 @@ import main.model.unit.character.Skill;
 import main.model.unit.character.job.secondClass.skills.Charge;
 import main.model.unit.character.job.secondClass.skills.Endure;
 import main.model.unit.character.job.secondClass.skills.WeaponMastery;
+import main.model.unit.character.job.thirdClass.grandSwordMaster.GreatSwordMaster;
+import main.model.unit.character.job.thirdClass.paladin.Paladin;
 
 public class Knight implements CharacterJob {
     private static final int ADVANCE_LEVEL = 20;
@@ -37,5 +39,27 @@ public class Knight implements CharacterJob {
     @Override
     public boolean canAdvance(int currentLevel) {
         return currentLevel >= ADVANCE_LEVEL;
+    }
+
+    @Override
+    public CharacterJob advance(int choice) {
+
+        if(choice == 1){
+            return new GreatSwordMaster();
+        }
+        if(choice == 2){
+            return new Paladin();
+        }
+        return null;
+    }
+
+    @Override
+    public List<CharacterJob> getAdvancementOptions() {
+        return List.of(new GreatSwordMaster(),  new Paladin());
+    }
+
+    @Override
+    public int getJobAdvancementTier() {
+        return 1;
     }
 }

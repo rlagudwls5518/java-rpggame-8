@@ -2,14 +2,18 @@ package main.model.unit.character;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.IntStream;
 import main.model.unit.Unit;
 import main.model.unit.character.job.firstClass.SwordMan;
+import main.util.Clear;
+import main.view.AdvancedJobOutView;
+import main.view.JobChoiceOutView;
 
 public class PlayerCharacter extends Unit {
     private int level;
     private int exp;
-    private int maxExp;
+    private final int maxExp;
     private int gold;
     private CharacterJob currentJob;
     private final int levelUpPlusStr;
@@ -19,7 +23,7 @@ public class PlayerCharacter extends Unit {
     private List<Skill> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
-        super(name, 100, 50, 10, 0, 10);
+        super(name, 100, 50, 100, 0, 10);
         levelUpPlusDfs = 10;
         level = 1;
         exp = 0;
@@ -30,7 +34,7 @@ public class PlayerCharacter extends Unit {
         gold = 0;
         currentJob = new SwordMan();
         updateStats(currentJob);
-        skills = currentJob.getSkillList();
+        skills = new ArrayList<>(currentJob.getSkillList());
     }
 
     public void advanceJob(CharacterJob newJob) {
@@ -48,15 +52,13 @@ public class PlayerCharacter extends Unit {
     }
 
     public void storeExp(int addExp) {
-        if ((exp + addExp) >= maxExp) {
-            int dummyExp = (exp + addExp) - maxExp;
+        this.exp += addExp;
+        while (this.exp >= this.maxExp) {
+            int expUsedForLevelUp = this.maxExp;
+            this.exp -= expUsedForLevelUp;
             levelUp();
-            exp += dummyExp;
-        } else {
-            exp += addExp;
         }
     }
-
     public void showSkillList() {
         IntStream.range(0, skills.size())
                 .forEach(i -> {
@@ -100,7 +102,6 @@ public class PlayerCharacter extends Unit {
 
     private void levelUp() {
         level++;
-        exp = 0;
         levelUpHp(levelUpPlusMaxHP);
         levelUpAttackDamage(levelUpPlusStr);
         levelUpDefense(levelUpPlusDfs);
@@ -108,6 +109,44 @@ public class PlayerCharacter extends Unit {
             levelUpMagicForce(levelUpPlusInt);
         }
     }
+
+    private boolean checkAdvancement() {
+        return currentJob.canAdvance(this.level);
+    }
+
+    public void ProcessAdvancement() {
+        Scanner sc = new Scanner(System.in);
+
+        if (!checkAdvancement()) {
+            return;
+        }
+
+        // 전직이 가능하다면, '현재 직업'에게 다음 전직 옵션들을 받아옴
+        List<CharacterJob> advancementOptions = currentJob.getAdvancementOptions();
+
+        if (advancementOptions.isEmpty()) {
+            return;
+        }
+
+        // 3. 전직 옵션이 1개일 경우 (김형진님의 '2차 전직')
+        if (advancementOptions.size() == 1) {
+            CharacterJob nextJob = advancementOptions.get(0);
+            advanceJob(nextJob);
+            Clear.clearScreen();
+            AdvancedJobOutView.showJobAdvanceScreen(currentJob);
+        }
+        else{
+            JobChoiceOutView.jobChoice();
+
+            int choice = sc.nextInt();
+
+            CharacterJob nextJob = currentJob.advance(choice);
+            advanceJob(nextJob);
+            Clear.clearScreen();
+            AdvancedJobOutView.showJobAdvanceScreen(currentJob);
+        }
+    }
+
     public int getCurrentExp(){
         return exp;
     }

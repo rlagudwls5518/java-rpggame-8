@@ -42,4 +42,19 @@ public class DragonKnight implements CharacterJob {
     public boolean canAdvance(int currentLevel) {
         return currentLevel >= ADVANCE_LEVEL;
     }
+
+    @Override
+    public CharacterJob advance(int choice) {
+        return null;
+    }
+
+    @Override
+    public List<CharacterJob> getAdvancementOptions() {
+        return List.of();
+    }
+
+    @Override
+    public int getJobAdvancementTier() {
+        return 3;
+    }
 }

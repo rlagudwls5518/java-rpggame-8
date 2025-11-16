@@ -1,6 +1,5 @@
 package main.controller;
 
-
 import main.dto.StageData;
 import main.dto.WorldData;
 import main.world.StageDatabase;
@@ -73,7 +72,7 @@ public class GameController {
             int expGained = monsterData.giveExp();
             int goldGained = monsterData.giveGold();
 
-            startBattle(player, monsterName, stage);
+            startBattle(player, monsterName, stage, world);
             player.refillHpMp();
 
             if (!player.isAlive()) {
@@ -91,11 +90,12 @@ public class GameController {
                     player.getMaxExp()
             );
             pressEnterToContinue();
+            Clear.clearScreen();
+            player.ProcessAdvancement();
         }
     }
 
-
-    private void startBattle(PlayerCharacter player, String monsterName, StageData stage) {
+    private void startBattle(PlayerCharacter player, String monsterName, StageData stage, WorldData world) {
         if (monsterName == null) {
             System.err.println("오류: 몬스터 이름이 null입니다. ");
             return;
@@ -107,7 +107,8 @@ public class GameController {
                 monsterName,
                 monsterDatabase,
                 scanner,
-                stage
+                stage,
+                world
         );
         battleController.battleStart();
     }

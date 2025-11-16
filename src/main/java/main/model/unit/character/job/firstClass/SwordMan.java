@@ -5,8 +5,11 @@ import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
 import main.model.unit.character.job.firstClass.skill.DefensiveStance;
 import main.model.unit.character.job.firstClass.skill.PowerStrike;
+import main.model.unit.character.job.secondClass.Knight;
 
 public class SwordMan implements CharacterJob {
+    private static final int ADVANCE_LEVEL = 10;
+
     @Override
     public String getJobName() {
         return "전사";
@@ -32,6 +35,24 @@ public class SwordMan implements CharacterJob {
 
     @Override
     public boolean canAdvance(int currentLevel) {
-        return false;
+        return currentLevel >= ADVANCE_LEVEL;
+    }
+
+    @Override
+    public CharacterJob advance(int choice) {
+        if (choice == 1) {
+            return new Knight();
+        }
+        return null;
+    }
+
+    @Override
+    public List<CharacterJob> getAdvancementOptions() {
+        return List.of(new Knight());
+    }
+
+    @Override
+    public int getJobAdvancementTier() {
+        return 0;
     }
 }
