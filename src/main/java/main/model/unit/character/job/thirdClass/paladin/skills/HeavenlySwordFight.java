@@ -1,23 +1,23 @@
-package main.model.unit.character.job.thirdClass.grandSwordMaster.skils;
+package main.model.unit.character.job.thirdClass.paladin.skills;
 
 import main.model.unit.Unit;
 import main.model.unit.character.Skill;
 import main.util.MpCostRate;
 import main.util.SkillsDamages;
 
-public class SpinningSlash implements Skill {
+public class HeavenlySwordFight implements Skill {
 
-    SkillsDamages spinningSlashRate = SkillsDamages.PERCENT_100;
+    SkillsDamages heavenlySwordFightRate = SkillsDamages.PERCENT_150;
     MpCostRate mpCostRate = MpCostRate.MPCOST_20;
 
     @Override
     public String getName() {
-        return "연속베기";
+        return "천상대검격";
     }
 
     @Override
     public String getDescription() {
-        return "대검을 두번 휘둘러 공격력의 100% 피해를 입힙니다";
+        return "전투태세로 돌입하고 하늘로 뛰어올라 공격력의 150% 피해를 입힌다";
     }
 
     @Override
@@ -27,7 +27,8 @@ public class SpinningSlash implements Skill {
 
     @Override
     public void use(Unit user, Unit target) {
-        double damege = user.getAd() * spinningSlashRate.getRate();
+        double damege = user.getAd() * heavenlySwordFightRate.getRate();
         target.takeDamage(damege);
+
     }
 }

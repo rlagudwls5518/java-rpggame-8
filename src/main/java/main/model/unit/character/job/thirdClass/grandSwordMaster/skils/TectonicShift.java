@@ -5,19 +5,19 @@ import main.model.unit.character.Skill;
 import main.util.MpCostRate;
 import main.util.SkillsDamages;
 
-public class SpinningSlash implements Skill {
+public class TectonicShift implements Skill {
 
-    SkillsDamages spinningSlashRate = SkillsDamages.PERCENT_100;
-    MpCostRate mpCostRate = MpCostRate.MPCOST_20;
+    SkillsDamages tectonicShiftRate = SkillsDamages.PERCENT_150;
+    MpCostRate mpCostRate = MpCostRate.MPCOST_25;
 
     @Override
     public String getName() {
-        return "연속베기";
+        return "지각 변동";
     }
 
     @Override
     public String getDescription() {
-        return "대검을 두번 휘둘러 공격력의 100% 피해를 입힙니다";
+        return "대검을 바닥에 꽂아 지각을 움직여 공격력의 150%피해를 입힌다";
     }
 
     @Override
@@ -27,7 +27,7 @@ public class SpinningSlash implements Skill {
 
     @Override
     public void use(Unit user, Unit target) {
-        double damege = user.getAd() * spinningSlashRate.getRate();
+        double damege = user.getAd() * tectonicShiftRate.getRate();
         target.takeDamage(damege);
     }
 }

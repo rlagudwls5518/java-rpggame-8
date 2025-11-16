@@ -4,7 +4,7 @@ import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
 import main.model.unit.character.job.secondClass.skills.Charge;
-import main.model.unit.character.job.secondClass.skills.Endure;
+import main.model.unit.character.job.secondClass.skills.ShieldCrush;
 import main.model.unit.character.job.secondClass.skills.WeaponMastery;
 import main.model.unit.character.job.thirdClass.grandSwordMaster.GreatSwordMaster;
 import main.model.unit.character.job.thirdClass.paladin.Paladin;
@@ -21,7 +21,7 @@ public class Knight implements CharacterJob {
     public List<Skill> getSkillList() {
         return List.of(
                 new Charge(),
-                new Endure(),
+                new ShieldCrush(),
                 new WeaponMastery()
         );
     }

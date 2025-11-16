@@ -3,7 +3,7 @@ package main.model.unit.character.job.firstClass;
 import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
-import main.model.unit.character.job.firstClass.skill.DefensiveStance;
+import main.model.unit.character.job.firstClass.skill.DummFist;
 import main.model.unit.character.job.firstClass.skill.PowerStrike;
 import main.model.unit.character.job.secondClass.Knight;
 
@@ -19,7 +19,7 @@ public class SwordMan implements CharacterJob {
     public List<Skill> getSkillList() {
         return List.of(
                 new PowerStrike(),
-                new DefensiveStance()
+                new DummFist()
         );
     }
 

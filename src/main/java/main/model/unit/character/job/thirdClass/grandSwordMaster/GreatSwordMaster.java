@@ -4,9 +4,9 @@ import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
 import main.model.unit.character.job.finalClass.dragonKnight.DragonKnight;
-import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.BattleStance;
 import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.SpinningSlash;
 import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.SunderingStrike;
+import main.model.unit.character.job.thirdClass.grandSwordMaster.skils.TectonicShift;
 
 public class GreatSwordMaster implements CharacterJob {
 
@@ -20,7 +20,7 @@ public class GreatSwordMaster implements CharacterJob {
     @Override
     public List<Skill> getSkillList() {
         return List.of(
-                new BattleStance(),
+                new TectonicShift(),
                 new SpinningSlash(),
                 new SunderingStrike()
         );

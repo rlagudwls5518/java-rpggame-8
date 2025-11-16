@@ -4,6 +4,7 @@ import java.util.List;
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;
 import main.model.unit.character.job.finalClass.holyKnight.HolyKnight;
+import main.model.unit.character.job.thirdClass.paladin.skills.HeavenlySwordFight;
 import main.model.unit.character.job.thirdClass.paladin.skills.HolySword;
 import main.model.unit.character.job.thirdClass.paladin.skills.ShieldBash;
 
@@ -19,6 +20,7 @@ public class Paladin implements CharacterJob {
     @Override
     public List<Skill> getSkillList() {
         return List.of(
+                new HeavenlySwordFight(),
                 new HolySword(),
                 new ShieldBash()
         );

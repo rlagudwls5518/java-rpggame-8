@@ -2,8 +2,14 @@ package main.model.unit.character.job.finalClass.holyKnight.skils;
 
 import main.model.unit.Unit;
 import main.model.unit.character.Skill;
+import main.util.MpCostRate;
+import main.util.SkillsDamages;
 
 public class DivineExcalibur implements Skill{
+
+    SkillsDamages divineExcaliburRate = SkillsDamages.PERCENT_300;
+    MpCostRate mpCostRate = MpCostRate.MPCOST_50;
+
     @Override
     public String getName() {
         return "궁극기 - 신성 엑스칼리버";
@@ -16,12 +22,12 @@ public class DivineExcalibur implements Skill{
 
     @Override
     public int getMpCost() {
-        return 50;
+        return mpCostRate.getmpCost();
     }
 
     @Override
     public void use(Unit user, Unit target) {
-        double damege = user.getAd() * 3;
+        double damege = user.getAd() * divineExcaliburRate.getRate();
         target.takeIgnoreDefenseDamage(damege);
     }
 }
