@@ -10,7 +10,7 @@
     "magicForce": 5,
     "defense": 5,
     "gold": 50,
-    "exp": 150,
+    "exp": 200,
     "description": "썩은나무 숲의 고블린들을 이끄는 교활한 족장입니다!",
     "artLines": [
       "   /\\_ /\\",
@@ -32,7 +32,7 @@
     "magicForce": 0,
     "defense": 15,
     "gold": 150,
-    "exp": 800,
+    "exp": 200,
     "description": "협곡의 동굴에 사는 거대한 트롤입니다. 바위처럼 단단합니다!",
     "artLines": [
       "     / \\",
@@ -55,7 +55,7 @@
     "magicForce": 15,
     "defense": 18,
     "gold": 400,
-    "exp": 2500,
+    "exp": 200,
     "description": "모래 속을 파고들며 먹잇감을 노리는 거대한 맹독 전갈입니다.",
     "artLines": [
       "    \\/   \\/",
@@ -79,7 +79,7 @@
     "magicForce": 40,
     "defense": 25,
     "gold": 1000,
-    "exp": 6000,
+    "exp": 200,
     "description": "산맥을 떠도는 굶주린 영혼의 집합체. 보는 것만으로도 얼어붙습니다!",
     "artLines": [
       "     (V V)",
@@ -102,7 +102,7 @@
     "magicForce": 70,
     "defense": 40,
     "gold": 4000,
-    "exp": 25000,
+    "exp": 200,
     "description": "침몰한 도시의 입구를 지키는 뱀의 형상을 한 여왕입니다.",
     "artLines": [
       "    S S S",
@@ -148,7 +148,7 @@
     "magicForce": 0,
     "defense": 20,
     "gold": 300,
-    "exp": 1500,
+    "exp": 500,
     "description": "울부짖는 협곡 자체가 살아 움직이기 시작한다. 거대한 바위 주먹이 당신을 향한다!",
     "artLines": [
       "      _______",
@@ -173,7 +173,7 @@
     "magicForce": 30,
     "defense": 25,
     "gold": 800,
-    "exp": 4000,
+    "exp": 500,
     "description": "모래 깊은 곳의 석관이 열리며, 고대의 저주가 황금빛 눈을 뜬다.",
     "artLines": [
       "      _______",
@@ -197,7 +197,7 @@
     "magicForce": 50,
     "defense": 35,
     "gold": 2000,
-    "exp": 10000,
+    "exp": 500,
     "description": "얼어붙은 산맥의 정상에서, 전설 속의 서리 용이 거대한 얼음 날개를 펼쳤다!",
     "artLines": [
       "   \\            /",
@@ -221,7 +221,7 @@
     "magicForce": 80,
     "defense": 50,
     "gold": 10000,
-    "exp": 50000,
+    "exp": 500,
     "description": "침몰한 도시의 심연에서, 세상을 파멸시킬 태고의 존재가 거대한 눈을 뜬다.",
     "artLines": [
       "       /\\    /\\",
