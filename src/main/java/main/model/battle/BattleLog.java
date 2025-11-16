@@ -9,7 +9,7 @@ public class BattleLog {
     private static StringBuilder combatLog = new StringBuilder();
 
     public static void clearLog() {
-        combatLog.setLength(0); // StringBuilder 비우기
+        combatLog.setLength(0);
     }
 
     public static void addLog(String logLine) {

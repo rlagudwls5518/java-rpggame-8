@@ -9,4 +9,10 @@ public class EndBattle {
         player.storeExp(monster.giveExp());
         player.storeGold(monster.giveGold());
     }
+
+    public static void deadPlayerEndBattle(PlayerCharacter player, Monster monster) {
+
+    }
+
+
 }
