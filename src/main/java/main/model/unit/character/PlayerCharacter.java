@@ -17,18 +17,16 @@ public class PlayerCharacter extends Unit {
     private int gold;
     private CharacterJob currentJob;
     private final int levelUpPlusStr;
-    private final int levelUpPlusInt;
     private final int levelUpPlusMaxHP;
     private final int levelUpPlusDfs;
     private List<Skill> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
-        super(name, 100, 50, 100, 0, 10);
+        super(name, 100, 50, 100, 10);
         levelUpPlusDfs = 10;
         level = 1;
         exp = 0;
         maxExp = 100;
-        levelUpPlusInt = 10;
         levelUpPlusMaxHP = 10;
         levelUpPlusStr = 5;
         gold = 0;
@@ -70,7 +68,7 @@ public class PlayerCharacter extends Unit {
     }
 
     public String showSkillName(int skillNum) {
-        return skills.get(skillNum).getName();
+        return skills.get(skillNum-1).getName();
     }
 
     public void useSkill(Unit target, int skillNumber) {
