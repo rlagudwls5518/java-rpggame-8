@@ -1,9 +1,11 @@
 package main.view;
 
+import main.dto.StageData;
+import main.dto.WorldData;
 import main.model.unit.character.PlayerCharacter;
 
 public class TownOutputView {
-    public static void showTownMenu(PlayerCharacter player) {
+    public static void showTownMenu(PlayerCharacter player, WorldData worldData, StageData stageData) {
         System.out.println("==================================================");
         showplace();
         System.out.println("==================================================");
@@ -16,7 +18,7 @@ public class TownOutputView {
         System.out.println();
         System.out.println("  무엇을 하시겠습니까?");
         System.out.println();
-        pressEnterToContinue();
+        selectToContinue(worldData, stageData);
         System.out.println();
         System.out.println("==================================================");
         System.out.print("  숫자를 입력하세요:  ");
@@ -33,11 +35,9 @@ public class TownOutputView {
         System.out.println("  Gold: " + player.getGold() + " G  (소지금)");
     }
 
-    private static void pressEnterToContinue() {
-        System.out.println("  1. [휴식] 여관 주인 (체력/마력 모두 회복 -10 G)");
-        System.out.println("  2. [상점] 대장간 (검, 방패, 갑옷 - 준비 중)");
-        System.out.println("  3. [이동] '초보자의 숲' 입구 (Stage 1-1)");
-        System.out.println("  4. [메뉴] 내 정보 보기 / 저장하기 (준비 중)");
+    public static void selectToContinue(WorldData worldData, StageData stageData) {
+        System.out.println("  1. [이동] '" + stageData.stageName + "' 입구 (Stage" + worldData.worldId + "-" + stageData.stageNumber + ")");
+        System.out.println("  2. [메뉴] 내 정보 보기  ");
     }
 
     private static void story() {

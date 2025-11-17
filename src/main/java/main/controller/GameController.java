@@ -5,6 +5,7 @@ import static main.util.EnterExplantion.pressEnterTown;
 
 import main.dto.StageData;
 import main.dto.WorldData;
+import main.view.CharacterStateView;
 import main.view.TownOutputView;
 import main.world.StageDatabase;
 import main.model.unit.character.PlayerCharacter;
@@ -51,6 +52,12 @@ public class GameController {
             String stageType = stage.stageType;
             if ("MID_BOSS".equals(stageType) || "FINAL_BOSS".equals(stageType) || "TRUE_FINAL_BOSS".equals(stageType)) {
                 TownOutputView.showTownMenu(player, world, stage);
+                int choice = scanner.nextInt();
+                if(choice == 2) {
+                    Clear.clearScreen();
+                    CharacterStateView.CharacterState(player);
+                    pressEnterToContinue();
+                }
             }
 
             System.out.println("\n--- [ " + stage.stageName + " ] ---");

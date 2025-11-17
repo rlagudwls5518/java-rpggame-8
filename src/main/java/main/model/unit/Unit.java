@@ -4,7 +4,6 @@ package main.model.unit;
 public abstract class Unit {
 
     private int attackDamage;
-    private int magicForce;
     private int defense;
     private int hp;
     private int mp;
@@ -19,7 +18,6 @@ public abstract class Unit {
         this.maxHp = maxHp;
         this.maxMp = maxMp;
         this.attackDamage = attackDamage;
-        this.magicForce = magicForce;
         this.defense = defense;
     }
 
@@ -31,7 +29,6 @@ public abstract class Unit {
         this.hp = this.maxHp;
         this.mp = this.maxMp;
         this.attackDamage = other.attackDamage;
-        this.magicForce = other.magicForce;
         this.defense = other.defense;
     }
 
@@ -69,10 +66,6 @@ public abstract class Unit {
         this.attackDamage += add;
     }
 
-    public void addMagicForce(int add) {
-        this.magicForce += add;
-    }
-
     public void levelUpHp(int add) {
         this.maxHp += add;
     }
@@ -81,9 +74,6 @@ public abstract class Unit {
         this.attackDamage += add;
     }
 
-    public void levelUpMagicForce(int add) {
-        this.magicForce += add;
-    }
 
     public void levelUpDefense(int add) {
         this.defense += add;
@@ -115,6 +105,10 @@ public abstract class Unit {
 
     public String getName() {
         return name;
+    }
+
+    public int getDefense() {
+        return defense;
     }
 
     public void decreaseMp(int useMp) {
