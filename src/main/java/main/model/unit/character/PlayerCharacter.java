@@ -59,6 +59,7 @@ public class PlayerCharacter extends Unit {
             levelUp();
         }
     }
+
     public void showSkillList() {
         IntStream.range(0, skills.size())
                 .forEach(i -> {
@@ -88,15 +89,9 @@ public class PlayerCharacter extends Unit {
     }
 
     private void updateStats(CharacterJob newJob) {
-        if (newJob.getJobName().equals("기사") || newJob.getJobName().equals("대검사") || newJob.getJobName()
-                .equals("용기사")) {
-            int addAttackDamage = currentJob.getAttackBonus();
-            addAttackDamage(addAttackDamage);
-        }
-
-        int addMagicForce = currentJob.getAttackBonus();
-        int addMaxHp = currentJob.getHpBonus();
-        addMagicForce(addMagicForce);
+        int addAttackDamage = newJob.getAttackBonus();
+        addAttackDamage(addAttackDamage);
+        int addMaxHp = newJob.getHpBonus();
         addMaxHp(addMaxHp);
     }
 
@@ -105,9 +100,10 @@ public class PlayerCharacter extends Unit {
         levelUpHp(levelUpPlusMaxHP);
         levelUpAttackDamage(levelUpPlusStr);
         levelUpDefense(levelUpPlusDfs);
-        if (currentJob.getJobName().equals("성기사") || currentJob.getJobName().equals("성검사")) {
-            levelUpMagicForce(levelUpPlusInt);
-        }
+    }
+
+    public void caculateLevel(){
+
     }
 
     private boolean checkAdvancement() {
@@ -132,11 +128,10 @@ public class PlayerCharacter extends Unit {
         if (advancementOptions.size() == 1) {
             CharacterJob nextJob = advancementOptions.get(0);
             advanceJob(nextJob);
-            Clear.clearScreen();
             AdvancedJobOutView.showJobAdvanceScreen(currentJob);
         }
         else{
-            JobChoiceOutView.jobChoice();
+            JobChoiceOutView.jobChoice(advancementOptions);
 
             int choice = sc.nextInt();
 
