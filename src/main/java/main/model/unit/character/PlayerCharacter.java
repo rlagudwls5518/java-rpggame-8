@@ -102,8 +102,8 @@ public class PlayerCharacter extends Unit {
         levelUpDefense(levelUpPlusDfs);
     }
 
-    public void caculateLevel(){
-
+    public int caculateLevel(int monsterExp) {
+        return (monsterExp + getCurrentExp()) % maxExp;
     }
 
     private boolean checkAdvancement() {
@@ -129,8 +129,7 @@ public class PlayerCharacter extends Unit {
             CharacterJob nextJob = advancementOptions.get(0);
             advanceJob(nextJob);
             AdvancedJobOutView.showJobAdvanceScreen(currentJob);
-        }
-        else{
+        } else {
             JobChoiceOutView.jobChoice(advancementOptions);
 
             int choice = sc.nextInt();
@@ -142,10 +141,11 @@ public class PlayerCharacter extends Unit {
         }
     }
 
-    public int getCurrentExp(){
+    public int getCurrentExp() {
         return exp;
     }
-    public int getMaxExp(){
+
+    public int getMaxExp() {
         return maxExp;
     }
 

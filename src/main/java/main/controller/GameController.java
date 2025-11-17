@@ -81,13 +81,7 @@ public class GameController {
             }
 
             Clear.clearScreen();
-            BattleResultOutView.showVictoryScreen(
-                    monsterName,
-                    expGained,
-                    goldGained,
-                    player.getCurrentExp(),
-                    player.getMaxExp()
-            );
+            BattleResultOutView.showVictoryScreen(monsterName, player, expGained, goldGained);
             pressEnterToContinue();
             Clear.clearScreen();
             player.ProcessAdvancement();
