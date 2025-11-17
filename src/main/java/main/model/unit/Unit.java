@@ -32,21 +32,19 @@ public abstract class Unit {
         this.defense = other.defense;
     }
 
-    public double takeDamage(double incomingDamage) {
+    public void takeDamage(double incomingDamage) {
         double finalDamage = incomingDamage - this.defense;
         if (finalDamage < 0) {
             finalDamage = 0;
         }
         this.hp -= finalDamage;
-        return finalDamage;
     }
 
-    public double takeIgnoreDefenseDamage(double incomingDamage) {
+    public void takeIgnoreDefenseDamage(double incomingDamage) {
         if (incomingDamage < 0) {
             incomingDamage = 0;
         }
         this.hp -= incomingDamage;
-        return incomingDamage;
     }
 
     public void attack(Unit target) {
