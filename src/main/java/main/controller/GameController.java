@@ -1,5 +1,6 @@
 package main.controller;
 
+import static main.util.EnterExplantion.choicePressNumber;
 import static main.util.EnterExplantion.pressEnterToContinue;
 import static main.util.EnterExplantion.pressEnterTown;
 
@@ -47,19 +48,24 @@ public class GameController {
     }
 
     private void runWorld(PlayerCharacter player, WorldData world) {
-
         for (StageData stage : world.stages) {
             String stageType = stage.stageType;
             if ("MID_BOSS".equals(stageType) || "FINAL_BOSS".equals(stageType) || "TRUE_FINAL_BOSS".equals(stageType)) {
-                TownOutputView.showTownMenu(player, world, stage);
-                int choice = scanner.nextInt();
-                if(choice == 2) {
+                while(true){
                     Clear.clearScreen();
-                    CharacterStateView.CharacterState(player);
-                    pressEnterToContinue();
+                    TownOutputView.showTownMenu(player, world, stage);
+                    int choice = scanner.nextInt();
+                    if(choice == 1){
+                        break;
+                    }
+                    else if(choice == 2) {
+                        Clear.clearScreen();
+                        CharacterStateView.CharacterState(player);
+                        pressEnterToContinue();
+                    }
                 }
             }
-
+            Clear.clearScreen();
             System.out.println("\n--- [ " + stage.stageName + " ] ---");
             String monsterName = stage.monsterName;
 
@@ -113,7 +119,7 @@ public class GameController {
         pressEnterToContinue();
         Clear.clearScreen();
         StartOutputView.showStartView();
-        pressEnterToContinue();
+        choicePressNumber();
         Clear.clearScreen();
     }
 }
