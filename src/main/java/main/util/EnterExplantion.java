@@ -20,6 +20,14 @@ public class EnterExplantion  {
         pressEnter();
     }
 
+    public static void choicePressNumber(){
+        System.out.println("   숫자를 입력하고 Enter를 누르세요... ");
+        int choice = scanner.nextInt();
+        if(choice == 2 ){
+            System.exit(0);
+        }
+    }
+
     private static void pressEnter(){
         try {
             scanner.nextLine();

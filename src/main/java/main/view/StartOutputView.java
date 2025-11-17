@@ -63,6 +63,5 @@ public class StartOutputView {
         System.out.println("           2. 게임을 종료한다");
         System.out.println();
         System.out.println("========================================");
-        System.out.println("   숫자를 입력하고 Enter를 누르세요... ");
     }
 }
