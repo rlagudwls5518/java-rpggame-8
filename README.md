@@ -2,7 +2,7 @@
 
 
 **프리코스 오픈미션 일지 블로그** : https://velog.io/@rlagudwls5518/series/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BD%94%EC%8A%A4
-# 🛡️ 턴제 RPG 텍스트 게임 (Project: RpgGame)
+# 🛡️ 턴제 RPG 텍스트 게임 (PROJECT: DAWNBREAKER)
 
 ## 🎮 게임 개요
 용사가 되어 총 5개의 월드를 탐험하며, 각 월드의 보스를 무찌르고 황금 무기 조각을 모으세요.

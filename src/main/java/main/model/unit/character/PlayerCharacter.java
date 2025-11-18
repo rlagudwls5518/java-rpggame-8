@@ -1,5 +1,7 @@
 package main.model.unit.character;
 
+import static main.util.EnterExplantion.pressEnterToContinue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,7 +24,7 @@ public class PlayerCharacter extends Unit {
     private List<Skill> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
-        super(name, 100, 50, 3, 5);
+        super(name, 100, 50, 5, 5);
         levelUpPlusDfs = 10;
         level = 1;
         exp = 0;
@@ -123,7 +125,7 @@ public class PlayerCharacter extends Unit {
             return;
         }
 
-        // 3. 전직 옵션이 1개일 경우 (김형진님의 '2차 전직')
+        // 3. 전직 옵션이 1개일 경우
         if (advancementOptions.size() == 1) {
             CharacterJob nextJob = advancementOptions.get(0);
             advanceJob(nextJob);
@@ -139,6 +141,7 @@ public class PlayerCharacter extends Unit {
             Clear.clearScreen();
             AdvancedJobOutView.showJobAdvanceScreen(currentJob);
         }
+        pressEnterToContinue();
     }
 
     public int getCurrentExp() {
