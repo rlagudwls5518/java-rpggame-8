@@ -42,6 +42,6 @@ public class TownOutputView {
 
     private static void story() {
         System.out.println("  \"모닥불의 따뜻한 온기와 모험가들의 활기찬 목소리가 들립니다.");
-        System.out.println("   '자르곤'의 군대는 아직 이곳을 눈치채지 못했습니다...\"");
+        System.out.println("   몬스터들은 아직 이곳을 눈치채지 못했습니다...\"");
     }
 }

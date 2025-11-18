@@ -1,7 +1,7 @@
 package main.view;
 
 import main.model.unit.character.CharacterJob;
-import main.model.unit.character.PlayerCharacter;
+import main.model.unit.character.Skill;
 
 public class AdvancedJobOutView {
 
@@ -9,7 +9,7 @@ public class AdvancedJobOutView {
         // 전직 완료 화면 텍스트 출력
         System.out.println("==================================================");
         System.out.println();
-        System.out.println("              ★☆"+job.getJobAdvancementTier()+" 차 전직 완료 ☆★");
+        System.out.println("              ★☆ "+job.getJobAdvancementTier()+" 차 전직 완료 ☆★");
         System.out.println("                    ("+ job.getJobName() +")");
         System.out.println();
         System.out.println("==================================================");
@@ -25,10 +25,7 @@ public class AdvancedJobOutView {
         System.out.println();
         System.out.println("  ▶ 직업: ["+ job.getJobName() +"]");
         System.out.println();
-        System.out.println("  ▶ 새로운 스킬을 습득했습니다!");
-        System.out.println("     - [패시브] 성스러운 맹세");
-        System.out.println("       (방어력과 신성력(MP)이 영구적으로 증가합니다.)");
-        System.out.println("       (보유 스킬: 공격 1, 방어 1, 패시브 1)");
+        viewNewSkill(job);
         System.out.println();
         System.out.println("--------------------------------------------------");
         System.out.println();
@@ -37,5 +34,12 @@ public class AdvancedJobOutView {
         System.out.println();
 
         System.out.print("[ Enter 키를 눌러 마을로 돌아가기... ]");
+    }
+
+    private static void viewNewSkill(CharacterJob job) {
+        System.out.println("  ▶ 새로운 스킬을 습득했습니다!");
+        for(Skill skill : job.getSkillList()){
+            System.out.println("   ▶ 공격스킬 : "+skill.getName());
+        }
     }
 }
