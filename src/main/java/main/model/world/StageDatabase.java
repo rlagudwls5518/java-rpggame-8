@@ -1,4 +1,4 @@
-package main.world;
+package main.model.world;
 
 import com.google.gson.Gson;
 import java.io.InputStream;
