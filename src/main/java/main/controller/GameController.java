@@ -1,8 +1,8 @@
 package main.controller;
 
 import static main.util.EnterExplantion.choicePressNumber;
+import static main.util.EnterExplantion.pressEnterRetry;
 import static main.util.EnterExplantion.pressEnterToContinue;
-import static main.util.EnterExplantion.pressEnterTown;
 
 import main.dto.StageData;
 import main.dto.WorldData;
@@ -72,22 +72,27 @@ public class GameController {
             }
             int expGained = monsterData.giveExp();
             int goldGained = monsterData.giveGold();
-            player.refillHpMp();
-            startBattle(player, monsterName, stage, world);
 
-            if (!player.isAlive()) {
-                Clear.clearScreen();
-                BattleResultOutView.showGameOverScreen(monsterName);
-                pressEnterTown();
+            while(true){
+                player.refillHpMp();
+                startBattle(player, monsterName, stage, world);
+
+                if (!player.isAlive()) {
+                    Clear.clearScreen();
+                    BattleResultOutView.showGameOverScreen(monsterName);
+                    pressEnterRetry();
+                }
+
+                else{
+                    Clear.clearScreen();
+                    BattleResultOutView.showVictoryScreen(monsterName, player, expGained, goldGained);
+                    pressEnterToContinue();
+                    Clear.clearScreen();
+                    player.ProcessAdvancement();
+                    break;
+                }
             }
 
-            else{
-                Clear.clearScreen();
-                BattleResultOutView.showVictoryScreen(monsterName, player, expGained, goldGained);
-                pressEnterToContinue();
-                Clear.clearScreen();
-                player.ProcessAdvancement();
-            }
         }
     }
 

@@ -19,6 +19,10 @@ public class EnterExplantion  {
         System.out.println("... (Enter를 눌러 다음 턴 진행)");
         pressEnter();
     }
+    public static void pressEnterRetry(){
+        System.out.println("... (Enter를 눌러 다시 도전) ");
+        pressEnter();
+    }
 
     public static void choicePressNumber(){
         System.out.println("   숫자를 입력하고 Enter를 누르세요... ");
