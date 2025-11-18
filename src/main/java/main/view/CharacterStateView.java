@@ -15,7 +15,7 @@ public class CharacterStateView {
         System.out.println();
         System.out.println("  [ 스탯 ]");
         System.out.println("  - HP:" + player.getHp() + "/" + player.getMaxHp());
-        System.out.println("  - HP:" + player.getMp() + "/" + player.getMaxMp());
+        System.out.println("  - MP:" + player.getMp() + "/" + player.getMaxMp());
         System.out.println();
         System.out.println("  - 공격력 (ad) : " + player.getAd());
         System.out.println("  - 방어력 (df) : " + player.getDefense());
