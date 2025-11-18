@@ -31,15 +31,15 @@ public class BattleOutView {
         System.out.println("[" + player.getName() + ": [Lv. " + player.getLevel() + "]  " + player.getJobName() + "]");
         System.out.println();
         System.out.println(
-                " 체력(HP): " + drawHealthBar(player.getHp(), player.getMaxHp(), 10) + " 마력(MP): " + drawHealthBar(
+                " 체력(HP): " + drawHealthBar(player.getHp(), player.getMaxHp(), 10) + " 마나(MP): " + drawHealthBar(
                         player.getMp(), player.getMaxMp(), 10));
     }
 
     private static void monsterHealthBar(Monster currentMonster, String stageName, int stageNumber,  WorldData worldData) {
         System.out.println("=======================================================================");
-        System.out.println("["+ worldData.worldId + "-" + stageNumber +" "+ stageName+"]");
-        System.out.println("     ["+currentMonster.getName()+"]");
-        System.out.println("          HP: " + drawHealthBar(currentMonster.getHp(), currentMonster.getMaxHp(), 20));
+        System.out.println("                 ["+ worldData.worldId + "-" + stageNumber +" "+ stageName+"]");
+        System.out.println("                  ["+currentMonster.getName()+"]");
+        System.out.println("           HP: " + drawHealthBar(currentMonster.getHp(), currentMonster.getMaxHp(), 20));
         System.out.println("=======================================================================");
     }
 
