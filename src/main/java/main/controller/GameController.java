@@ -8,7 +8,7 @@ import main.dto.StageData;
 import main.dto.WorldData;
 import main.view.CharacterStateView;
 import main.view.TownOutputView;
-import main.world.StageDatabase;
+import main.model.world.StageDatabase;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.model.unit.monster.MonsterDatabase;
@@ -24,12 +24,10 @@ public class GameController {
     private final Scanner scanner;
     private final StageDatabase stageDatabase;
 
-
     public GameController() {
         this.monsterDatabase = new MonsterDatabase();
         this.scanner = new Scanner(System.in);
         this.stageDatabase = new StageDatabase();
-
     }
 
     public void run() {
@@ -37,7 +35,7 @@ public class GameController {
         PlayerCharacter player = new PlayerCharacter("형진");
         List<WorldData> allWorlds = stageDatabase.getAllWorlds();
         for (WorldData world : allWorlds) {
-
+            Clear.clearScreen();
             System.out.println("\n\n=============== [ " + world.worldName + " 진입 ] ===============");
             pressEnterToContinue();
             runWorld(player, world);
@@ -65,8 +63,6 @@ public class GameController {
                     }
                 }
             }
-            Clear.clearScreen();
-            System.out.println("\n--- [ " + stage.stageName + " ] ---");
             String monsterName = stage.monsterName;
 
             Monster monsterData = monsterDatabase.createMonster(monsterName);
@@ -76,9 +72,8 @@ public class GameController {
             }
             int expGained = monsterData.giveExp();
             int goldGained = monsterData.giveGold();
-
-            startBattle(player, monsterName, stage, world);
             player.refillHpMp();
+            startBattle(player, monsterName, stage, world);
 
             if (!player.isAlive()) {
                 Clear.clearScreen();
@@ -86,11 +81,13 @@ public class GameController {
                 pressEnterTown();
             }
 
-            Clear.clearScreen();
-            BattleResultOutView.showVictoryScreen(monsterName, player, expGained, goldGained);
-            pressEnterToContinue();
-            Clear.clearScreen();
-            player.ProcessAdvancement();
+            else{
+                Clear.clearScreen();
+                BattleResultOutView.showVictoryScreen(monsterName, player, expGained, goldGained);
+                pressEnterToContinue();
+                Clear.clearScreen();
+                player.ProcessAdvancement();
+            }
         }
     }
 
@@ -99,7 +96,6 @@ public class GameController {
             System.err.println("오류: 몬스터 이름이 null입니다. ");
             return;
         }
-        System.out.println(monsterName + "이(가) 나타났다!");
 
         BattleController battleController = new BattleController(
                 player,

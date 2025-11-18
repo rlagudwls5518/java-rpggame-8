@@ -1,6 +1,7 @@
 package main.controller;
 
 import static main.util.EnterExplantion.pressEnterNextTurn;
+import static main.util.EnterExplantion.pressEnterToContinue;
 
 import java.util.Scanner;
 import main.dto.StageData;
@@ -40,13 +41,15 @@ public class BattleController {
             return;
         }
 
+        boolean isPlayerTurn = player.getAd() > monster.getAd();
+
         while (player.isAlive() && monster.isAlive()) {
             Clear.clearScreen();
             BattleLog.clearLog();
 
             BattleOutView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
 
-            if (player.getAd() > monster.getAd()) {
+            if (isPlayerTurn) {
                 processPlayerTurn();
                 if (!monster.isAlive()) {
                     break;
@@ -59,10 +62,9 @@ public class BattleController {
                 }
                 processPlayerTurn();
             }
-
             Clear.clearScreen();
             BattleOutView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
-
+            isPlayerTurn = !isPlayerTurn;
             pressEnterNextTurn();
         }
 
@@ -80,15 +82,20 @@ public class BattleController {
     }
 
     public void processPlayerTurn() {
-        int num = scanner.nextInt();
-        scanner.nextLine();
-        if (num == 1) { // 스킬 사용
-            processPlayerSkill();
-        } else { // 기본공격사용
-            player.attack(monster);
-            String playerLog = BattleLog.getPlayerAttackLog(player);
-            BattleLog.addLog(playerLog);
+        while(true) {
+            int num = scanner.nextInt();
+            scanner.nextLine();
+            if (num == 1) { // 스킬 사용
+                processPlayerSkill();
+                break;
+            } else { // 기본공격사용
+                player.attack(monster);
+                String playerLog = BattleLog.getPlayerAttackLog(player);
+                BattleLog.addLog(playerLog);
+                break;
+            }
         }
+
     }
 
 
@@ -105,8 +112,16 @@ public class BattleController {
             System.out.println("스킬 사용을 취소합니다.");
             return;
         }
-        player.useSkill(monster, skillNum);
-        String playerLog = BattleLog.getPlayerSkillLog(player, skillNum);
-        BattleLog.addLog(playerLog);
+
+        boolean skillUsedSuccess = player.useSkill(monster, skillNum);
+        if(skillUsedSuccess) {
+            String playerLog = BattleLog.getPlayerSkillLog(player, skillNum);
+            BattleLog.addLog(playerLog);
+        }
+        else{
+            pressEnterToContinue();
+            Clear.clearScreen();
+        }
+
     }
 }

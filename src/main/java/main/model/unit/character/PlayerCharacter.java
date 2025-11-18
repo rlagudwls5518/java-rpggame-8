@@ -22,13 +22,13 @@ public class PlayerCharacter extends Unit {
     private List<Skill> skills = new ArrayList<>();
 
     public PlayerCharacter(String name) {
-        super(name, 100, 50, 100, 10);
+        super(name, 100, 50, 3, 5);
         levelUpPlusDfs = 10;
         level = 1;
         exp = 0;
         maxExp = 100;
-        levelUpPlusMaxHP = 10;
-        levelUpPlusStr = 5;
+        levelUpPlusMaxHP = 5;
+        levelUpPlusStr = 2;
         gold = 0;
         currentJob = new SwordMan();
         updateStats(currentJob);
@@ -71,15 +71,16 @@ public class PlayerCharacter extends Unit {
         return skills.get(skillNum-1).getName();
     }
 
-    public void useSkill(Unit target, int skillNumber) {
+    public boolean useSkill(Unit target, int skillNumber) {
         int indexNumber = skillNumber - 1;
         Skill selectedSkill = skills.get(indexNumber);
         if (this.getMp() < selectedSkill.getMpCost()) {
             System.out.println("MP가 부족하여 '" + selectedSkill.getName() + "'을(를) 사용할 수 없습니다!");
-            return;
+            return false;
         }
         this.decreaseMp(selectedSkill.getMpCost());
         selectedSkill.use(this, target);
+        return true;
     }
 
     public void learnSkill(Skill skillToAdd) {
@@ -126,6 +127,7 @@ public class PlayerCharacter extends Unit {
         if (advancementOptions.size() == 1) {
             CharacterJob nextJob = advancementOptions.get(0);
             advanceJob(nextJob);
+            Clear.clearScreen();
             AdvancedJobOutView.showJobAdvanceScreen(currentJob);
         } else {
             JobChoiceOutView.jobChoice(advancementOptions);
