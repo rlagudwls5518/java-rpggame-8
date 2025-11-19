@@ -9,8 +9,8 @@ import java.util.stream.IntStream;
 import main.model.unit.Unit;
 import main.model.unit.character.job.firstClass.SwordMan;
 import main.util.Clear;
-import main.view.AdvancedJobOutView;
-import main.view.JobChoiceOutView;
+import main.view.OutputView.AdvancedJobOutView;
+import main.view.OutputView.JobChoiceOutView;
 
 public class PlayerCharacter extends Unit {
     private int level;

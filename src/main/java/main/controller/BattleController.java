@@ -2,6 +2,8 @@ package main.controller;
 
 import static main.util.EnterExplantion.pressEnterNextTurn;
 import static main.util.EnterExplantion.pressEnterToContinue;
+import static main.util.InputException.inputException;
+import static main.util.ToInt.toInt;
 
 import java.util.Scanner;
 import main.dto.StageData;
@@ -12,27 +14,26 @@ import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.model.unit.monster.MonsterDatabase; // 1. MonsterDatabase 임포트
 import main.util.Clear;
-import main.view.BattleOutView;
+import main.view.OutputView.BattleOutView;
+import main.view.inputView.Input;
 
 public class BattleController {
     private final PlayerCharacter player;
     private final Monster monster;
-    private final Scanner scanner;
+    private final Input input;
     private final MonsterDatabase monsterDatabase;
     private final WorldData worldData;
     private final StageData stage;
 
-
     public BattleController(PlayerCharacter player, String monsterName,
-                            MonsterDatabase monsterDatabase, Scanner scanner, StageData stage, WorldData worldData) {
+                            MonsterDatabase monsterDatabase, Input input, StageData stage, WorldData worldData) {
         this.player = player;
-        this.scanner = scanner;
+        this.input = input;
         this.monsterDatabase = monsterDatabase;
         this.monster = this.monsterDatabase.createMonster(monsterName);
         this.worldData = worldData;
         this.stage = stage;
     }
-
 
     public void battleStart() {
 
@@ -74,6 +75,21 @@ public class BattleController {
             EndBattle.deadPlayerEndBattle(player, monster);
         }
     }
+//    private void processBattle(boolean isPlayerTurn) {
+//        if (isPlayerTurn) {
+//            processPlayerTurn();
+//            if (!monster.isAlive()) {
+//                break;
+//            }
+//            processMonsterTurn();
+//        } else {
+//            processMonsterTurn();
+//            if (!player.isAlive()) {
+//                break;
+//            }
+//            processPlayerTurn();
+//        }
+//    }
 
     public void processMonsterTurn() {
         monster.attack(player);
@@ -83,8 +99,7 @@ public class BattleController {
 
     public void processPlayerTurn() {
         while(true) {
-            int num = scanner.nextInt();
-            scanner.nextLine();
+            int num = input.inputNumber();
             if (num == 1) { // 스킬 사용
                 processPlayerSkill();
                 break;
@@ -106,8 +121,8 @@ public class BattleController {
         System.out.println("6. (취소)");
         System.out.print("사용할 스킬 번호를 입력하세요: ");
 
-        int skillNum = scanner.nextInt();
-        scanner.nextLine();
+        int skillNum = input.inputNumber();
+
         if (skillNum == 6) {
             System.out.println("스킬 사용을 취소합니다.");
             return;

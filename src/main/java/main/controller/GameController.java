@@ -6,27 +6,27 @@ import static main.util.EnterExplantion.pressEnterToContinue;
 
 import main.dto.StageData;
 import main.dto.WorldData;
-import main.view.CharacterStateView;
-import main.view.TownOutputView;
+import main.view.OutputView.CharacterStateView;
+import main.view.OutputView.TownOutputView;
 import main.model.world.StageDatabase;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.model.unit.monster.MonsterDatabase;
 import main.util.Clear;
-import main.view.BattleResultOutView;
-import main.view.StartOutputView;
+import main.view.OutputView.BattleResultOutView;
+import main.view.OutputView.StartOutputView;
 import java.util.List;
-import java.util.Scanner;
+import main.view.inputView.Input;
 
 public class GameController {
 
     private final MonsterDatabase monsterDatabase;
-    private final Scanner scanner;
+    private final Input input;
     private final StageDatabase stageDatabase;
 
     public GameController() {
         this.monsterDatabase = new MonsterDatabase();
-        this.scanner = new Scanner(System.in);
+        this.input = new Input();
         this.stageDatabase = new StageDatabase();
     }
 
@@ -52,7 +52,7 @@ public class GameController {
                 while(true){
                     Clear.clearScreen();
                     TownOutputView.showTownMenu(player, world, stage);
-                    int choice = scanner.nextInt();
+                    int choice = input.inputNumber();
                     if(choice == 1){
                         break;
                     }
@@ -106,7 +106,7 @@ public class GameController {
                 player,
                 monsterName,
                 monsterDatabase,
-                scanner,
+                input,
                 stage,
                 world
         );
