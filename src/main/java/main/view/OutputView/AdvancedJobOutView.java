@@ -1,4 +1,4 @@
-package main.view;
+package main.view.OutputView;
 
 import main.model.unit.character.CharacterJob;
 import main.model.unit.character.Skill;

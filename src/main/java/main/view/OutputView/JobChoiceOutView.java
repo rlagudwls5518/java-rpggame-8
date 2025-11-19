@@ -1,4 +1,4 @@
-package main.view;
+package main.view.OutputView;
 
 import java.util.List;
 import main.model.unit.character.CharacterJob;

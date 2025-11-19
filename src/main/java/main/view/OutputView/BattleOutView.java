@@ -1,4 +1,4 @@
-package main.view;
+package main.view.OutputView;
 
 import static main.model.battle.BattleLog.showCombatLogUI;
 

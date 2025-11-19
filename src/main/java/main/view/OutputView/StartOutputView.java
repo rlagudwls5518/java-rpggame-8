@@ -1,4 +1,4 @@
-package main.view;
+package main.view.OutputView;
 
 public class StartOutputView {
 

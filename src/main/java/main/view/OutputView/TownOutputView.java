@@ -1,4 +1,4 @@
-package main.view;
+package main.view.OutputView;
 
 import main.dto.StageData;
 import main.dto.WorldData;
