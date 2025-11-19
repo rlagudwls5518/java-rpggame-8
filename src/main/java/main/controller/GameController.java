@@ -1,18 +1,19 @@
 package main.controller;
 
+import static main.util.Clear.clearScreen;
 import static main.util.EnterExplantion.choicePressNumber;
 import static main.util.EnterExplantion.pressEnterRetry;
 import static main.util.EnterExplantion.pressEnterToContinue;
 
 import main.dto.StageData;
 import main.dto.WorldData;
+import main.service.BattleService;
 import main.view.OutputView.CharacterStateView;
 import main.view.OutputView.TownOutputView;
 import main.model.world.StageDatabase;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.model.unit.monster.MonsterDatabase;
-import main.util.Clear;
 import main.view.OutputView.BattleResultOutView;
 import main.view.OutputView.StartOutputView;
 import java.util.List;
@@ -24,6 +25,8 @@ public class GameController {
     private final Input input;
     private final StageDatabase stageDatabase;
 
+
+
     public GameController() {
         this.monsterDatabase = new MonsterDatabase();
         this.input = new Input();
@@ -34,8 +37,11 @@ public class GameController {
         prollog();
         PlayerCharacter player = new PlayerCharacter("형진");
         List<WorldData> allWorlds = stageDatabase.getAllWorlds();
+
+
+
         for (WorldData world : allWorlds) {
-            Clear.clearScreen();
+            clearScreen();
             System.out.println("\n\n=============== [ " + world.worldName + " 진입 ] ===============");
             pressEnterToContinue();
             runWorld(player, world);
@@ -50,44 +56,46 @@ public class GameController {
             String stageType = stage.stageType;
             if ("MID_BOSS".equals(stageType) || "FINAL_BOSS".equals(stageType) || "TRUE_FINAL_BOSS".equals(stageType)) {
                 while(true){
-                    Clear.clearScreen();
+                    clearScreen();
                     TownOutputView.showTownMenu(player, world, stage);
                     int choice = input.inputNumber();
                     if(choice == 1){
                         break;
                     }
                     else if(choice == 2) {
-                        Clear.clearScreen();
+                        clearScreen();
                         CharacterStateView.CharacterState(player);
                         pressEnterToContinue();
                     }
                 }
             }
-            String monsterName = stage.monsterName;
 
-            Monster monsterData = monsterDatabase.createMonster(monsterName);
-            if (monsterData == null) {
+            String monsterName = stage.monsterName;
+            Monster monster = this.monsterDatabase.createMonster(monsterName);
+
+            if (monster == null) {
                 System.err.println("오류: " + monsterName + " 몬스터 데이터를 로드할 수 없습니다.");
                 continue;
             }
-            int expGained = monsterData.giveExp();
-            int goldGained = monsterData.giveGold();
+            int expGained = monster.giveExp();
+            int goldGained = monster.giveGold();
+            BattleService battleService = new BattleService(player,monster);
 
             while(true){
                 player.refillHpMp();
-                startBattle(player, monsterName, stage, world);
+                startBattle(player, monster, battleService, stage, world);
 
                 if (!player.isAlive()) {
-                    Clear.clearScreen();
+                    clearScreen();
                     BattleResultOutView.showGameOverScreen(monsterName);
                     pressEnterRetry();
                 }
 
                 else{
-                    Clear.clearScreen();
+                    clearScreen();
                     BattleResultOutView.showVictoryScreen(monsterName, player, expGained, goldGained);
                     pressEnterToContinue();
-                    Clear.clearScreen();
+                    clearScreen();
                     player.ProcessAdvancement();
                     break;
                 }
@@ -96,31 +104,30 @@ public class GameController {
         }
     }
 
-    private void startBattle(PlayerCharacter player, String monsterName, StageData stage, WorldData world) {
-        if (monsterName == null) {
+    private void startBattle(PlayerCharacter player, Monster monster,
+                             BattleService battleService, StageData stage, WorldData world) {
+        if (monster.getName() == null) {
             System.err.println("오류: 몬스터 이름이 null입니다. ");
             return;
         }
 
         BattleController battleController = new BattleController(
                 player,
-                monsterName,
-                monsterDatabase,
-                input,
-                stage,
-                world
+                monster,
+                battleService,
+                input
         );
-        battleController.battleStart();
+        battleController.battleStart(stage, world);
     }
 
     private void prollog() {
         StartOutputView.showSplashScreen();
-        Clear.clearScreen();
+        clearScreen();
         StartOutputView.showPrologue();
         pressEnterToContinue();
-        Clear.clearScreen();
+        clearScreen();
         StartOutputView.showStartView();
         choicePressNumber();
-        Clear.clearScreen();
+        clearScreen();
     }
 }

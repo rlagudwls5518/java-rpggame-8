@@ -3,7 +3,7 @@ package main;
 import main.controller.GameController;
 
 public class Application {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         GameController gameController = new GameController();
         gameController.run();
     }
