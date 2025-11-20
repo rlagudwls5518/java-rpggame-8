@@ -2,6 +2,8 @@ package main.controller;
 
 import static main.util.Clear.clearScreen;
 import static main.util.EnterExplantion.pressEnterNextTurn;
+import static main.util.EnterExplantion.pressEnterRetry;
+import static main.util.EnterExplantion.pressEnterToContinue;
 
 import main.dto.StageData;
 import main.dto.WorldData;
@@ -11,6 +13,7 @@ import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.service.BattleService;
 import main.view.OutputView.BattleOutView;
+import main.view.OutputView.BattleResultOutView;
 import main.view.inputView.Input;
 
 public class BattleController {
@@ -32,12 +35,7 @@ public class BattleController {
     }
 
     public void battleStart() {
-
         Input input = new Input();
-        if (monster == null) {
-            System.err.println("치명적 오류: 몬스터를 찾지 못해 전투를 시작할 수 없습니다.");
-            return;
-        }
 
         boolean isPlayerTurn = player.getAd() > monster.getAd();
 
@@ -52,16 +50,24 @@ public class BattleController {
             isPlayerTurn = !isPlayerTurn;
             pressEnterNextTurn();
         }
-        endBattle();
+        endBattle(monster.giveGold(), monster.giveExp(), stage.monsterName);
     }
 
-    private void endBattle() {
+    private void endBattle(int goldGained, int expGained, String monsterName) {
 
         if (player.isAlive()) {
             EndBattle.endBattleReword(player, monster);
+            clearScreen();
+            BattleResultOutView.showGameOverScreen(monsterName);
+            pressEnterRetry();
 
         } else {
             EndBattle.deadPlayerEndBattle(player);
+            clearScreen();
+            BattleResultOutView.showVictoryScreen(monsterName, player, expGained, goldGained);
+            pressEnterToContinue();
+            clearScreen();
+            player.ProcessAdvancement();
         }
     }
 
