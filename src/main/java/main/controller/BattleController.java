@@ -61,7 +61,7 @@ public class BattleController {
             EndBattle.endBattleReword(player, monster);
 
         } else {
-            EndBattle.deadPlayerEndBattle(player, monster);
+            EndBattle.deadPlayerEndBattle(player);
         }
     }
 
