@@ -12,7 +12,6 @@ import main.model.battle.EndBattle;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.service.BattleService;
-import main.view.OutputView.BattleView;
 import main.view.OutputView.ConsoleBattleView;
 import main.view.inputView.Input;
 
@@ -45,7 +44,7 @@ public class BattleController {
             BattleLog.clearLog();
             updateBattleView(stage, world);
             int num = input.inputNumber();
-            if (!battleService.handleTurnSequence(isPlayerTurn, num, battleView)) {
+            if (!battleService.handleTurnSequence(isPlayerTurn, num)) {
                 break;
             }
             updateBattleView(stage, world);
