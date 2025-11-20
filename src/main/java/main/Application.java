@@ -16,8 +16,7 @@ public class Application {
         GameView gameView = new GameView();
         ConsoleBattleView battleView = new ConsoleBattleView();
         GameService gameService = new GameService(monsterDatabase, battleView);
-        GameController gameController = new GameController(player, stageDatabase, monsterDatabase, gameView, battleView,
-                gameService);
+        GameController gameController = new GameController(player, stageDatabase, gameView, gameService);
         gameController.run();
     }
 }
