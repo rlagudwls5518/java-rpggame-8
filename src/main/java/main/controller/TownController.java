@@ -12,12 +12,13 @@ import main.view.inputView.Input;
 
 
 public class TownController {
-    Input input = new  Input();
+    private final Input input;
     private final PlayerCharacter player;
     private final WorldData world;
     private final StageData stage;
 
     public TownController(PlayerCharacter player, WorldData world, StageData stage) {
+        this.input = new Input();
         this.player = player;
         this.world = world;
         this.stage = stage;
