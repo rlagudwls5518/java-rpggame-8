@@ -18,17 +18,22 @@ public class BattleController {
     private final PlayerCharacter player;
     private final Monster monster;
     private final BattleService battleService;
-    private final Input input;
+    private final WorldData world;
+    private final StageData stage;
 
-    public BattleController(PlayerCharacter player, Monster monster, BattleService battleService, Input input) {
+
+    public BattleController(PlayerCharacter player, Monster monster, BattleService battleService, WorldData world,
+                            StageData stage) {
         this.player = player;
         this.monster = monster;
         this.battleService = battleService;
-        this.input = input;
-
+        this.world = world;
+        this.stage = stage;
     }
 
-    public void battleStart(StageData stage,WorldData worldData) {
+    public void battleStart() {
+
+        Input input = new Input();
         if (monster == null) {
             System.err.println("치명적 오류: 몬스터를 찾지 못해 전투를 시작할 수 없습니다.");
             return;
@@ -38,12 +43,12 @@ public class BattleController {
 
         while (player.isAlive() && monster.isAlive()) {
             BattleLog.clearLog();
-            updateBattleView(stage, worldData);
+            updateBattleView(stage, world);
             int num = input.inputNumber();
             if (!battleService.handleTurnSequence(isPlayerTurn, num)) {
                 break;
             }
-            updateBattleView(stage, worldData);
+            updateBattleView(stage, world);
             isPlayerTurn = !isPlayerTurn;
             pressEnterNextTurn();
         }
@@ -59,8 +64,6 @@ public class BattleController {
             EndBattle.deadPlayerEndBattle(player, monster);
         }
     }
-
-
 
     private void updateBattleView(StageData stage,WorldData worldData) {
         clearScreen();
