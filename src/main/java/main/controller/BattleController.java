@@ -12,8 +12,8 @@ import main.model.battle.EndBattle;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.service.BattleService;
-import main.view.OutputView.BattleOutView;
-import main.view.OutputView.BattleResultOutView;
+import main.view.OutputView.BattleView;
+import main.view.OutputView.ConsoleBattleView;
 import main.view.inputView.Input;
 
 public class BattleController {
@@ -23,15 +23,17 @@ public class BattleController {
     private final BattleService battleService;
     private final WorldData world;
     private final StageData stage;
+    private final ConsoleBattleView battleView;
 
 
     public BattleController(PlayerCharacter player, Monster monster, BattleService battleService, WorldData world,
-                            StageData stage) {
+                            StageData stage, ConsoleBattleView battleView) {
         this.player = player;
         this.monster = monster;
         this.battleService = battleService;
         this.world = world;
         this.stage = stage;
+        this.battleView = battleView;
     }
 
     public void battleStart() {
@@ -43,7 +45,7 @@ public class BattleController {
             BattleLog.clearLog();
             updateBattleView(stage, world);
             int num = input.inputNumber();
-            if (!battleService.handleTurnSequence(isPlayerTurn, num)) {
+            if (!battleService.handleTurnSequence(isPlayerTurn, num, battleView)) {
                 break;
             }
             updateBattleView(stage, world);
@@ -58,13 +60,13 @@ public class BattleController {
         if (player.isAlive()) {
             EndBattle.endBattleReword(player, monster);
             clearScreen();
-            BattleResultOutView.showGameOverScreen(monsterName);
+            battleView.showGameOverScreen(monsterName);
             pressEnterRetry();
 
         } else {
             EndBattle.deadPlayerEndBattle(player);
             clearScreen();
-            BattleResultOutView.showVictoryScreen(monsterName, player, expGained, goldGained);
+            battleView.showVictoryScreen(monsterName, player, expGained, goldGained);
             pressEnterToContinue();
             clearScreen();
             player.ProcessAdvancement();
@@ -73,6 +75,6 @@ public class BattleController {
 
     private void updateBattleView(StageData stage,WorldData worldData) {
         clearScreen();
-        BattleOutView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
+        battleView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
     }
 }

@@ -9,6 +9,7 @@ import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.model.unit.monster.MonsterDatabase;
 import main.model.unit.monster.MonsterType;
+import main.view.OutputView.ConsoleBattleView;
 
 public class GameService {
 
@@ -16,9 +17,12 @@ public class GameService {
     private final MonsterType worldBoss = MonsterType.FINAL_BOSS;
     private final MonsterType midBoss = MonsterType.MID_BOSS;
     private final MonsterType finalBoss = MonsterType.TRUE_FINAL_BOSS;
+    private final ConsoleBattleView battleView;
 
-    public GameService(MonsterDatabase monsterDatabase) {
+    public GameService(MonsterDatabase monsterDatabase, ConsoleBattleView battleView) {
         this.monsterDatabase = monsterDatabase;
+
+        this.battleView = battleView;
     }
 
     public void runWorld(PlayerCharacter player, WorldData world) {
@@ -38,8 +42,8 @@ public class GameService {
         String monsterName = stage.monsterName;
         Monster monster = monsterDatabase.createMonster(monsterName);
 
-        BattleService battleService = new BattleService(player,monster);
-        BattleController battleController = new BattleController(player, monster, battleService, world, stage);
+        BattleService battleService = new BattleService(player, monster, battleView);
+        BattleController battleController = new BattleController(player, monster, battleService, world, stage, battleView);
 
         while(true){
             player.refillHpMp();
