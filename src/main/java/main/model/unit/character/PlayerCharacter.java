@@ -144,6 +144,10 @@ public class PlayerCharacter extends Unit {
         pressEnterToContinue();
     }
 
+    public void decreaseExp() {
+        this.exp -= 30;
+    }
+
     public int getCurrentExp() {
         return exp;
     }

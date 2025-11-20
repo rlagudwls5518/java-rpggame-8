@@ -10,8 +10,10 @@ public class EndBattle {
         player.storeGold(monster.giveGold());
     }
 
-    public static void deadPlayerEndBattle(PlayerCharacter player, Monster monster) {
-
+    public static void deadPlayerEndBattle(PlayerCharacter player) {
+        player.decreaseExp();
+        player.storeExp(0);
+        player.storeGold(0);
     }
 
 
