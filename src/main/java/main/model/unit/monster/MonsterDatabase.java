@@ -58,11 +58,13 @@ public class MonsterDatabase {
 
     public Monster createMonster(String name) {
         Monster prototype = monsterPrototypes.get(name);
-        if (prototype == null) {
-            System.err.println("오류: " + name + " 몬스터 원본을 찾을 수 없습니다.");
-            return null;
-        }
-
+        validateMonster(prototype, name);
         return new Monster(prototype);
+    }
+
+    private void validateMonster(Monster monster, String name) {
+        if (monster == null) {
+            throw new NullPointerException("오류: " + name + " 몬스터 데이터를 로드할 수 없습니다.");
+        }
     }
 }
