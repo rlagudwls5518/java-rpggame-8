@@ -41,15 +41,15 @@ public class GameService {
         String monsterName = stage.monsterName;
         Monster monster = monsterDatabase.createMonster(monsterName);
 
-        monsterExeption(monster,monsterName);
-
         int expGained = monster.giveExp();
         int goldGained = monster.giveGold();
+
         BattleService battleService = new BattleService(player,monster);
+        BattleController battleController = new BattleController(player, monster, battleService,world, stage);
 
         while(true){
             player.refillHpMp();
-            startBattle(player, monster, battleService, stage, world);
+            battleController.battleStart();
             endBattleView(player,monsterName,expGained,goldGained);
         }
     }
@@ -69,22 +69,5 @@ public class GameService {
             clearScreen();
             player.ProcessAdvancement();
         }
-    }
-
-    private void monsterExeption(Monster monster, String monsterName) {
-        if (monster == null) {
-            System.err.println("오류: " + monsterName + " 몬스터 데이터를 로드할 수 없습니다.");
-        }
-    }
-
-    private void startBattle(PlayerCharacter player, Monster monster,
-                             BattleService battleService, StageData stage, WorldData world) {
-        if (monster.getName() == null) {
-            System.err.println("오류: 몬스터 이름이 null입니다. ");
-            return;
-        }
-
-        BattleController battleController = new BattleController(player, monster, battleService,world, stage);
-        battleController.battleStart();
     }
 }

@@ -1,6 +1,9 @@
 package main.model.unit;
 
 
+import static main.model.unit.UnitValidator.validateCopyUnit;
+import static main.model.unit.UnitValidator.validateUnit;
+
 public abstract class Unit {
 
     private int attackDamage;
@@ -12,6 +15,7 @@ public abstract class Unit {
     public String name;
 
     public Unit(String name, int maxHp, int maxMp, int attackDamage, int defense) {
+        validateUnit(name, maxHp, maxMp, attackDamage, defense);
         this.name = name;
         this.hp = maxHp;
         this.mp = maxMp;
@@ -21,7 +25,10 @@ public abstract class Unit {
         this.defense = defense;
     }
 
-    public Unit(Unit other) {//복사 생성자
+    public Unit(Unit other) {
+        validateCopyUnit(other);
+        validateUnit(other.name, other.maxHp, other.maxMp, other.attackDamage, other.defense);
+
         this.name = other.name;
         this.maxHp = other.maxHp;
         this.maxMp = other.maxMp;
