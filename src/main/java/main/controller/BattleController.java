@@ -40,7 +40,7 @@ public class BattleController {
             BattleLog.clearLog();
             updateBattleView(stage, worldData);
             int num = input.inputNumber();
-            if (!handleTurnSequence(isPlayerTurn, num)) {
+            if (!battleService.handleTurnSequence(isPlayerTurn, num)) {
                 break;
             }
             updateBattleView(stage, worldData);
@@ -60,22 +60,7 @@ public class BattleController {
         }
     }
 
-    private boolean handleTurnSequence(boolean isPlayerTurn, int num) {
-        if (isPlayerTurn) {
-            battleService.processPlayerTurn(num);
-            if (!monster.isAlive()) {
-                return false;
-            }
-            battleService.processMonsterTurn();
-        } else {
-            battleService.processMonsterTurn();
-            if (!player.isAlive()) {
-                return false;
-            }
-            battleService.processPlayerTurn(num);
-        }
-        return true;
-    }
+
 
     private void updateBattleView(StageData stage,WorldData worldData) {
         clearScreen();

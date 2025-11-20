@@ -19,7 +19,24 @@ public class BattleService {
         this.monster = monster;
     }
 
-    public void processPlayerTurn(int num) {
+    public boolean handleTurnSequence(boolean isPlayerTurn, int num) {
+        if (isPlayerTurn) {
+            processPlayerTurn(num);
+            if (!monster.isAlive()) {
+                return false;
+            }
+            processMonsterTurn();
+        } else {
+            processMonsterTurn();
+            if (!player.isAlive()) {
+                return false;
+            }
+            processPlayerTurn(num);
+        }
+        return true;
+    }
+
+    private void processPlayerTurn(int num) {
         while (true) {
             if (num == 1) { // 스킬 사용
                 processPlayerSkill(num);
@@ -33,7 +50,7 @@ public class BattleService {
         }
     }
 
-    public void processMonsterTurn() {
+    private void processMonsterTurn() {
         monster.attack(player);
         String monsterLog = BattleLog.getMonsterLog(player, monster);
         BattleLog.addLog(monsterLog);
