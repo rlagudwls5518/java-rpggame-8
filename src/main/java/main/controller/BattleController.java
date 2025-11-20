@@ -57,22 +57,29 @@ public class BattleController {
     private void endBattle(int goldGained, int expGained, String monsterName) {
 
         if (player.isAlive()) {
-            EndBattle.endBattleReword(player, monster);
-            clearScreen();
-            battleView.showGameOverScreen(monsterName);
-            pressEnterRetry();
-
+            endBattleWinPlayer(monsterName, goldGained, expGained);
         } else {
-            EndBattle.deadPlayerEndBattle(player);
-            clearScreen();
-            battleView.showVictoryScreen(monsterName, player, expGained, goldGained);
-            pressEnterToContinue();
-            clearScreen();
-            player.ProcessAdvancement();
+            endBattleLosePlayer(monsterName);
         }
     }
 
-    private void updateBattleView(StageData stage,WorldData worldData) {
+    private void endBattleLosePlayer(String monsterName) {
+        EndBattle.endBattleReword(player, monster);
+        clearScreen();
+        battleView.showGameOverScreen(monsterName);
+        pressEnterRetry();
+    }
+
+    private void endBattleWinPlayer(String monsterName, int goldGained, int expGained) {
+        EndBattle.deadPlayerEndBattle(player);
+        clearScreen();
+        battleView.showVictoryScreen(monsterName, player, expGained, goldGained);
+        pressEnterToContinue();
+        clearScreen();
+        player.ProcessAdvancement();
+    }
+
+    private void updateBattleView(StageData stage, WorldData worldData) {
         clearScreen();
         battleView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
     }
