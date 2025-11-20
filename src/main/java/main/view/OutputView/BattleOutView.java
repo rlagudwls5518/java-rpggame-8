@@ -73,4 +73,17 @@ public class BattleOutView {
         String emptyPart = " ".repeat(emptyBars);
         return "[" + filledPart + emptyPart + "]";
     }
+
+    public static void skillView(PlayerCharacter player, int skillNum) {
+        System.out.println("--- 스킬 목록 ---");
+        player.showSkillList();
+
+        System.out.println("6. (취소)");
+        System.out.print("사용할 스킬 번호를 입력하세요: ");
+
+        if (skillNum == 6) {
+            System.out.println("스킬 사용을 취소합니다.");
+            return;
+        }
+    }
 }

@@ -2,6 +2,7 @@ package main.service;
 
 import static main.util.Clear.clearScreen;
 import static main.util.EnterExplantion.pressEnterToContinue;
+import static main.view.OutputView.BattleOutView.skillView;
 
 import main.model.battle.BattleLog;
 import main.model.unit.character.PlayerCharacter;
@@ -57,17 +58,7 @@ public class BattleService {
     }
 
     private void processPlayerSkill(int skillNum) {
-        System.out.println("--- 스킬 목록 ---");
-        player.showSkillList();
-
-        System.out.println("6. (취소)");
-        System.out.print("사용할 스킬 번호를 입력하세요: ");
-
-        if (skillNum == 6) {
-            System.out.println("스킬 사용을 취소합니다.");
-            return;
-        }
-
+        skillView(player, skillNum);
         boolean skillUsedSuccess = player.useSkill(monster, skillNum);
         if (skillUsedSuccess) {
             String playerLog = BattleLog.getPlayerSkillLog(player, skillNum);
