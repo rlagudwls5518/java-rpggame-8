@@ -10,33 +10,34 @@ import main.model.world.StageDatabase;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.MonsterDatabase;
 import main.view.OutputView.ConsoleBattleView;
+import main.view.OutputView.GameView;
 import main.view.OutputView.StartOutputView;
 import java.util.List;
 
 public class GameController {
+    private final PlayerCharacter player;
     private final StageDatabase stageDatabase;
+    private final MonsterDatabase monsterDatabase;
+    private final GameView gameView;
+    private final ConsoleBattleView battleView;
+    private final GameService gameService;
 
-    public GameController() {
-        this.stageDatabase = new StageDatabase();
+    public GameController(PlayerCharacter player, StageDatabase stageDatabase,
+                          MonsterDatabase monsterDatabase,
+                          GameView gameView,
+                          ConsoleBattleView battleView,
+                          GameService gameService) {
+        this.player = player;
+        this.stageDatabase = stageDatabase;
+        this.monsterDatabase = monsterDatabase;
+        this.gameView = gameView;
+        this.battleView = battleView;
+        this.gameService = gameService;
     }
 
     public void run() {
         prollog();
-        PlayerCharacter player = new PlayerCharacter("형진");
-        List<WorldData> allWorlds = stageDatabase.getAllWorlds();
-        MonsterDatabase monsterDatabase = new MonsterDatabase();
-        ConsoleBattleView battleView = new ConsoleBattleView();
-        GameService gameService = new GameService(monsterDatabase, battleView);
-
-        for (WorldData world : allWorlds) {
-            clearScreen();
-            System.out.println("\n\n=============== [ " + world.worldName + " 진입 ] ===============");
-            pressEnterToContinue();
-            gameService.runWorld(player, world);
-            if (!player.isAlive()) {
-                return;
-            }
-        }
+        playAllWorlds(player);
     }
 
     private void prollog() {
@@ -48,5 +49,15 @@ public class GameController {
         StartOutputView.showStartView();
         choicePressNumber();
         clearScreen();
+    }
+
+    private void playAllWorlds(PlayerCharacter player) {
+        for (WorldData world : stageDatabase.getAllWorlds()) {
+            gameView.worldStartView(world);
+            gameService.runWorld(player, world);
+            if (!player.isAlive()) {
+                return;
+            }
+        }
     }
 }

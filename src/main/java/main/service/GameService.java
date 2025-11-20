@@ -21,7 +21,6 @@ public class GameService {
 
     public GameService(MonsterDatabase monsterDatabase, ConsoleBattleView battleView) {
         this.monsterDatabase = monsterDatabase;
-
         this.battleView = battleView;
     }
 
