@@ -38,15 +38,15 @@ public class GameService {
             townController.runTownLoop();
         }
 
-        String monsterName = stage.monsterName;
-        Monster monster = monsterDatabase.createMonster(monsterName);
-
-        BattleService battleService = new BattleService(player, monster, battleView);
-        BattleController battleController = new BattleController(player, monster, battleService, world, stage, battleView);
-
         while(true){
+            String monsterName = stage.monsterName;
+            Monster monster = monsterDatabase.createMonster(monsterName);
+            BattleService battleService = new BattleService(player, monster, battleView);
+            BattleController battleController = new BattleController(player, monster, battleService, world, stage, battleView);
             player.refillHpMp();
             battleController.battleStart();
+            if (!player.isAlive()) return;
+            if (!monster.isAlive()) break;
         }
     }
 }
