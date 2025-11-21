@@ -48,21 +48,6 @@ public class StageDatabase {
         }
     }
 
-    public WorldData getWorldData(int worldId) {
-        return worldDataMap.get(worldId);
-    }
-
-    public StageData getStageData(int worldId, int stageNumber) {
-        WorldData world = worldDataMap.get(worldId);
-        if (world == null) {
-            return null;
-        }
-        if (stageNumber < 1 || stageNumber > world.stages.size()) {
-            return null;
-        }
-        return world.stages.get(stageNumber - 1);
-    }
-
     public List<WorldData> getAllWorlds() {
         return worldDataList;
     }
