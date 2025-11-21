@@ -1,7 +1,7 @@
 package main.controller;
 
 import static main.util.Clear.clearScreen;
-import static main.util.EnterExplantion.choicePressNumber;
+import static main.view.OutputView.EnterExplantion.choicePressNumber;
 
 import main.dto.WorldData;
 import main.service.GameService;
