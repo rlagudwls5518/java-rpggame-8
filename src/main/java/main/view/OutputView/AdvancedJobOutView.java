@@ -32,8 +32,6 @@ public class AdvancedJobOutView {
         System.out.println("  \"이제 당신의 신념은 견고한 갑옷이 되어 당신을 지킵니다.\"");
         System.out.println();
         System.out.println();
-
-        System.out.print("[ Enter 키를 눌러 마을로 돌아가기... ]");
     }
 
     private static void viewNewSkill(CharacterJob job) {
