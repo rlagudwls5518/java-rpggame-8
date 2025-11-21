@@ -5,6 +5,8 @@ import static main.view.OutputView.EnterExplantion.pressEnterToContinue;
 
 public class StartOutputView {
 
+    private final static int SLEEP_TIME = 5000;
+
     public static void showSplashScreen() {
         System.out.println("========================================");
         System.out.println();
@@ -29,7 +31,7 @@ public class StartOutputView {
         System.out.println();
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(SLEEP_TIME);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
