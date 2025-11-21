@@ -2,16 +2,22 @@ package main.view.OutputView;
 
 import static main.model.battle.BattleLog.showCombatLogUI;
 import static main.util.Clear.clearScreen;
-import static main.util.EnterExplantion.pressEnterRetry;
-import static main.util.EnterExplantion.pressEnterToContinue;
+import static main.view.OutputView.EnterExplantion.pressEnterRetry;
+import static main.view.OutputView.EnterExplantion.pressEnterToContinue;
 
 import main.dto.WorldData;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
+import main.view.inputView.Input;
 
 public class ConsoleBattleView implements BattleView {
+    private final Input input =  new Input();
+    private static final int NOSKILLNUMBER = 6;
+    private static final int RETURNFALSE = -1;
+
+
     @Override
-    public void showCombatUI(PlayerCharacter player, Monster monster, String stageName, int stageNumber,
+    public int showCombatUI(PlayerCharacter player, Monster monster, String stageName, int stageNumber,
                              WorldData world) {
         clearScreen();
         monsterHealthBar(monster, stageName, stageNumber, world);
@@ -30,7 +36,29 @@ public class ConsoleBattleView implements BattleView {
         System.out.println();
         System.out.println("=======================================================================");
         System.out.print("  명령을 입력하세요: ");
+        return input.inputNumber();
 
+    }
+
+    @Override
+    public void showAfterCombatUI(PlayerCharacter player, Monster monster, String stageName, int stageNumber,
+                                  WorldData world) {
+        clearScreen();
+        monsterHealthBar(monster, stageName, stageNumber, world);
+        System.out.println();
+        monsterAsciArt(monster);
+        System.out.println();
+        System.out.println("-----------------------------------------------------------------------");
+        showCombatLogUI();
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.println();
+        showPlayerHealthBar(player);
+        System.out.println();
+        System.out.println("[ 행동 선택 ]");
+        System.out.println();
+        System.out.println("1. 스킬사용  2. 기본 공격");
+        System.out.println();
+        System.out.println("=======================================================================");
     }
 
     @Override
@@ -85,17 +113,19 @@ public class ConsoleBattleView implements BattleView {
     }
 
     @Override
-    public void skillView(PlayerCharacter player, int skillNum) {
+    public int skillView(PlayerCharacter player) {
         System.out.println("--- 스킬 목록 ---");
         player.showSkillList();
 
         System.out.println("6. (취소)");
         System.out.print("사용할 스킬 번호를 입력하세요: ");
 
-        if (skillNum == 6) {
+        int skillNum = input.inputNumber();
+        if (skillNum == NOSKILLNUMBER) {
             System.out.println("스킬 사용을 취소합니다.");
-            return;
+            return RETURNFALSE;
         }
+        return skillNum;
     }
 
     @Override
