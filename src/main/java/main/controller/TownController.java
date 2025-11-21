@@ -1,7 +1,7 @@
 package main.controller;
 
 import static main.util.Clear.clearScreen;
-import static main.util.EnterExplantion.pressEnterToContinue;
+import static main.view.OutputView.EnterExplantion.pressEnterToContinue;
 
 import main.dto.StageData;
 import main.dto.WorldData;
