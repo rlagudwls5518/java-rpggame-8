@@ -11,7 +11,6 @@ public class Input {
 
     public int inputNumber() {
         String num = scanner.nextLine();
-        scanner.nextLine();
         inputException(num);
         return toInt(num);
     }
