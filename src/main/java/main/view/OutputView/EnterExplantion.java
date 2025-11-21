@@ -1,4 +1,4 @@
-package main.util;
+package main.view.OutputView;
 
 import java.util.Scanner;
 
@@ -27,6 +27,7 @@ public class EnterExplantion  {
     public static void choicePressNumber(){
         System.out.println("   숫자를 입력하고 Enter를 누르세요... ");
         int choice = scanner.nextInt();
+        scanner.nextLine();
         if(choice == 2 ){
             System.exit(0);
         }
