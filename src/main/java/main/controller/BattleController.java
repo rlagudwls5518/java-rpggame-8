@@ -1,20 +1,17 @@
 package main.controller;
 
-import static main.util.Clear.clearScreen;
-import static main.util.EnterExplantion.pressEnterNextTurn;
-import static main.util.EnterExplantion.pressEnterRetry;
-import static main.util.EnterExplantion.pressEnterToContinue;
+import static main.view.OutputView.EnterExplantion.pressEnterNextTurn;
 
 import main.dto.StageData;
 import main.dto.WorldData;
 import main.model.battle.BattleLog;
 import main.model.battle.EndBattle;
+import main.model.battle.PlayerActionResult;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.service.BattleService;
 import main.view.OutputView.BattleView;
 import main.view.OutputView.ConsoleBattleView;
-import main.view.inputView.Input;
 
 public class BattleController {
 
@@ -37,20 +34,22 @@ public class BattleController {
     }
 
     public void battleStart() {
-        Input input = new Input();
-
         boolean isPlayerTurn = player.getAd() > monster.getAd();
 
         while (player.isAlive() && monster.isAlive()) {
             BattleLog.clearLog();
-            updateBattleView(stage, world);
-            int num = input.inputNumber();
-            if (!battleService.handleTurnSequence(isPlayerTurn, num)) {
+
+            int actionNum = battleView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, world);
+            PlayerActionResult actionResult = battleService.handleTurnSequence(isPlayerTurn, actionNum);
+            if (actionResult == PlayerActionResult.TURN_END) {
                 break;
             }
-            updateBattleView(stage, world);
-            isPlayerTurn = !isPlayerTurn;
+            if (actionResult == PlayerActionResult.RETRY_ACTION) {
+                continue;
+            }
+            battleView.showAfterCombatUI(player, monster, stage.stageName, stage.stageNumber, world);
             pressEnterNextTurn();
+            isPlayerTurn = !isPlayerTurn;
         }
         endBattle(monster.giveGold(), monster.giveExp(), stage.monsterName);
     }
@@ -73,9 +72,5 @@ public class BattleController {
         EndBattle.endBattleReword(player, monster);
         battleView.showVictoryScreen(monsterName, player, expGained, goldGained);
         player.ProcessAdvancement();
-    }
-
-    private void updateBattleView(StageData stage, WorldData worldData) {
-        battleView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
     }
 }

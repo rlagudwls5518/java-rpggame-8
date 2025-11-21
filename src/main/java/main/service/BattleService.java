@@ -1,9 +1,10 @@
 package main.service;
 
 import static main.util.Clear.clearScreen;
-import static main.util.EnterExplantion.pressEnterToContinue;
+import static main.view.OutputView.EnterExplantion.pressEnterToContinue;
 
 import main.model.battle.BattleLog;
+import main.model.battle.PlayerActionResult;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.view.OutputView.ConsoleBattleView;
@@ -22,34 +23,41 @@ public class BattleService {
         this.battleView = battleView;
     }
 
-    public boolean handleTurnSequence(boolean isPlayerTurn, int num) {
+    public PlayerActionResult handleTurnSequence(boolean isPlayerTurn, int actionNum) {
         if (isPlayerTurn) {
-            processPlayerTurn(num);
-            if (!monster.isAlive()) {
-                return false;
-            }
+            boolean firstPlayerTurn = processPlayerTurn(actionNum);
+            if (!firstPlayerTurn) return PlayerActionResult.RETRY_ACTION;
+            if (!monster.isAlive()) return PlayerActionResult.TURN_END;
+
             processMonsterTurn();
         } else {
             processMonsterTurn();
-            if (!player.isAlive()) {
-                return false;
-            }
-            processPlayerTurn(num);
+            if (!player.isAlive()) return PlayerActionResult.TURN_END;
+
+            boolean secondPlayerTurn = processPlayerTurn(actionNum);
+            if (!secondPlayerTurn) return PlayerActionResult.RETRY_ACTION;
         }
-        return true;
+
+        return PlayerActionResult.TURN_END;
     }
 
-    private void processPlayerTurn(int num) {
+    private boolean processPlayerTurn(int actionNum) {
         while (true) {
-            if (num == 1) { // 스킬 사용
-                processPlayerSkill(num);
-                break;
-            } else { // 기본공격 사용
-                player.attack(monster);
-                String playerLog = BattleLog.getPlayerAttackLog(player);
-                BattleLog.addLog(playerLog);
-                break;
+
+            if (actionNum == 1) { // 스킬
+                boolean used = processPlayerSkill();
+                if (!used) {
+                    return false;
+                }
+                return true;
             }
+            if (actionNum == 2) { // 기본 공격
+                player.attack(monster);
+                String log = BattleLog.getPlayerAttackLog(player);
+                BattleLog.addLog(log);
+                return  true;
+            }
+            return true;
         }
     }
 
@@ -59,16 +67,28 @@ public class BattleService {
         BattleLog.addLog(monsterLog);
     }
 
-    private void processPlayerSkill(int skillNum) {
-        battleView.skillView(player, skillNum);
-        boolean skillUsedSuccess = player.useSkill(monster, skillNum);
-        if (skillUsedSuccess) {
-            String playerLog = BattleLog.getPlayerSkillLog(player, skillNum);
-            BattleLog.addLog(playerLog);
-        } else {
-            pressEnterToContinue();
-            clearScreen();
-        }
+    private boolean processPlayerSkill() {
+        int skillNum;
 
+        while (true) {
+            skillNum = battleView.skillView(player);
+
+            if (skillNum == -1) {
+                return false;
+            }
+
+            boolean skillUsedSuccess = player.useSkill(monster, skillNum);
+
+            if (skillUsedSuccess) {
+                String log = BattleLog.getPlayerSkillLog(player, skillNum);
+                BattleLog.addLog(log);
+                break;
+            } else {
+                pressEnterToContinue();
+                clearScreen();
+                break;
+            }
+        }
+        return true;
     }
 }
