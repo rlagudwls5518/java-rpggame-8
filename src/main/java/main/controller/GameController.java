@@ -2,7 +2,6 @@ package main.controller;
 
 import static main.util.Clear.clearScreen;
 import static main.util.EnterExplantion.choicePressNumber;
-import static main.util.EnterExplantion.pressEnterToContinue;
 
 import main.dto.WorldData;
 import main.service.GameService;
@@ -33,10 +32,7 @@ public class GameController {
 
     private void prollog() {
         StartOutputView.showSplashScreen();
-        clearScreen();
         StartOutputView.showPrologue();
-        pressEnterToContinue();
-        clearScreen();
         StartOutputView.showStartView();
         choicePressNumber();
         clearScreen();

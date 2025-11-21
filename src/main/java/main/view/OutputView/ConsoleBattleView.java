@@ -1,6 +1,9 @@
 package main.view.OutputView;
 
 import static main.model.battle.BattleLog.showCombatLogUI;
+import static main.util.Clear.clearScreen;
+import static main.util.EnterExplantion.pressEnterRetry;
+import static main.util.EnterExplantion.pressEnterToContinue;
 
 import main.dto.WorldData;
 import main.model.unit.character.PlayerCharacter;
@@ -10,6 +13,7 @@ public class ConsoleBattleView implements BattleView {
     @Override
     public void showCombatUI(PlayerCharacter player, Monster monster, String stageName, int stageNumber,
                              WorldData world) {
+        clearScreen();
         monsterHealthBar(monster, stageName, stageNumber, world);
         System.out.println();
         monsterAsciArt(monster);
@@ -96,6 +100,7 @@ public class ConsoleBattleView implements BattleView {
 
     @Override
     public void showVictoryScreen(String monsterName, PlayerCharacter player, int expGained, int goldGained) {
+        clearScreen();
         System.out.println();
         System.out.println("==================================================");
         System.out.println();
@@ -117,10 +122,13 @@ public class ConsoleBattleView implements BattleView {
                 player.caculateLevel(expGained), player.getMaxExp(), player.getMaxExp()-player.caculateLevel(expGained));
         System.out.println();
         System.out.println();
+        pressEnterToContinue();
+        clearScreen();
     }
 
     @Override
     public void showGameOverScreen(String monsterName) {
+        clearScreen();
         System.out.println("==================================================");
         System.out.println();
         System.out.println("                ... G A M E   O V E R ...");
@@ -148,5 +156,6 @@ public class ConsoleBattleView implements BattleView {
         System.out.println("   \"\"포기하지 마세요. 마을에서 재정비 후 다시 도전합시다.\"\"");
         System.out.println();
         System.out.println();
+        pressEnterRetry();
     }
 }

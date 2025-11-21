@@ -12,6 +12,7 @@ import main.model.battle.EndBattle;
 import main.model.unit.character.PlayerCharacter;
 import main.model.unit.monster.Monster;
 import main.service.BattleService;
+import main.view.OutputView.BattleView;
 import main.view.OutputView.ConsoleBattleView;
 import main.view.inputView.Input;
 
@@ -22,7 +23,7 @@ public class BattleController {
     private final BattleService battleService;
     private final WorldData world;
     private final StageData stage;
-    private final ConsoleBattleView battleView;
+    private final BattleView battleView;
 
 
     public BattleController(PlayerCharacter player, Monster monster, BattleService battleService, WorldData world,
@@ -64,23 +65,17 @@ public class BattleController {
     }
 
     private void endBattleLosePlayer(String monsterName) {
-        EndBattle.endBattleReword(player, monster);
-        clearScreen();
+        EndBattle.deadPlayerEndBattle(player);
         battleView.showGameOverScreen(monsterName);
-        pressEnterRetry();
     }
 
     private void endBattleWinPlayer(String monsterName, int goldGained, int expGained) {
-        EndBattle.deadPlayerEndBattle(player);
-        clearScreen();
+        EndBattle.endBattleReword(player, monster);
         battleView.showVictoryScreen(monsterName, player, expGained, goldGained);
-        pressEnterToContinue();
-        clearScreen();
         player.ProcessAdvancement();
     }
 
     private void updateBattleView(StageData stage, WorldData worldData) {
-        clearScreen();
         battleView.showCombatUI(player, monster, stage.stageName, stage.stageNumber, worldData);
     }
 }

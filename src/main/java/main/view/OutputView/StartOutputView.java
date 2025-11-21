@@ -1,5 +1,8 @@
 package main.view.OutputView;
 
+import static main.util.Clear.clearScreen;
+import static main.util.EnterExplantion.pressEnterToContinue;
+
 public class StartOutputView {
 
     public static void showSplashScreen() {
@@ -33,6 +36,7 @@ public class StartOutputView {
     }
 
     public static void showPrologue() {
+        clearScreen();
         System.out.println("========================================");
         System.out.println();
         System.out.println("    세계의 '틈'이 벌어지고 있습니다.");
@@ -51,9 +55,11 @@ public class StartOutputView {
         System.out.println("    무너지는 대륙을 구원하십시오.");
         System.out.println();
         System.out.println("========================================");
+        pressEnterToContinue();
     }
 
     public static void showStartView(){
+        clearScreen();
         System.out.println("========================================");
         System.out.println("         PROJECT: DAWNBREAKER");
         System.out.println("      (프로젝트: 여명을 부수는 자)");
