@@ -1,7 +1,7 @@
 package main.view.OutputView;
 
 import static main.util.Clear.clearScreen;
-import static main.util.EnterExplantion.pressEnterToContinue;
+import static main.view.OutputView.EnterExplantion.pressEnterToContinue;
 
 public class StartOutputView {
 
