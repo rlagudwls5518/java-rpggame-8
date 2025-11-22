@@ -56,9 +56,10 @@ public class BattleController {
 
     private void endBattle(int goldGained, int expGained, String monsterName) {
 
-        if (player.isAlive()) {
+        if (!monster.isAlive()) {
             endBattleWinPlayer(monsterName, goldGained, expGained);
-        } else {
+        }
+        if (!player.isAlive()) {
             endBattleLosePlayer(monsterName);
         }
     }
