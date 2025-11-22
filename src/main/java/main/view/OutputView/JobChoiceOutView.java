@@ -32,20 +32,21 @@ public class JobChoiceOutView {
 
     private static void jobCharacteristics(CharacterJob job){
         if(job.getJobName().equals("대검사")){
-            System.out.println("  \"대검이 거대한 트래픽을 가르듯,");
-            System.out.println("   성능의 극한을 추구하는 공격적인 코드로 전장을 지배합니다.\"\n");
+            System.out.println("  \"거대한 대검을 휘둘러 전장을 가르는 전사.");
+            System.out.println("   압도적인 일격으로 적을 제압하는 공격의 화신입니다.\"\n");
         }
-        else if(job.getJobName().equals("성검사")){
-            System.out.println("  \"성스러운 테스트 코드가 버그를 막아내듯,");
-            System.out.println("   견고한 아키텍처로 동료들을 보호하고 서비스를 수호합니다.\"\n");
+        else if(job.getJobName().equals("성기사")){
+            System.out.println("  \"성스러운 힘을 두른 방패이자 검.");
+            System.out.println("   치유와 보호의 힘으로 아군을 지키는 수호자의 길입니다.\"\n");
         }
     }
+
     private static void jobTendency(CharacterJob job){
         if(job.getJobName().equals("대검사")){
-            System.out.println("  ▶ 성향: 공격 / 성능 최적화");
+            System.out.println("  ▶ 성향: 강력한 공격, 폭발적인 한 방, 근접 전투 중심");
         }
-        else if(job.getJobName().equals("성검사")){
-            System.out.println("  ▶ 성향: 방어 / 안정성 / 아키텍처");
+        else if(job.getJobName().equals("성기사")){
+            System.out.println("  ▶ 성향: 방어, 보호, 생존력, 지원 능력");
         }
     }
 }
