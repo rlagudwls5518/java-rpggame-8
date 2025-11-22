@@ -31,12 +31,7 @@ public class GameService {
     }
 
     private void runStage(PlayerCharacter player, WorldData world, StageData stage) {
-        String stageType = stage.stageType;
-        TownController townController = new TownController(player, world, stage);
-
-        if (midBoss.toString().equals(stageType) || worldBoss.toString().equals(stageType) || finalBoss.toString().equals(stageType)) {
-            townController.runTownLoop();
-        }
+        runTown(player, world, stage);
 
         while(true){
             String monsterName = stage.monsterName;
@@ -47,6 +42,14 @@ public class GameService {
             battleController.battleStart();
             if (!player.isAlive()) return;
             if (!monster.isAlive()) break;
+        }
+    }
+
+    private void runTown(PlayerCharacter player, WorldData world, StageData stage){
+        String stageType = stage.stageType;
+        TownController townController = new TownController(player, world, stage);
+        if (midBoss.toString().equals(stageType) || worldBoss.toString().equals(stageType) || finalBoss.toString().equals(stageType)) {
+            townController.runTownLoop();
         }
     }
 }
