@@ -40,10 +40,8 @@ public abstract class Unit {
     }
 
     public void takeDamage(double incomingDamage) {
-        double finalDamage = incomingDamage - this.defense;
-        if (finalDamage < 0) {
-            finalDamage = 0;
-        }
+        double finalDamage = incomingDamage * (100.0 / (100 + this.defense));
+        finalDamage = Math.max(1, finalDamage); // 최소 1 피해
         this.hp -= finalDamage;
     }
 
