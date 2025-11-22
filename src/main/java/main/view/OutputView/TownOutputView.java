@@ -25,13 +25,13 @@ public class TownOutputView {
     }
 
     private static void showplace() {
-        System.out.println("[ 현재 위치: '시작의 마을' 여관 (안전 구역) ]");
+        System.out.println("[ 현재 위치: 마을 여관 (안전 구역) ]");
     }
 
     private static void showState(PlayerCharacter player) {
         System.out.println("  당신: [Lv. " + player.getLevel() + "] " + player.getName());
         System.out.println("  HP: " + player.getHp() + " / " + player.getMaxHp() + "  (체력)");
-        System.out.println("  MP: " + player.getMp() + " / " + player.getMaxMp() + "  (마력)");
+        System.out.println("  MP: " + player.getMp() + " / " + player.getMaxMp() + "  (마나)");
         System.out.println("  Gold: " + player.getGold() + " G  (소지금)");
     }
 
